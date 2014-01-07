@@ -9,11 +9,13 @@ This project is still under heavy development and might support embedded develop
 Installation steps:
 
 1. Open Matlab
-2. Browse to darwinoplib/darwinoplib
-3. Execute script darwinoplib_setup.m
+2. Download zip file https://github.com/darwinop-ens/darwin-op/archive/master.zip
+3. Extract this archive to your local hard disk
+4. Browse to darwinoplib
+5. Execute script darwinoplib_setup.m
 
-You should get "DarwinOP Target Path Setup Complete."
+You should get "DarwinOP Target Path Setup Complete.", then you can select your language (English or French as of now).
 
-4. Restart Matlab
+6. Restart Matlab
 
-You should now have a Simulink library named "DarwinOP Lib", demos are located in darwinoplib/darwinoplibdemos
+You should now have a Simulink library named "DarwinOP Lib", demos are located in darwinoplibdemos
