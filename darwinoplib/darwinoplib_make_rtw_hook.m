@@ -12,45 +12,29 @@ function darwinoplib_make_rtw_hook(hookMethod,modelName,~,~,~,~)
    case 'entry'
     % Called at start of code generation process (before anything happens.)
     % Valid arguments at this stage are hookMethod, modelName, and buildArgs.
-    %disp('entry');
-    %disp(modelName);
-    %disp(pwd);
-    %nanonote_entry(modelName);
     
    case 'before_tlc'
     % Called just prior to invoking TLC Compiler (actual code generation.)
     % Valid arguments at this stage are hookMethod, modelName, and
     % buildArgs
-    %disp('before tlc');
-    %disp(modelName);
-    %disp(pwd);
     
    case 'after_tlc'
     % Called just after to invoking TLC Compiler (actual code generation.)
     % Valid arguments at this stage are hookMethod, modelName, and
     % buildArgs
-    %disp('after tlc');
-    %disp(modelName);
-    %disp(pwd);
 
    case {'before_make','before_makefilebuilder_make'}
     % Called after code generation is complete, and just prior to kicking
     % off make process (assuming code generation only is not selected.)  All
     % arguments are valid at this stage.
-    %disp('before make');
-    %disp(modelName);
-    %disp(pwd);
-    %nanonote_prefs_makefile;
 
    case 'after_make'
     % Called after make process is complete. All arguments are valid at 
     % this stage.
-    %disp('after make');
-    %disp(modelName);
-    %disp(pwd);
     archiveName = package_archive(modelName);
     send_archive(modelName, archiveName);
-    
+    setup_external_arguments();
+
    case 'exit'
     % Called at the end of the RTW build process.  All arguments are valid
     % at this stage.
@@ -59,6 +43,20 @@ function darwinoplib_make_rtw_hook(hookMethod,modelName,~,~,~,~)
           'procedure for model: ', modelName]);
       
   end
+end
+
+function setup_external_arguments()
+     % verify current settings from Simulink
+     SimulationMode = get_string_param('SimulationMode');
+     if strcmp(SimulationMode, 'external')
+         ExtModeMexArgs = get_string_param('ExtModeMexArgs');
+         DarwinOPIP = get_string_param('DarwinOPIP');
+         ExpectedExtModeMexArgs = ['''' DarwinOPIP ''' 1 17725'];
+         if ~strcmp(ExtModeMexArgs, ExpectedExtModeMexArgs)
+             fprintf('### settings external mode mex arguments to %s', ExpectedExtModeMexArgs);
+             set_param(gcs,'ExtModeMexArgs',ExpectedExtModeMexArgs);
+         end
+     end
 end
 
 function archiveName = package_archive(modelName)
