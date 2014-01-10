@@ -21,11 +21,6 @@
   %exit %<msg>
 %endif
 
-%if MatFileLogging == 1
-  %assign msg = "MAT-file logging is not currently supported. Unselect the \"MAT-file logging\" checkbox under ERT code generation options."
-  %exit %<msg>
-%endif
-
 %if MultiInstanceERTCode == 1
   %assign msg = "Generate reuseable code is not currently supported. Unselect the \"Generate reuseable code\" checkbox under ERT code generation options."
   %exit %<msg>

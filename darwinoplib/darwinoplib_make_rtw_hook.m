@@ -31,6 +31,7 @@ function darwinoplib_make_rtw_hook(hookMethod,modelName,~,~,~,~)
    case 'after_make'
     % Called after make process is complete. All arguments are valid at 
     % this stage.
+    copy_additional_files();
     archiveName = package_archive(modelName);
     send_archive(modelName, archiveName);
     setup_external_arguments();
@@ -43,6 +44,28 @@ function darwinoplib_make_rtw_hook(hookMethod,modelName,~,~,~,~)
           'procedure for model: ', modelName]);
       
   end
+end
+
+function copy_additional_files()
+     MatFileLogging = get_string_param('MatFileLogging');
+     if strcmp(MatFileLogging,'on')
+         error('.mat file logging is not supported');
+     end
+     ExtMode = get_string_param('ExtMode');
+     if strcmp(ExtMode, 'on')
+         error('external is not supported');
+     end
+     GenerateASAP2 = get_string_param('GenerateASAP2');
+     if strcmp(GenerateASAP2, 'on')
+         error('ASAP2 is not supported');
+     end
+     RTWCAPISignals = get_string_param('RTWCAPISignals');
+     RTWCAPIParams = get_string_param('RTWCAPIParams');
+     RTWCAPIStates = get_string_param('RTWCAPIStates');
+     RTWCAPIRootIO = get_string_param('RTWCAPIRootIO');
+     if strcmp(RTWCAPISignals,'on') || strcmp(RTWCAPIParams,'on') || strcmp(RTWCAPIStates,'on') || strcmp(RTWCAPIRootIO,'on')
+         error('C API is not supported');
+     end
 end
 
 function setup_external_arguments()
