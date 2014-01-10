@@ -49,7 +49,10 @@ end
 function copy_additional_files()
      MatFileLogging = get_string_param('MatFileLogging');
      if strcmp(MatFileLogging,'on')
-         error('.mat file logging is not supported');
+         copyfile(fullfile(matlabroot,'rtw','c','src','rt_logging.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','rt_logging.c'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','rt_mxclassid.h'));
+         copyfile(fullfile(matlabroot,'simulink','include','rtw_matlogging.h'));
      end
      ExtMode = get_string_param('ExtMode');
      if strcmp(ExtMode, 'on')
