@@ -12,7 +12,7 @@ function darwinoplib_make_rtw_hook(hookMethod,modelName,~,~,~,~)
    case 'entry'
     % Called at start of code generation process (before anything happens.)
     % Valid arguments at this stage are hookMethod, modelName, and buildArgs.
-    setup_settings()
+    setup_settings();
 
    case 'before_tlc'
     % Called just prior to invoking TLC Compiler (actual code generation.)
@@ -50,13 +50,20 @@ function setup_settings()
      % verify current settings from Simulink
      SimulationMode = get_string_param('SimulationMode');
      if strcmp(SimulationMode, 'external')
+         % automatically setup external mode mex arguments
          ExtModeMexArgs = get_string_param('ExtModeMexArgs');
          DarwinOPIP = get_string_param('DarwinOPIP');
          ExpectedExtModeMexArgs = ['''' DarwinOPIP ''' 1 17725'];
          if ~strcmp(ExtModeMexArgs, ExpectedExtModeMexArgs)
-             fprintf('### settings external mode mex arguments to %s', ExpectedExtModeMexArgs);
+             fprintf('### setting "external mode mex arguments" to "%s"\n', ExpectedExtModeMexArgs);
              set_param(gcs,'ExtModeMexArgs',ExpectedExtModeMexArgs);
          end
+     end
+     % ensure gen code only is checked
+     GenCodeOnly = get_string_param('GenCodeOnly');
+     if strcmp(GenCodeOnly,'off')
+         fprintf('### setting "generate code only" to "on"\n');
+         set_param(gcs,'GenCodeOnly','on');
      end
 end
 
