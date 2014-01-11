@@ -48,8 +48,8 @@ end
 
 function setup_settings()
      % verify current settings from Simulink
-     SimulationMode = get_string_param('SimulationMode');
-     if strcmp(SimulationMode, 'external')
+     ExtMode = get_string_param('ExtMode');
+     if strcmp(ExtMode, 'on')
          % automatically setup external mode mex arguments
          ExtModeMexArgs = get_string_param('ExtModeMexArgs');
          DarwinOPIP = get_string_param('DarwinOPIP');
