@@ -131,17 +131,21 @@
 
     gettimeofday(&start_time, NULL);
     step_index = 0;
+    #ifdef rtmSetStopRequested
     %<RTMSetStopRequested("FALSE")>;
+    #endif
 
     while (%<ERTStopCheck()>) {
       double CurrentTime;
       gettimeofday(&current_time, NULL);
       timeval_subtract(&diff_time, &current_time, &start_time);
       CurrentTime = diff_time.tv_sec + diff_time.tv_usec * 0.000001;
+      #ifdef rtmGetFinalTime
       if(CurrentTime >= rtmGetFinalTime(%<tSimStruct>)) {
         %<RTMSetStopRequested("TRUE")>;
       }
       else
+      #endif
       if(CurrentTime >= (%<CompiledModel.FundamentalStepSize>*step_index)) {
         step_index++;
         %if LibIsSingleRateModel()
