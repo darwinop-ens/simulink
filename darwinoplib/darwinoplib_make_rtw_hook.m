@@ -12,7 +12,8 @@ function darwinoplib_make_rtw_hook(hookMethod,modelName,~,~,~,~)
    case 'entry'
     % Called at start of code generation process (before anything happens.)
     % Valid arguments at this stage are hookMethod, modelName, and buildArgs.
-    
+    setup_settings()
+
    case 'before_tlc'
     % Called just prior to invoking TLC Compiler (actual code generation.)
     % Valid arguments at this stage are hookMethod, modelName, and
@@ -34,7 +35,6 @@ function darwinoplib_make_rtw_hook(hookMethod,modelName,~,~,~,~)
     copy_additional_files();
     archiveName = package_archive(modelName);
     send_archive(modelName, archiveName);
-    setup_external_arguments();
 
    case 'exit'
     % Called at the end of the RTW build process.  All arguments are valid
@@ -44,6 +44,20 @@ function darwinoplib_make_rtw_hook(hookMethod,modelName,~,~,~,~)
           'procedure for model: ', modelName]);
       
   end
+end
+
+function setup_settings()
+     % verify current settings from Simulink
+     SimulationMode = get_string_param('SimulationMode');
+     if strcmp(SimulationMode, 'external')
+         ExtModeMexArgs = get_string_param('ExtModeMexArgs');
+         DarwinOPIP = get_string_param('DarwinOPIP');
+         ExpectedExtModeMexArgs = ['''' DarwinOPIP ''' 1 17725'];
+         if ~strcmp(ExtModeMexArgs, ExpectedExtModeMexArgs)
+             fprintf('### settings external mode mex arguments to %s', ExpectedExtModeMexArgs);
+             set_param(gcs,'ExtModeMexArgs',ExpectedExtModeMexArgs);
+         end
+     end
 end
 
 function copy_additional_files()
@@ -68,20 +82,6 @@ function copy_additional_files()
      RTWCAPIRootIO = get_string_param('RTWCAPIRootIO');
      if strcmp(RTWCAPISignals,'on') || strcmp(RTWCAPIParams,'on') || strcmp(RTWCAPIStates,'on') || strcmp(RTWCAPIRootIO,'on')
          error('C API is not supported');
-     end
-end
-
-function setup_external_arguments()
-     % verify current settings from Simulink
-     SimulationMode = get_string_param('SimulationMode');
-     if strcmp(SimulationMode, 'external')
-         ExtModeMexArgs = get_string_param('ExtModeMexArgs');
-         DarwinOPIP = get_string_param('DarwinOPIP');
-         ExpectedExtModeMexArgs = ['''' DarwinOPIP ''' 1 17725'];
-         if ~strcmp(ExtModeMexArgs, ExpectedExtModeMexArgs)
-             fprintf('### settings external mode mex arguments to %s', ExpectedExtModeMexArgs);
-             set_param(gcs,'ExtModeMexArgs',ExpectedExtModeMexArgs);
-         end
      end
 end
 
