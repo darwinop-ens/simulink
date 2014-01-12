@@ -102,7 +102,7 @@
 
   rtwoptions(oIdx).prompt         = 'Auto-disconnect time:';
   rtwoptions(oIdx).type           = 'Edit';
-  rtwoptions(oIdx).default        = '15';
+  rtwoptions(oIdx).default        = '2';
   rtwoptions(oIdx).tlcvariable    = 'DarwinOPDisconnect';
   rtwoptions(oIdx).makevariable   = 'DarwinOPDisconnect';
   rtwoptions(oIdx).tooltip        = sprintf([...
