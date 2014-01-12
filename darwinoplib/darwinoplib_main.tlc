@@ -25,6 +25,7 @@
   #include "CM730.h"
   #include "LinuxNetwork.h"
   #include "LinuxDARwIn.h"
+  #include "webcam.h"
 
   using namespace std;
   using namespace Robot;
@@ -43,6 +44,7 @@
   %openfile tmpBuf
   LinuxCM730 *linux_cm730;
   CM730 *cm730;
+  Webcam *webcam;
   pthread_t timer_thread;
   %closefile tmpBuf
 
@@ -178,6 +180,9 @@
       exit(0);
     }
 
+    webcam = new Webcam();
+    webcam->Initialize();
+
     %if ExtMode == 1
       /* initialize external mode */
       rtParseArgsForExtMode(argc, argv);
@@ -204,6 +209,7 @@
     timer_create();
 
     while (%<ERTStopCheck()>) {
+      webcam->Execute();
       usleep(1000);
     }
 
@@ -216,6 +222,7 @@
       rtExtModeShutdown(%<NumSynchronousSampleTimes>);
     %endif
 
+    delete webcam;
     delete cm730;
     delete linux_cm730;
     return 0;

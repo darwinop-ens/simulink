@@ -2,9 +2,11 @@
 
 %function BlockTypeSetup(block, system) void
   %<LibAddToCommonIncludes("CM730.h")>
+  %<LibAddToCommonIncludes("webcam.h")>
 
   %openfile buffer
   extern Robot::CM730 *cm730;
+  extern Webcam *webcam;
   %closefile buffer
 
   %<LibCacheExtern(buffer)>
@@ -45,9 +47,23 @@
     %assign OutputOperationAddress = ParamSettings.OutputOperationAddress[0]
     %assign OutputOperationSize = ParamSettings.OutputOperationSize[0]
 
+    %assign InternalInputCount = ParamSettings.InternalInputCount[0]
+    %assign InternalInputOperationIndex = ParamSettings.InternalInputOperationIndex[0]
+    %assign InternalInputOperationAddress = ParamSettings.InternalInputOperationAddress[0]
+    %assign InternalInputOperationSize = ParamSettings.InternalInputOperationSize[0]
+
+    %assign InternalOutputCount = ParamSettings.InternalOutputCount[0]
+    %assign InternalOutputOperationIndex = ParamSettings.InternalOutputOperationIndex[0]
+    %assign InternalOutputOperationAddress = ParamSettings.InternalOutputOperationAddress[0]
+    %assign InternalOutputOperationSize = ParamSettings.InternalOutputOperationSize[0]
+
     %if InputCount[0] > 0
     unsigned int int_value;
     %endif
+
+    %assign last_operation_index = -2
+    %assign last_operation_id = -2
+
     %foreach i = OperationCount[0]
       %assign l = %<OperationAddress[i]>+%<OperationSize[i]>-1
       %if OperationKind[i] == 3
@@ -78,6 +94,50 @@
             %else
               %assign v = %<OutputOperationAddress[j]>+1
     %<y> = (((unsigned int)buf[%<v>]) << 8) + buf[%<OutputOperationAddress[j]>];
+            %endif
+          %endif
+        %endforeach
+      %endif
+      %if OperationKind[i] == 18
+        %% internal write operation
+        %foreach j = InternalInputCount[0]
+          %if InternalInputOperationIndex[j] == i
+            %assign u = LibBlockInputSignal(j, "", "", 0)
+    int_value = (unsigned int) %<u>;
+            %if InternalInputOperationSize[j] == 1
+    buf[%<InternalInputOperationAddress[j]>] = (unsigned char) int_value;
+            %else
+    buf[%<InternalInputOperationAddress[j]>] = (unsigned char) int_value;
+              %assign v = %<InputOperationAddress[j]>+1
+    buf[%<v>] = (unsigned char)(int_value >> 8);
+            %endif
+          %endif
+        %endforeach
+        %assign id = OperationID[i]
+        %if id == 1
+    webcam->WriteTable(%<OperationAddress[i]>, %<OperationSize[i]>, buf);
+        %endif
+      %endif
+      %if OperationKind[i] == 17
+        %% internal read operation
+        %assign id = OperationID[i]
+        %% do not repeat query if the previous internal read operation was for the same peripheral
+        %% internal peripherals return all their states in one single call
+        %if (last_operation_index != (i-1)) || (last_operation_id != id)
+          %if id == 1
+    webcam->ReadTable(buf);
+          %endif
+        %endif
+        %assign last_operation_index = i
+        %assign last_operation_id = id
+        %foreach j = InternalOutputCount[0]
+          %if InternalOutputOperationIndex[j] == i
+            %assign y = LibBlockOutputSignal(j, "", "", 0)
+            %if InternalOutputOperationSize[j] == 1
+    %<y> = buf[%<InternalOutputOperationAddress[j]>];
+            %else
+              %assign v = %<InternalOutputOperationAddress[j]>+1
+    %<y> = (((unsigned int)buf[%<v>]) << 8) + buf[%<InternalOutputOperationAddress[j]>];
             %endif
           %endif
         %endforeach

@@ -24,7 +24,7 @@ TARGET = |>MODEL_NAME<|
 MAT_FILE = |>MAT_FILE<|
 EXT_MODE = |>EXT_MODE<|
 
-INCLUDE_DIRS = -I../../include -I../../../Framework/include
+INCLUDE_DIRS = -I../../include -I../../../Framework/include -I../../project/instrumentation
 
 CXX = g++
 CC = gcc
@@ -34,7 +34,7 @@ ARFLAGS = cr
 CXXFLAGS += -O2 -DLINUX -DGLNX86 -Wall $(INCLUDE_DIRS) -pthread
 #CXXFLAGS += -O2 -DDEBUG -DLINUX -Wall $(INCLUDE_DIRS)
 LFLAGS += -lpthread -ljpeg -lrt
-LIBRARIES = ../../lib/darwin.a
+LIBRARIES = webcam.a ../../lib/darwin.a
 
 SOURCES = $(wildcard *.cpp)
 # |>MODEL_MODULES<| |>MODEL_NAME<|.|>TARGET_LANG_EXT<|
@@ -74,6 +74,15 @@ matfile.a: $(MAT_OBJECTS)
 
 extmode.a: $(EXT_OBJECTS)
 	$(AR) $(ARFLAGS) $@ $(EXT_OBJECTS)
+
+webcam.a: webcam.o task.o
+	$(AR) $(ARFLAGS) $@ webcam.o task.o
+
+webcam.o: ../../project/instrumentation/webcam.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+task.o: ../../project/instrumentation/task.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<

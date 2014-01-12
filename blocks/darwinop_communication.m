@@ -427,11 +427,21 @@ function WriteRTW(block)
     OutputOperationIndex = zeros(1,OutputCount);
     OutputOperationAddress = zeros(1,OutputCount);
     OutputOperationSize = zeros(1,OutputCount);
+    InternalInputCount = size(WriteIndex,1);
+    InternalInputOperationIndex = zeros(1,InputCount);
+    InternalInputOperationAddress = zeros(1,InputCount);
+    InternalInputOperationSize = zeros(1,InputCount);
+    InternalOutputCount = size(ReadIndex,1);
+    InternalOutputOperationIndex = zeros(1,OutputCount);
+    InternalOutputOperationAddress = zeros(1,OutputCount);
+    InternalOutputOperationSize = zeros(1,OutputCount);
 
     i=1;
     OperationIndex = 1;
     InputIndex = 1;
     OutputIndex = 1;
+    InternalInputIndex = 1;
+    InternalOutputIndex = 1;
     ReadLen = 0;
     while (i<=length(Frame))
         Kind = Frame(i);
@@ -471,16 +481,31 @@ function WriteRTW(block)
             i = i+4+Len;
         elseif Kind == 17
             % internal read operation
-            % TODO translation in C++
-            error('embedded code generation for vision is not supported yet');
+            for j=1:size(ReadIndex,1)
+                if ((ReadIndex(j,1) - 1)>= ReadLen) && ...
+                   ((ReadIndex(j,1) - 1 + ReadIndex(j,2)) <= (ReadLen + Len))
+                    InternalOutputOperationIndex(InternalOutputIndex) = OperationIndex-1;
+                    InternalOutputOperationAddress(InternalOutputIndex) = Addr + ReadIndex(j,1) - 1 - ReadLen;
+                    InternalOutputOperationSize(InternalOutputIndex) = ReadIndex(j,2);
+                    InternalOutputIndex = InternalOutputIndex+1;
+                end
+            end
+            ReadLen = ReadLen + Len;
             % skip the header bytes
-            %i = i+4;
+            i = i+4;
         elseif Kind == 18
             % internal write operation
-            % TODO translation in C++
-            error('embedded code generation for vision is not supported yet');
+            for j=1:size(WriteIndex,1)
+                if (WriteIndex(j,1) >= (i+4)) && ...
+                   ((WriteIndex(j,1) + WriteIndex(j,2)) <= (i+4+Len))
+                    InternalInputOperationIndex(InternalInputIndex) = OperationIndex-1;
+                    InternalInputOperationAddress(InternalInputIndex) = Addr + WriteIndex(j,1) - (i+4);
+                    InternalInputOperationSize(InternalInputIndex) = WriteIndex(j,2);
+                    InternalInputIndex = InternalInputIndex+1;
+                end
+            end
             % skip the header and data bytes
-            %i = i+4+Len;
+            i = i+4+Len;
         end
         OperationIndex = OperationIndex+1;
     end
@@ -500,5 +525,15 @@ function WriteRTW(block)
     block.WriteRTWParam('matrix', 'OutputOperationIndex', int32(OutputOperationIndex));
     block.WriteRTWParam('matrix', 'OutputOperationAddress', int32(OutputOperationAddress));
     block.WriteRTWParam('matrix', 'OutputOperationSize', int32(OutputOperationSize));
+
+    block.WriteRTWParam('matrix', 'InternalInputCount', int32(length(InternalInputOperationIndex)));
+    block.WriteRTWParam('matrix', 'InternalInputOperationIndex', int32(InternalInputOperationIndex));
+    block.WriteRTWParam('matrix', 'InternalInputOperationAddress', int32(InternalInputOperationAddress));
+    block.WriteRTWParam('matrix', 'InternalInputOperationSize', int32(InternalInputOperationSize));
+
+    block.WriteRTWParam('matrix', 'InternalOutputCount', int32(length(InternalOutputOperationIndex)));
+    block.WriteRTWParam('matrix', 'InternalOutputOperationIndex', int32(InternalOutputOperationIndex));
+    block.WriteRTWParam('matrix', 'InternalOutputOperationAddress', int32(InternalOutputOperationAddress));
+    block.WriteRTWParam('matrix', 'InternalOutputOperationSize', int32(InternalOutputOperationSize));
 
 end
