@@ -20,6 +20,7 @@
   #include <time.h>
   #include <sstream>
   #include <iostream>
+  #include <stdlib.h>
 
   #include "CM730.h"
   #include "LinuxNetwork.h"
@@ -42,6 +43,7 @@
   %openfile tmpBuf
   LinuxCM730 *linux_cm730;
   CM730 *cm730;
+  pthread_t timer_thread;
   %closefile tmpBuf
 
   %<LibSetSourceFileSection(cFile, "Declarations", tmpBuf)>
@@ -65,33 +67,91 @@
     cout << "signals: initialized" << endl;
   }
 
-  /* Subtract the `struct timeval' values X and Y,
-     storing the result in RESULT.
-     Return 1 if the difference is negative, otherwise 0. */
-     
-  int timeval_subtract (struct timeval *result, struct timeval *x, struct timeval *y)
+  void* timer_proc(void *param)
   {
-    /* Perform the carry for the later subtraction by updating y. */
-    if (x->tv_usec < y->tv_usec)
+    static struct timespec next_time;
+    uint64_t clock_ns;
+    #ifdef rtmGetFinalTime
+    int step_index = 0;
+    #endif
+
+    clock_gettime(CLOCK_MONOTONIC,&next_time);
+    clock_ns = uint64_t(next_time.tv_sec) * uint64_t(1000000000) + uint64_t(next_time.tv_nsec);
+
+    while(%<ERTStopCheck()>)
     {
-      int nsec = (y->tv_usec - x->tv_usec) / 1000000.0 + 1;
-      y->tv_usec -= 1000000.0 * nsec;
-      y->tv_sec += nsec;
+      %if LibIsSingleRateModel()
+      %<LibCallModelStep("")>\
+      %else
+        %foreach tid = NumSynchronousSampleTimes
+      if (rtmStepTask(%<tSimStruct>, %<tid>)) {
+        %<LibCallModelStep(tid)>
+      }
+        %endforeach
+      %endif
+
+      #ifdef rtmGetFinalTime
+      step_index++;
+      if((step_index * %<CompiledModel.FundamentalStepSize>) > rtmGetFinalTime(%<tSimStruct>)) {
+        %<RTMSetStopRequested("TRUE")>;
+      }
+      else
+      #endif
+      {
+        clock_ns += uint64_t(%<CompiledModel.FundamentalStepSize> * 1000000000);
+        next_time.tv_sec = clock_ns / 1000000000;
+        next_time.tv_nsec = clock_ns % 1000000000;
+        clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &next_time, NULL);
+      }
     }
-    if (x->tv_usec - y->tv_usec > 1000000.0)
-    {
-      int nsec = (x->tv_usec - y->tv_usec) / 1000000.0;
-      y->tv_usec += 1000000.0 * nsec;
-      y->tv_sec -= nsec;
+
+    pthread_exit(NULL);
+    return NULL;
+  }
+
+  void timer_create()
+  {
+    int error;
+    struct sched_param param;
+    pthread_attr_t attr;
+
+    pthread_attr_init(&attr);
+
+    error = pthread_attr_setschedpolicy(&attr, SCHED_RR);
+    if(error != 0) {
+      printf("pthread_attr_setschedpolicy error = %d\n",error);
+      exit(-1);
     }
-     
-    /* Compute the time remaining to wait.
-       tv_usec is certainly positive. */
-    result->tv_sec = x->tv_sec - y->tv_sec;
-    result->tv_usec = x->tv_usec - y->tv_usec;
-     
-    /* Return 1 if result is negative. */
-    return x->tv_sec < y->tv_sec;
+
+    error = pthread_attr_setinheritsched(&attr,PTHREAD_EXPLICIT_SCHED);
+    if(error != 0) {
+      printf("pthread_attr_setinheritsched error = %d\n",error);
+      exit(-1);
+    }
+
+    memset(&param, 0, sizeof(param));
+    param.sched_priority = 31;// RT
+    error = pthread_attr_setschedparam(&attr, &param);
+    if(error != 0) {
+      printf("pthread_attr_setschedparam error = %d\n",error);
+      exit(-1);
+    }
+
+    // create and start the thread
+    error = pthread_create(&timer_thread, &attr, &timer_proc, NULL);
+    if(error != 0) {
+      printf("pthread_create error = %d\n",error);
+      exit(-1);
+    }
+  }
+
+  void timer_destroy()
+  {
+    int error;
+    if((error = pthread_join(timer_thread, NULL))!= 0) {
+      printf("pthread_join error = %d\n",error);
+      exit(-1);
+    }
   }
 
   void __cxa_pure_virtual(void){}
@@ -101,9 +161,6 @@
   int_T main(void)
   %endif
   {
-    unsigned long step_index = 0;
-    struct timeval start_time, current_time, diff_time;
-    
     /* Initialize signal handlers */
     signalInitialize();
 
@@ -136,36 +193,17 @@
       %<SLibGenERTExtModeInit()>
     %endif   
 
-    gettimeofday(&start_time, NULL);
-    step_index = 0;
     #ifdef rtmSetStopRequested
     %<RTMSetStopRequested("FALSE")>;
     #endif
 
+    timer_create();
+
     while (%<ERTStopCheck()>) {
-      double CurrentTime;
-      gettimeofday(&current_time, NULL);
-      timeval_subtract(&diff_time, &current_time, &start_time);
-      CurrentTime = diff_time.tv_sec + diff_time.tv_usec * 0.000001;
-      #ifdef rtmGetFinalTime
-      if(CurrentTime >= rtmGetFinalTime(%<tSimStruct>)) {
-        %<RTMSetStopRequested("TRUE")>;
-      }
-      else
-      #endif
-      if(CurrentTime >= (%<CompiledModel.FundamentalStepSize>*step_index)) {
-        step_index++;
-        %if LibIsSingleRateModel()
-        %<LibCallModelStep("")>\
-        %else
-          %foreach tid = NumSynchronousSampleTimes
-        if (rtmStepTask(%<tSimStruct>, %<tid>)) {
-          %<LibCallModelStep(tid)>
-        }
-          %endforeach
-        %endif
-      }
+      usleep(1000);
     }
+
+    timer_destroy();
 
     %<LibCallModelTerminate()>\
 

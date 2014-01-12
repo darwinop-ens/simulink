@@ -31,7 +31,7 @@ CC = gcc
 AR = ar
 
 ARFLAGS = cr
-CXXFLAGS += -O2 -DLINUX -DGLNX86 -Wall $(INCLUDE_DIRS)
+CXXFLAGS += -O2 -DLINUX -DGLNX86 -Wall $(INCLUDE_DIRS) -pthread
 #CXXFLAGS += -O2 -DDEBUG -DLINUX -Wall $(INCLUDE_DIRS)
 LFLAGS += -lpthread -ljpeg -lrt
 LIBRARIES = ../../lib/darwin.a
