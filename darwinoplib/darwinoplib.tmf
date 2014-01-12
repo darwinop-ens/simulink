@@ -21,20 +21,31 @@ COMPILER_TOOL_CHAIN = unix
 ###############################################################
 
 TARGET = |>MODEL_NAME<|
+MAT_FILE = |>MAT_FILE<|
 
 INCLUDE_DIRS = -I../../include -I../../../Framework/include
 
 CXX = g++
 CC = gcc
+AR = ar
+
+ARFLAGS = cr
 CXXFLAGS += -O2 -DLINUX -Wall $(INCLUDE_DIRS)
 #CXXFLAGS += -O2 -DDEBUG -DLINUX -Wall $(INCLUDE_DIRS)
 LFLAGS += -lpthread -ljpeg -lrt
 LIBRARIES = ../../lib/darwin.a
 
-SOURCES = $(wildcard *.cpp) $(wildcard *.c)
+SOURCES = $(wildcard *.cpp)
 # |>MODEL_MODULES<| |>MODEL_NAME<|.|>TARGET_LANG_EXT<|
 # |>MODEL_MODULES<| is sometimes buggy and omits some modules
-OBJECTS = $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(SOURCES)))
+
+ifeq ($(MAT_FILE),1)
+MAT_SOURCES = rt_logging.c
+LIBRARIES += matfile.a
+endif
+
+OBJECTS = $(patsubst %.cpp,%.o,$(SOURCES))
+MAT_OBJECTS = $(patsubst %.c,%.o,$(MAT_SOURCES))
 
 all: $(TARGET)
 
@@ -48,6 +59,9 @@ distclean: clean libclean
 
 ../../lib/darwin.a:
 	make -C ../../build
+
+matfile.a: $(MAT_OBJECTS)
+	$(AR) $(ARFLAGS) $@ $(MAT_OBJECTS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
