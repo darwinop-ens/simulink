@@ -77,7 +77,35 @@ function copy_additional_files()
      end
      ExtMode = get_string_param('ExtMode');
      if strcmp(ExtMode, 'on')
-         error('external is not supported');
+         copyfile(fullfile(matlabroot,'extern','include','matrix.h'));
+         copyfile(fullfile(matlabroot,'extern','include','mex.h'));
+         copyfile(fullfile(matlabroot,'extern','include','tmwtypes.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','dt_info.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','ext_share.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','ext_svr.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','ext_svr.c'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','ext_svr_transport.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','ext_test.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','ext_work.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','ext_work.c'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','ext_types.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','updown.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','updown.c'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','updown_util.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','ext_mode','common','upsup_public.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','rtiostream.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','rtiostream','rtiostreamtcpip','rtiostream_tcpip.c'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','rtiostream','utils','rtiostream_loadlib.h'));
+         copyfile(fullfile(matlabroot,'rtw','c','src','rtiostream','utils','rtiostream_utils.h'));
+         copyfile(fullfile(matlabroot,'simulink','include','rtw_extmode.h'));
+         copyfile(fullfile(matlabroot,'simulink','include','sysran_types.h'));
+
+         % get current script directory
+         scriptName = mfilename('fullpath');
+         [scriptDirectory,~,~] = fileparts(scriptName);
+         % matlabroot\rtw\c\src\ext_mode\common\rtiostream_interface.c has
+         % a problem near line 193, here is a fixed one
+         copyfile(fullfile(scriptDirectory,'rtiostream_interface.c'));
      end
      GenerateASAP2 = get_string_param('GenerateASAP2');
      if strcmp(GenerateASAP2, 'on')

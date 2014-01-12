@@ -22,6 +22,7 @@ COMPILER_TOOL_CHAIN = unix
 
 TARGET = |>MODEL_NAME<|
 MAT_FILE = |>MAT_FILE<|
+EXT_MODE = |>EXT_MODE<|
 
 INCLUDE_DIRS = -I../../include -I../../../Framework/include
 
@@ -30,7 +31,7 @@ CC = gcc
 AR = ar
 
 ARFLAGS = cr
-CXXFLAGS += -O2 -DLINUX -Wall $(INCLUDE_DIRS)
+CXXFLAGS += -O2 -DLINUX -DGLNX86 -Wall $(INCLUDE_DIRS)
 #CXXFLAGS += -O2 -DDEBUG -DLINUX -Wall $(INCLUDE_DIRS)
 LFLAGS += -lpthread -ljpeg -lrt
 LIBRARIES = ../../lib/darwin.a
@@ -44,8 +45,16 @@ MAT_SOURCES = rt_logging.c
 LIBRARIES += matfile.a
 endif
 
+ifeq ($(EXT_MODE),1)
+CXXFLAGS += -DEXT_MODE -DARGC_MAX=20 -DARGV_INIT={0} -DON_TARGET_WAIT_FOR_START=1
+INCLUDE_DIRS += -I.
+EXT_SOURCES = ext_svr.c ext_work.c rtiostream_interface.c rtiostream_tcpip.c updown.c
+LIBRARIES += extmode.a
+endif
+
 OBJECTS = $(patsubst %.cpp,%.o,$(SOURCES))
 MAT_OBJECTS = $(patsubst %.c,%.o,$(MAT_SOURCES))
+EXT_OBJECTS = $(patsubst %.c,%.o,$(EXT_SOURCES))
 
 all: $(TARGET)
 
@@ -62,6 +71,9 @@ distclean: clean libclean
 
 matfile.a: $(MAT_OBJECTS)
 	$(AR) $(ARFLAGS) $@ $(MAT_OBJECTS)
+
+extmode.a: $(EXT_OBJECTS)
+	$(AR) $(ARFLAGS) $@ $(EXT_OBJECTS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<

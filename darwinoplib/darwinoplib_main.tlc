@@ -30,10 +30,10 @@
 
   #include "%<LibGetMdlPubHdrBaseName()>.h"
   #ifdef EXT_MODE
-    #include <ext_work.h>          /* External mode header files */
-    #include <ext_svr.h>
-    #include <ext_share.h>
-    #include <updown.h>
+    #include "ext_work.h"          /* External mode header files */
+    #include "ext_svr.h"
+    #include "ext_share.h"
+    #include "updown.h"
   #endif /* EXT_MODE */  
   %closefile tmpBuf
   
@@ -95,8 +95,11 @@
   }
 
   void __cxa_pure_virtual(void){}
-
+  %if ExtMode == 1
+  int_T main(int_T argc, const char *argv[])
+  %else
   int_T main(void)
+  %endif
   {
     unsigned long step_index = 0;
     struct timeval start_time, current_time, diff_time;
@@ -118,16 +121,20 @@
       exit(0);
     }
 
-    #ifdef EXT_MODE
+    %if ExtMode == 1
       /* initialize external mode */
-      rtParseArgsForExtMode(0, NULL);
-    #endif
+      rtParseArgsForExtMode(argc, argv);
+    %endif
 
     /* Initialize model */
     %<LibCallModelInitialize()>\
 
     /* Initialize sample times */
     %<FcnInitializeSampleTimeOffsets()>\
+
+    %if ExtMode
+      %<SLibGenERTExtModeInit()>
+    %endif   
 
     gettimeofday(&start_time, NULL);
     step_index = 0;
@@ -161,6 +168,11 @@
     }
 
     %<LibCallModelTerminate()>\
+
+    %if ExtMode
+      /* External mode */
+      rtExtModeShutdown(%<NumSynchronousSampleTimes>);
+    %endif
 
     delete cm730;
     delete linux_cm730;
