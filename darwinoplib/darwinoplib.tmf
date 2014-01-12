@@ -29,6 +29,7 @@ CC = gcc
 CXXFLAGS += -O2 -DLINUX -Wall $(INCLUDE_DIRS)
 #CXXFLAGS += -O2 -DDEBUG -DLINUX -Wall $(INCLUDE_DIRS)
 LFLAGS += -lpthread -ljpeg -lrt
+LIBRARIES = ../../lib/darwin.a
 
 SOURCES = $(wildcard *.cpp) $(wildcard *.c)
 # |>MODEL_MODULES<| |>MODEL_NAME<|.|>TARGET_LANG_EXT<|
@@ -45,7 +46,7 @@ libclean:
 
 distclean: clean libclean
 
-darwin.a:
+../../lib/darwin.a:
 	make -C ../../build
 
 %.o: %.cpp
@@ -54,8 +55,8 @@ darwin.a:
 %.o: %.c
 	$(CC) $(CXXFLAGS) -c -o $@ $<
 
-$(TARGET): darwin.a $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(LFLAGS) $(OBJECTS) ../../lib/darwin.a -o $(TARGET)
+$(TARGET): $(LIBRARIES) $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(LFLAGS) $(OBJECTS) $(LIBRARIES) -o $(TARGET)
 	chmod 755 $(TARGET)
 
 # EOF: ert_darwinoplib.tmf
