@@ -132,6 +132,9 @@ if strcmp(get_param(gcs,'RTWCGKeepContext'),'on')
     % do not start the simulation locally
     % why is this function called when the RTW model is being built?
     return;
+elseif strcmp(get_param(gcs,'SimulationMode'), 'external')
+    disp('### Detecting an external simulation');
+    return;
 else
     disp('### Detecting a normal simulation');
 end
