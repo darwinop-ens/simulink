@@ -1,3 +1,10 @@
+Matlab Simulink Library for the darwinop-ens robot
+
+Development version
+
+Stable releases can be viewed and downloaded from the following links:
+v1.0 https://github.com/darwinop-ens/simulink/tree/v1.0
+
 This directory and its subdirectories contain Matlab code and Simulink libraries to communicate with the DarwinOP humanoid robot.
 
 About this library:
