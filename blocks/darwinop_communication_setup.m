@@ -142,19 +142,10 @@ data.selected_read_fields = cell(size(data.consts.ids));
 data.selected_write_fields = cell(size(data.consts.ids));
 
 for i=1:length(data.consts.ids)
-    if data.consts.ids{i}.address == 200
-        data.selected_read_fields{i} = zeros(size(data.consts.cm730_fields));
-        data.selected_write_fields{i} = zeros(size(data.consts.cm730_fields));
-    elseif (data.consts.ids{i}.address == 111) || (data.consts.ids{i}.address == 112)
-        data.selected_read_fields{i} = zeros(size(data.consts.fsr_fields));
-        data.selected_write_fields{i} = zeros(size(data.consts.fsr_fields));
-    elseif data.consts.ids{i}.address == -1
-        data.selected_read_fields{i} = zeros(size(data.consts.vision_fields));
-        data.selected_write_fields{i} = zeros(size(data.consts.vision_fields));
-    else
-        data.selected_read_fields{i} = zeros(size(data.consts.mx28_fields));
-        data.selected_write_fields{i} = zeros(size(data.consts.mx28_fields));
-    end
+    fields = get_fields(data, data.consts.ids{i}.address);
+    data.selected_read_fields{i} = zeros(size(fields));
+    data.selected_write_fields{i} = zeros(size(fields));
+
     if data.consts.ids{i}.address == -1
         width = 40;
         text = 'vision';
@@ -354,15 +345,8 @@ if ~isempty(block_user_data)
     data.selected_write_fields = block_user_data.selected_write_fields;
     % perform update if new ids or new fields are available
     for i=1:length(data.consts.ids)
-        if data.consts.ids{i}.address == 200
-            ref = zeros(size(data.consts.cm730_fields));
-        elseif (data.consts.ids{i}.address == 111) || (data.consts.ids{i}.address == 112)
-            ref = zeros(size(data.consts.fsr_fields));
-        elseif data.consts.ids{i}.address == -1
-            ref = zeros(size(data.consts.vision_fields));
-        else
-            ref = zeros(size(data.consts.mx28_fields));
-        end
+        fields = get_fields(data, data.consts.ids{i}.address);
+        ref = zeros(size(fields));
         if i <= length(data.selected_read_fields)
             selected_read_fields = data.selected_read_fields{i};
             for j=(length(selected_read_fields)+1):length(ref)
@@ -435,15 +419,7 @@ if strcmp(get_param(hModel,'lock'),'on') == 0
     write_mask_display = {''};
 
     for i = 1:length(data.consts.ids)
-        if data.consts.ids{i}.address == 200
-            fields = data.consts.cm730_fields;
-        elseif (data.consts.ids{i}.address == 111) || (data.consts.ids{i}.address == 112)
-            fields = data.consts.fsr_fields;
-        elseif data.consts.ids{i}.address == -1
-            fields = data.consts.vision_fields;
-        else
-            fields = data.consts.mx28_fields;
-        end
+        fields = get_fields(data, data.consts.ids{i}.address);
         selected_read_fields = data.selected_read_fields{i};
         read_fields = zeros(1,256);
         for j = 1:length(selected_read_fields)
@@ -678,15 +654,7 @@ function refresh_listbox
         end
     end
     
-    if data.consts.ids{data.current_index}.address == 200
-        fields = data.consts.cm730_fields;
-    elseif (data.consts.ids{data.current_index}.address == 111) || (data.consts.ids{data.current_index}.address == 112)
-        fields = data.consts.fsr_fields;
-    elseif data.consts.ids{data.current_index}.address == -1
-        fields = data.consts.vision_fields;
-    else
-        fields = data.consts.mx28_fields;
-    end
+    fields = get_fields(data, data.consts.ids{data.current_index}.address);
     advanced = get(data.advanced_checkbox, 'Value');
     [data.read_field_list,read_item_list,data.write_field_list,write_item_list] = filter_fields(fields,advanced);
 
@@ -736,5 +704,20 @@ function callback_save_and_close(hObj, eventdata) %#ok
     f = gcf;
     SaveFigure(f);
     close(f);
+
+end
+
+% return field list given a dynamixel id
+function fields = get_fields(data,id)
+
+    if id == 200
+        fields = data.consts.cm730_fields;
+    elseif (id == 111) || (id == 112)
+        fields = data.consts.fsr_fields;
+    elseif id == -1
+        fields = data.consts.vision_fields;
+    else
+        fields = data.consts.mx28_fields;
+    end
 
 end
