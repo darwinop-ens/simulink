@@ -2,20 +2,19 @@ This directory and its subdirectories contain Matlab code and Simulink libraries
 
 About this library:
 
-At this time, only the "Software In Loop (SIL)" mode is supported and the robot must execute the program /darwin/Linux/project/instrumentation/instrumentation from the darwinop-ens repository located at https://github.com/darwinop-ens/darwin-op
-
-This project is still under heavy development and might support embedded development "Hardware In Loop" (HIL) in the future.
+At this time, the "Software In Loop (SIL)" and "Hardware In Loop (HIL)" modes are supported:
+- During simulation, Matlab Simulink communicates with the robot using a custom instrumentation protocol with embedded program /darwin/Linux/project/instrumentation/instrumentation from the darwinop-op repository located at https://github.com/darwinop-ens/darwin-op
+- During execution, Matlab generates a C++ program based on the Simulink model, this program is automatically sent, compiled and executed on the robot.
 
 Installation steps:
 
 1. Open Matlab
 2. Download zip file https://github.com/darwinop-ens/darwin-op/archive/master.zip
 3. Extract this archive to your local hard disk
-4. Browse to darwinoplib
-5. Execute script darwinoplib_setup.m
+4. Execute script darwinoplib_setup.m
 
 You should get "DarwinOP Target Path Setup Complete.", then you can select your language (English or French as of now).
 
-6. Restart Matlab
+5. Restart Matlab
 
 You should now have a Simulink library named "DarwinOP Lib", demos are located in darwinoplibdemos
