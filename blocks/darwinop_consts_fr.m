@@ -1,215 +1,191 @@
-function consts = darwinop_consts_fr
+function lang = darwinop_consts_fr
 
-consts.mx28_fields = {};
-consts.mx28_fields = add_field(consts.mx28_fields,0,2,'Modèle','Numéro de modèle','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,2,1,'Version','Information de version','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,3,1,'ID','ID du MX28 sur le bus Dynamixel','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,4,1,'Débit binaire','Débit binaire du bus Dynamixel','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,5,1,'Temps de retour','Temps de retour','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,6,2,'Limite horaire','Limite angulaire dans le sens horaire','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,8,2,'Limite anti-horaire','Limite angulaire dans le sens anti-horaire','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,11,1,'Température maximale','Limite maximale de température','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,12,1,'Tension minimale','Limite minimale de tension d''alimentation','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,13,1,'Tension maximale','Limite maximale de tension d''alimentation','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,14,2,'Couple maximal','Limite maximale de couple','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,16,1,'Retour de statut','Configuration du retour automatique de statut','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,17,1,'LED d''alarme','Configuration de la LED d''alarme','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,18,1,'Mot d''erreur','Mot d''erreur','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,24,1,'Activation du couple','Activation du couple','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,25,1,'LED','Allumage de la LED','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,26,1,'Gain D','Gain Dérivé','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,27,1,'Gain I','Gain Integral','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,28,1,'Gain P','Gain Proportionnel','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,30,2,'Consigne de position','Consigne de position','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,32,2,'Consigne de vitesse','Consigne de vitesse','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,34,2,'Limite de couple','Limite de couple','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,36,2,'Position courante','Retour de position','R');
-consts.mx28_fields = add_field(consts.mx28_fields,38,2,'Vitesse courante','Retour de vitesse','R');
-consts.mx28_fields = add_field(consts.mx28_fields,40,2,'Charge courante','Retour de charge','R');
-consts.mx28_fields = add_field(consts.mx28_fields,42,1,'Tension','Tension d''alimentation','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,43,1,'Température','Température','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,44,1,'"Registered"','Instruction en cours "Registered"','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,46,1,'Déplacement','Déplacement en cours','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,47,1,'Verrouillage','Verrouillage de la mémoire EEPROM','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,48,2,'Dépassement','Dépassement du couple maximal','ARW');
+lang.language = 'français';
 
-consts.cm730_fields = {};
-consts.cm730_fields = add_field(consts.cm730_fields,0,2,'Modèle','Numéro de modèle','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,2,1,'Version','Information de version','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,3,1,'ID','ID du CM730 sur le bus Dynamixel','ARW');
-consts.cm730_fields = add_field(consts.cm730_fields,4,1,'Débit binaire','Débit binaire du bus Dynamixel','ARW');
-consts.cm730_fields = add_field(consts.cm730_fields,5,1,'Temps de retour','Temps de retour','ARW');
-consts.cm730_fields = add_field(consts.cm730_fields,16,1,'Retour de statut','Configuration du retour automatique de statut','ARW');
-consts.cm730_fields = add_field(consts.cm730_fields,24,1,'Activation du bus','Activation du bus Dynamixel','ARW');
-consts.cm730_fields = add_field(consts.cm730_fields,25,1,'LED du panneau','Activation des LED du panneau','RW');
-consts.cm730_fields = add_field(consts.cm730_fields,26,2,'LED de la tête','Activation des LED de la tête','RW');
-consts.cm730_fields = add_field(consts.cm730_fields,28,2,'LED des yeux','Activation des LED des yeux','RW');
-consts.cm730_fields = add_field(consts.cm730_fields,30,1,'Boutons','Etat des boutons','R');
-consts.cm730_fields = add_field(consts.cm730_fields,38,2,'Gyro Z','Gyroscope axe Z','R');
-consts.cm730_fields = add_field(consts.cm730_fields,40,2,'Gyro Y','Gyroscope axe Y','R');
-consts.cm730_fields = add_field(consts.cm730_fields,42,2,'Gyro X','Gyroscope axe X','R');
-consts.cm730_fields = add_field(consts.cm730_fields,44,2,'ACC X','Accéléromètre axe X','R');
-consts.cm730_fields = add_field(consts.cm730_fields,46,2,'ACC Y','Accéléromètre axe Y','R');
-consts.cm730_fields = add_field(consts.cm730_fields,48,2,'ACC Z','Accéléromètre axe Z','R');
-consts.cm730_fields = add_field(consts.cm730_fields,50,1,'Tension','Tension d''alimentation','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,51,2,'Micro gauche','Microphone gauche','R');
-consts.cm730_fields = add_field(consts.cm730_fields,53,2,'CAN 2','CAN canal 2','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,55,2,'CAN 3','ADC channel 3','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,57,2,'CAN 4','ADC channel 4','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,59,2,'CAN 5','ADC channel 5','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,61,2,'CAN 6','ADC channel 6','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,63,2,'CAN 7','ADC channel 7','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,65,2,'CAN 8','ADC channel 8','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,67,2,'Micro droit','Microphone droit','R');
-consts.cm730_fields = add_field(consts.cm730_fields,69,2,'CAN 10','ADC channel 10','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,71,2,'CAN 11','ADC channel 11','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,73,2,'CAN 12','ADC channel 12','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,75,2,'CAN 13','ADC channel 13','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,77,2,'CAN 14','ADC channel 14','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,79,2,'CAN 15','ADC channel 15','AR');
+lang = add_translation2(lang,'model_number','Modèle','Numéro de modèle');
+lang = add_translation2(lang,'firmware_version','Version','Information de version');
+lang = add_translation2(lang,'ID','ID','ID du noeud sur le bus Dynamixel');
+lang = add_translation2(lang,'baud_rate','Débit binaire','Débit binaire du bus Dynamixel');
+lang = add_translation2(lang,'return_delay_time','Temps de retour','Temps de retour');
+lang = add_translation2(lang,'clockwise_limit','Limite horaire','Limite angulaire dans le sens horaire');
+lang = add_translation2(lang,'counterclockwise_limit','Limite anti-horaire','Limite angulaire dans le sens anti-horaire');
+lang = add_translation2(lang,'highest_temperature','Température maximale','Limite maximale de température');
+lang = add_translation2(lang,'lowest_voltage','Tension minimale','Limite minimale de tension d''alimentation');
+lang = add_translation2(lang,'highest_voltage','Tension maximale','Limite maximale de tension d''alimentation');
+lang = add_translation2(lang,'max_torque','Couple maximal','Limite maximale de couple');
+lang = add_translation2(lang,'status_return_level','Retour de statut','Configuration du retour automatique de statut');
+lang = add_translation2(lang,'alarm_LED','LED d''alarme','Configuration de la LED d''alarme');
+lang = add_translation2(lang,'alarm_shutdown','Mot d''erreur','Mot d''erreur');
+lang = add_translation2(lang,'torque_enable','Activation du couple','Activation du couple');
+lang = add_translation2(lang,'LED','LED','Allumage de la LED');
+lang = add_translation2(lang,'derivative_gain','Gain D','Gain Dérivé');
+lang = add_translation2(lang,'integral_gain','Gain I','Gain Integral');
+lang = add_translation2(lang,'proportional_gain','Gain P','Gain Proportionnel');
+lang = add_translation2(lang,'goal_position','Consigne de position','Consigne de position');
+lang = add_translation2(lang,'moving_speed','Consigne de vitesse','Consigne de vitesse');
+lang = add_translation2(lang,'torque_limit','Limite de couple','Limite de couple');
+lang = add_translation2(lang,'current_position','Position courante','Retour de position');
+lang = add_translation2(lang,'current_speed','Vitesse courante','Retour de vitesse');
+lang = add_translation2(lang,'current_load','Charge courante','Retour de charge');
+lang = add_translation2(lang,'current_voltage','Tension','Tension d''alimentation');
+lang = add_translation2(lang,'current_temperature','Température','Température');
+lang = add_translation2(lang,'registered','"Registered"','Instruction en cours "Registered"');
+lang = add_translation2(lang,'moving','Déplacement','Déplacement en cours');
+lang = add_translation2(lang,'lock','Verrouillage','Verrouillage de la mémoire EEPROM');
+lang = add_translation2(lang,'punch','Dépassement','Dépassement du couple maximal');
 
-consts.fsr_fields = {};
-consts.fsr_fields = add_field(consts.fsr_fields,0,2,'Modèle','Numéro de modèle','AR');
-consts.fsr_fields = add_field(consts.fsr_fields,2,1,'Version','Information de version','AR');
-consts.fsr_fields = add_field(consts.fsr_fields,3,1,'ID','ID du FSR sur le bus Dynamixel','ARW');
-consts.fsr_fields = add_field(consts.fsr_fields,4,1,'Débit binaire','Débit binaire du bus Dynamixel','ARW');
-consts.fsr_fields = add_field(consts.fsr_fields,5,1,'Temps de retour','Temps de retour','ARW');
-consts.fsr_fields = add_field(consts.fsr_fields,16,1,'Retour de statut','Configuration du retour automatique de statut','ARW');
-consts.fsr_fields = add_field(consts.fsr_fields,19,1,'Mode','Mode de fonctionnement','RW');
-consts.fsr_fields = add_field(consts.fsr_fields,25,1,'LED','Allumage de la LED','RW');
-consts.fsr_fields = add_field(consts.fsr_fields,26,2,'Jauge 1','Jauge de déformation 1','R');
-consts.fsr_fields = add_field(consts.fsr_fields,28,2,'Jauge 2','Jauge de déformation 2','R');
-consts.fsr_fields = add_field(consts.fsr_fields,30,2,'Jauge 3','Jauge de déformation 3','R');
-consts.fsr_fields = add_field(consts.fsr_fields,32,2,'Jauge 4','Jauge de déformation 4','R');
-consts.fsr_fields = add_field(consts.fsr_fields,34,1,'Jauge X','Jauge de déformation (axe X)','R');
-consts.fsr_fields = add_field(consts.fsr_fields,35,1,'Jauge Y','Jauge de déformation (axe Y)','R');
-consts.fsr_fields = add_field(consts.fsr_fields,42,1,'Tension','Tension d''alimentation','AR');
-consts.fsr_fields = add_field(consts.fsr_fields,44,1,'"Registered"','Instruction en cours "Registered"','AR');
-consts.fsr_fields = add_field(consts.fsr_fields,47,1,'Verrouillage','Verrouillage de la mémoire EEPROM','ARW');
+lang = add_translation2(lang,'dynamixel_power','Activation du bus','Activation du bus Dynamixel');
+lang = add_translation2(lang,'LED_panel','LED du panneau','Activation des LED du panneau');
+lang = add_translation2(lang,'LED_head','LED de la tête','Activation des LED de la tête');
+lang = add_translation2(lang,'LED_eye','LED des yeux','Activation des LED des yeux');
+lang = add_translation2(lang,'button','Boutons','Etat des boutons');
+lang = add_translation2(lang,'gyroZ','Gyro Z','Gyroscope axe Z');
+lang = add_translation2(lang,'gyroY','Gyro Y','Gyroscope axe Y');
+lang = add_translation2(lang,'gyroX','Gyro X','Gyroscope axe X');
+lang = add_translation2(lang,'accX','ACC X','Accéléromètre axe X');
+lang = add_translation2(lang,'accY','ACC Y','Accéléromètre axe Y');
+lang = add_translation2(lang,'accZ','ACC Z','Accéléromètre axe Z');
+lang = add_translation2(lang,'mic_left','Micro gauche','Microphone gauche');
+lang = add_translation2(lang,'ADC2','CAN 2','CAN canal 2');
+lang = add_translation2(lang,'ADC3','CAN 3','ADC channel 3');
+lang = add_translation2(lang,'ADC4','CAN 4','ADC channel 4');
+lang = add_translation2(lang,'ADC5','CAN 5','ADC channel 5');
+lang = add_translation2(lang,'ADC6','CAN 6','ADC channel 6');
+lang = add_translation2(lang,'ADC7','CAN 7','ADC channel 7');
+lang = add_translation2(lang,'ADC8','CAN 8','ADC channel 8');
+lang = add_translation2(lang,'mic_right','Micro droit','Microphone droit');
+lang = add_translation2(lang,'ADC10','CAN 10','ADC channel 10');
+lang = add_translation2(lang,'ADC11','CAN 11','ADC channel 11');
+lang = add_translation2(lang,'ADC12','CAN 12','ADC channel 12');
+lang = add_translation2(lang,'ADC13','CAN 13','ADC channel 13');
+lang = add_translation2(lang,'ADC14','CAN 14','ADC channel 14');
+lang = add_translation2(lang,'ADC15','CAN 15','ADC channel 15');
 
-consts.vision_fields = {};
-consts.vision_fields = add_field(consts.vision_fields,1,1,'Activation','Activation de la vision','RW');
-consts.vision_fields = add_field(consts.vision_fields,2,1,'Balle: activation','Activation de la reconnaissance de la balle','RW');
-consts.vision_fields = add_field(consts.vision_fields,3,1,'Rouge: activation','Activation de la reconnaissance de la zone rouge','RW');
-consts.vision_fields = add_field(consts.vision_fields,4,1,'Jaune: activation','Activation de la reconnaissance de la zone jaune','RW');
-consts.vision_fields = add_field(consts.vision_fields,5,1,'Bleu: activation','Activation de la reconnaissance de la zone bleue','RW');
-consts.vision_fields = add_field(consts.vision_fields,9,1,'Diffusion','Diffusion des images sur le serveur HTTP','RW');
-consts.vision_fields = add_field(consts.vision_fields,10,2,'Largeur','Largeur de la caméra en pixels','R');
-consts.vision_fields = add_field(consts.vision_fields,12,2,'Hauteur','Hauteur de la caméra en pixels','R');
-consts.vision_fields = add_field(consts.vision_fields,20,2,'Balle: teinte cen.','Valeur centrale de la teinte de la balle','RW');
-consts.vision_fields = add_field(consts.vision_fields,22,2,'Balle: teinte tol.','Tolérance sur la teinte de la balle','RW');
-consts.vision_fields = add_field(consts.vision_fields,24,1,'Balle: sat. min.','Seuil minimal sur la saturation de la balle','ARW');
-consts.vision_fields = add_field(consts.vision_fields,25,1,'Balle: sat. max.','Seuil maximal sur la saturation de la balle','ARW');
-consts.vision_fields = add_field(consts.vision_fields,26,1,'Balle: val. min.','Seuil minimal sur la valeur de la balle','ARW');
-consts.vision_fields = add_field(consts.vision_fields,27,1,'Balle: val. max.','Seuil maximal sur la valeur de la balle','ARW');
-consts.vision_fields = add_field(consts.vision_fields,28,1,'Balle: couv. min.','Seuil minimal sur la couverture de la balle','ARW');
-consts.vision_fields = add_field(consts.vision_fields,29,1,'Balle: couv. max.','Seuil maximal sur la couverture de la balle','ARW');
-consts.vision_fields = add_field(consts.vision_fields,30,2,'Balle: X','Position X de la balle','R');
-consts.vision_fields = add_field(consts.vision_fields,32,2,'Balle: Y','Position Y de la balle','R');
-consts.vision_fields = add_field(consts.vision_fields,40,2,'Rouge: teinte cen.','Valeur centrale de la teinte de la zone rouge','RW');
-consts.vision_fields = add_field(consts.vision_fields,42,2,'Rouge: teinte tol.','Tolérance sur la teinte de la zone rouge','RW');
-consts.vision_fields = add_field(consts.vision_fields,44,1,'Rouge: sat. min.','Seuil minimal sur la saturation de la zone rouge','ARW');
-consts.vision_fields = add_field(consts.vision_fields,45,1,'Rouge: sat. max.','Seuil maximal sur la saturation de la zone rouge','ARW');
-consts.vision_fields = add_field(consts.vision_fields,46,1,'Rouge: val. min.','Seuil minimal sur la valeur de la zone rouge','ARW');
-consts.vision_fields = add_field(consts.vision_fields,47,1,'Rouge: val. max.','Seuil maximal sur la valeur de la zone rouge','ARW');
-consts.vision_fields = add_field(consts.vision_fields,48,1,'Rouge: couv. min.','Seuil minimal sur la couverture de la zone rouge','ARW');
-consts.vision_fields = add_field(consts.vision_fields,49,1,'Rouge: couv. max.','Seuil maximal sur la couverture de la zone rouge','ARW');
-consts.vision_fields = add_field(consts.vision_fields,50,2,'Rouge: X','Position X de la zone rouge','R');
-consts.vision_fields = add_field(consts.vision_fields,52,2,'Rouge: Y','Position Y de la zone rouge','R');
-consts.vision_fields = add_field(consts.vision_fields,60,2,'Jaune: teinte cen.','Valeur centrale de la teinte de la zone jaune','RW');
-consts.vision_fields = add_field(consts.vision_fields,62,2,'Jaune: teinte tol.','Tolérance sur la teinte de la zone jaune','RW');
-consts.vision_fields = add_field(consts.vision_fields,64,1,'Jaune: sat. min.','Seuil minimal sur la saturation de la zone jaune','ARW');
-consts.vision_fields = add_field(consts.vision_fields,65,1,'Jaune: sat. max.','Seuil maximal sur la saturation de la zone jaune','ARW');
-consts.vision_fields = add_field(consts.vision_fields,66,1,'Jaune: val. min.','Seuil minimal sur la valeur de la zone jaune','ARW');
-consts.vision_fields = add_field(consts.vision_fields,67,1,'Jaune: val. max.','Seuil maximal sur la valeur de la zone jaune','ARW');
-consts.vision_fields = add_field(consts.vision_fields,68,1,'Jaune: couv. min.','Seuil minimal sur la couverture de la zone jaune','ARW');
-consts.vision_fields = add_field(consts.vision_fields,69,1,'Jaune: couv. max.','Seuil maximal sur la couverture de la zone jaune','ARW');
-consts.vision_fields = add_field(consts.vision_fields,70,2,'Jaune: X','Position X de la zone jaune','R');
-consts.vision_fields = add_field(consts.vision_fields,72,2,'Jaune: Y','Position Y de la zone jaune','R');
-consts.vision_fields = add_field(consts.vision_fields,80,2,'Bleu: teinte cen.','Valeur centrale de la teinte de la zone bleue','RW');
-consts.vision_fields = add_field(consts.vision_fields,82,2,'Bleu: teinte tol.','Tolérance sur la teinte de la zone bleue','RW');
-consts.vision_fields = add_field(consts.vision_fields,84,1,'Bleu: sat. min.','Seuil minimal sur la saturation de la zone bleue','ARW');
-consts.vision_fields = add_field(consts.vision_fields,85,1,'Bleu: sat. max.','Seuil maximal sur la saturation de la zone bleue','ARW');
-consts.vision_fields = add_field(consts.vision_fields,86,1,'Bleu: val. min.','Seuil minimal sur la valeur de la zone bleue','ARW');
-consts.vision_fields = add_field(consts.vision_fields,87,1,'Bleu: val. max.','Seuil maximal sur la valeur de la zone bleue','ARW');
-consts.vision_fields = add_field(consts.vision_fields,88,1,'Bleu: couv. min.','Seuil minimal sur la couverture de la zone bleue','ARW');
-consts.vision_fields = add_field(consts.vision_fields,89,1,'Bleu: couv. max.','Seuil maximal sur la couverture de la zone bleue','ARW');
-consts.vision_fields = add_field(consts.vision_fields,90,2,'Bleu: X','Position X de la zone bleue','R');
-consts.vision_fields = add_field(consts.vision_fields,92,2,'Bleu: Y','Position Y de la zone bleue','R');
+lang = add_translation2(lang,'operating_mode','Mode','Mode de fonctionnement');
+lang = add_translation2(lang,'FSR1','Jauge 1','Jauge de déformation 1');
+lang = add_translation2(lang,'FSR2','Jauge 2','Jauge de déformation 2');
+lang = add_translation2(lang,'FSR3','Jauge 3','Jauge de déformation 3');
+lang = add_translation2(lang,'FSR4','Jauge 4','Jauge de déformation 4');
+lang = add_translation2(lang,'FSRX','Jauge X','Jauge de déformation (axe X)');
+lang = add_translation2(lang,'FSRY','Jauge Y','Jauge de déformation (axe Y)');
 
-consts.ids = {};
-consts.ids = add_id(consts.ids,'Épaule droite (tangage)',1,200,315);
-consts.ids = add_id(consts.ids,'Épaule gauche (tangage)',2,270,315);
-consts.ids = add_id(consts.ids,'Épaule droite (roulis)',3,140,295);
-consts.ids = add_id(consts.ids,'Épaule gauche (roulis)',4,325,295);
-consts.ids = add_id(consts.ids,'Coude droit',5,108,297);
-consts.ids = add_id(consts.ids,'Coude gauche',6,360,297);
-consts.ids = add_id(consts.ids,'Hanche droite (lacet)',7,200,250);
-consts.ids = add_id(consts.ids,'Hanche gauche (lacet)',8,270,250);
-consts.ids = add_id(consts.ids,'Hanche droite (roulis)',9,145,185);
-consts.ids = add_id(consts.ids,'Hanche gauche (roulis)',10,325,185);
-consts.ids = add_id(consts.ids,'Hanche droite (tangage)',11,200,185);
-consts.ids = add_id(consts.ids,'Hanche gauche (tangage)',12,265,185);
-consts.ids = add_id(consts.ids,'Genou droit',13,200,125);
-consts.ids = add_id(consts.ids,'Genou gauche',14,265,125);
-consts.ids = add_id(consts.ids,'Cheville droite (tangage)',15,200,60);
-consts.ids = add_id(consts.ids,'Cheville gauche (tangage)',16,265,60);
-consts.ids = add_id(consts.ids,'Cheville droite (roulis)',17,140,50);
-consts.ids = add_id(consts.ids,'Cheville gauche (roulis)',18,330,50);
-consts.ids = add_id(consts.ids,'Tête (lacet)',19,235,310);
-consts.ids = add_id(consts.ids,'Tête (tangage)',20,235,355);
-consts.ids = add_id(consts.ids,'Sous contrôleur',200,235,265);
-consts.ids = add_id(consts.ids,'Pied droit',111,200,20);
-consts.ids = add_id(consts.ids,'Pied gauche',112,265,20);
-consts.ids = add_id(consts.ids,'Vision',-1,225,380);
+lang = add_translation2(lang,'vision_enable','Activation','Activation de la vision');
+lang = add_translation2(lang,'ball_enable','Balle: activation','Activation de la reconnaissance de la balle');
+lang = add_translation2(lang,'red_enable','Rouge: activation','Activation de la reconnaissance de la zone rouge');
+lang = add_translation2(lang,'yellow_enable','Jaune: activation','Activation de la reconnaissance de la zone jaune');
+lang = add_translation2(lang,'blue_enable','Bleu: activation','Activation de la reconnaissance de la zone bleue');
+lang = add_translation2(lang,'webcam_stream','Diffusion','Diffusion des images sur le serveur HTTP');
+lang = add_translation2(lang,'webcam_width','Largeur','Largeur de la caméra en pixels');
+lang = add_translation2(lang,'webcam_height','Hauteur','Hauteur de la caméra en pixels');
+lang = add_translation2(lang,'ball_hue_cen','Balle: teinte cen.','Valeur centrale de la teinte de la balle');
+lang = add_translation2(lang,'ball_hue_tol','Balle: teinte tol.','Tolérance sur la teinte de la balle');
+lang = add_translation2(lang,'ball_min_sat','Balle: sat. min.','Seuil minimal sur la saturation de la balle');
+lang = add_translation2(lang,'ball_max_sat','Balle: sat. max.','Seuil maximal sur la saturation de la balle');
+lang = add_translation2(lang,'ball_min_val','Balle: val. min.','Seuil minimal sur la valeur de la balle');
+lang = add_translation2(lang,'ball_max_val','Balle: val. max.','Seuil maximal sur la valeur de la balle');
+lang = add_translation2(lang,'ball_min_cov','Balle: couv. min.','Seuil minimal sur la couverture de la balle');
+lang = add_translation2(lang,'ball_max_cov','Balle: couv. max.','Seuil maximal sur la couverture de la balle');
+lang = add_translation2(lang,'ball_X','Balle: X','Position X de la balle');
+lang = add_translation2(lang,'ball_Y','Balle: Y','Position Y de la balle');
+lang = add_translation2(lang,'red_hue_cen','Rouge: teinte cen.','Valeur centrale de la teinte de la zone rouge');
+lang = add_translation2(lang,'red_hue_tol','Rouge: teinte tol.','Tolérance sur la teinte de la zone rouge');
+lang = add_translation2(lang,'red_min_sat','Rouge: sat. min.','Seuil minimal sur la saturation de la zone rouge');
+lang = add_translation2(lang,'red_max_sat','Rouge: sat. max.','Seuil maximal sur la saturation de la zone rouge');
+lang = add_translation2(lang,'red_min_val','Rouge: val. min.','Seuil minimal sur la valeur de la zone rouge');
+lang = add_translation2(lang,'red_max_val','Rouge: val. max.','Seuil maximal sur la valeur de la zone rouge');
+lang = add_translation2(lang,'red_min_cov','Rouge: couv. min.','Seuil minimal sur la couverture de la zone rouge');
+lang = add_translation2(lang,'red_max_cov','Rouge: couv. max.','Seuil maximal sur la couverture de la zone rouge');
+lang = add_translation2(lang,'red_X','Rouge: X','Position X de la zone rouge');
+lang = add_translation2(lang,'red_Y','Rouge: Y','Position Y de la zone rouge');
+lang = add_translation2(lang,'yellow_hue_cen','Jaune: teinte cen.','Valeur centrale de la teinte de la zone jaune');
+lang = add_translation2(lang,'yellow_hue_tol','Jaune: teinte tol.','Tolérance sur la teinte de la zone jaune');
+lang = add_translation2(lang,'yellow_min_sat','Jaune: sat. min.','Seuil minimal sur la saturation de la zone jaune');
+lang = add_translation2(lang,'yellow_max_sat','Jaune: sat. max.','Seuil maximal sur la saturation de la zone jaune');
+lang = add_translation2(lang,'yellow_min_val','Jaune: val. min.','Seuil minimal sur la valeur de la zone jaune');
+lang = add_translation2(lang,'yellow_max_val','Jaune: val. max.','Seuil maximal sur la valeur de la zone jaune');
+lang = add_translation2(lang,'yellow_min_cov','Jaune: couv. min.','Seuil minimal sur la couverture de la zone jaune');
+lang = add_translation2(lang,'yellow_max_cov','Jaune: couv. max.','Seuil maximal sur la couverture de la zone jaune');
+lang = add_translation2(lang,'yellow_X','Jaune: X','Position X de la zone jaune');
+lang = add_translation2(lang,'yellow_Y','Jaune: Y','Position Y de la zone jaune');
+lang = add_translation2(lang,'blue_hue_cen','Bleu: teinte cen.','Valeur centrale de la teinte de la zone bleue');
+lang = add_translation2(lang,'blue_hue_tol','Bleu: teinte tol.','Tolérance sur la teinte de la zone bleue');
+lang = add_translation2(lang,'blue_min_sat','Bleu: sat. min.','Seuil minimal sur la saturation de la zone bleue');
+lang = add_translation2(lang,'blue_max_sat','Bleu: sat. max.','Seuil maximal sur la saturation de la zone bleue');
+lang = add_translation2(lang,'blue_min_val','Bleu: val. min.','Seuil minimal sur la valeur de la zone bleue');
+lang = add_translation2(lang,'blue_max_val','Bleu: val. max.','Seuil maximal sur la valeur de la zone bleue');
+lang = add_translation2(lang,'blue_min_cov','Bleu: couv. min.','Seuil minimal sur la couverture de la zone bleue');
+lang = add_translation2(lang,'blue_max_cov','Bleu: couv. max.','Seuil maximal sur la couverture de la zone bleue');
+lang = add_translation2(lang,'blue_X','Bleu: X','Position X de la zone bleue');
+lang = add_translation2(lang,'blue_Y','Bleu: Y','Position Y de la zone bleue');
 
-consts.labels = struct( ...
-    'figure_title','Configuration de la communication avec le Darwin-OP (%s)', ...
-    'label_read','Données à lire (ctrl+click pour multiples):', ...
-    'label_write','Données à écrire (ctrl+click pour multiples):', ...
-    'label_selected_joint','Sélection', ...
-    'label_read_write_joint','Lecture/écriture', ...
-    'label_write_joint','Écriture', ...
-    'label_read_joint','Lecture', ...
-    'label_no_operation_joint','Pas d''opération', ...
-    'label_ip_address','Adresse IP :', ...
-    'label_port','Port :', ...
-    'label_protocol','Protocole :', ...
-    'label_sample_time','Période d''éch.(s):', ...
-    'label_advanced','Configuration avancée', ...
-    'label_save_and_close','Valider et fermer' ...
-  );
+lang = add_translation1(lang,'right_shoulder_pitch','Épaule droite (tangage)');
+lang = add_translation1(lang,'left_shoulder_pitch','Épaule gauche (tangage)');
+lang = add_translation1(lang,'right_shoulder_roll','Épaule droite (roulis)');
+lang = add_translation1(lang,'left_shoulder_roll','Épaule gauche (roulis)');
+lang = add_translation1(lang,'right_elbow','Coude droit');
+lang = add_translation1(lang,'left_elbow','Coude gauche');
+lang = add_translation1(lang,'right_hip_yaw','Hanche droite (lacet)');
+lang = add_translation1(lang,'left_hip_yaw','Hanche gauche (lacet)');
+lang = add_translation1(lang,'right_hip_roll','Hanche droite (roulis)');
+lang = add_translation1(lang,'left_hip_roll','Hanche gauche (roulis)');
+lang = add_translation1(lang,'right_hip_pitch','Hanche droite (tangage)');
+lang = add_translation1(lang,'left_hip_pitch','Hanche gauche (tangage)');
+lang = add_translation1(lang,'right_knee','Genou droit');
+lang = add_translation1(lang,'left_knee','Genou gauche');
+lang = add_translation1(lang,'right_ankle_pitch','Cheville droite (tangage)');
+lang = add_translation1(lang,'left_ankle_pitch','Cheville gauche (tangage)');
+lang = add_translation1(lang,'right_ankle_roll','Cheville droite (roulis)');
+lang = add_translation1(lang,'left_ankle_roll','Cheville gauche (roulis)');
+lang = add_translation1(lang,'head_pan','Tête (lacet)');
+lang = add_translation1(lang,'head_tilt','Tête (tangage)');
+lang = add_translation1(lang,'sub_controller','Sous contrôleur');
+lang = add_translation1(lang,'right_foot','Pied droit');
+lang = add_translation1(lang,'left_foot','Pied gauche');
+lang = add_translation1(lang,'vision','Vision');
 
-consts.language = 'français';
+lang = add_translation1(lang,'figure_title','Configuration de la communication avec le Darwin-OP (%s)');
+lang = add_translation1(lang,'label_read','Données à lire (ctrl+click pour multiples):');
+lang = add_translation1(lang,'label_write','Données à écrire (ctrl+click pour multiples):');
+lang = add_translation1(lang,'label_selected_joint','Sélection');
+lang = add_translation1(lang,'label_read_write_joint','Lecture/écriture');
+lang = add_translation1(lang,'label_write_joint','Écriture');
+lang = add_translation1(lang,'label_read_joint','Lecture');
+lang = add_translation1(lang,'label_no_operation_joint','Pas d''opération');
+lang = add_translation1(lang,'label_ip_address','Adresse IP :');
+lang = add_translation1(lang,'label_port','Port :');
+lang = add_translation1(lang,'label_protocol','Protocole :');
+lang = add_translation1(lang,'label_sample_time','Période d''éch.(s):');
+lang = add_translation1(lang,'label_advanced','Configuration avancée');
+lang = add_translation1(lang,'label_save_and_close','Valider et fermer');
+
+lang = add_translation2(lang,'low','%s (f)','%s (poids faible)');
+lang = add_translation2(lang,'high','%s (F)','%s (poids fort)');
 
 end
 
-function fields = add_field(f, address, size, name, description, mode)
-fields = f;
-fields{end+1} = struct('address', address, ...
-                       'size', size, ...
-                       'name', name, ...
-                       'description', description, ...
-                       'mode', mode);
-if size == 2
-    fields{end+1} = struct('address', address, ...
-                           'size', 1, ...
-                           'name', sprintf('%s (f)', name), ...
-                           'description', sprintf('%s (poids faible)', description), ...
-                           'mode', ['A' mode]);
-    fields{end+1} = struct('address', address + 1, ...
-                           'size', 1, ...
-                           'name', sprintf('%s (F)', name), ...
-                           'description', sprintf('%s (poids fort)', description), ...
-                           'mode', ['A' mode]);
+function lang = add_translation1(l, id, name)
+
+lang = l;
+field_name = [id '_name'];
+if isfield(lang, field_name)
+    error('duplicate language assignment for %s', field_name);
 end
+lang = setfield(lang, field_name, name); %#ok<SFLD>
 
 end
 
-function ids = add_id(i, name, address, posx, posy)
-ids = i;
-ids{end+1} = struct('address', address, ...
-                    'name', name, ...
-                    'posx', posx, ...
-                    'posy', posy);
+function lang = add_translation2(l, id, name, description)
+
+lang = l;
+field_name = [id '_name'];
+if isfield(lang, field_name)
+    error('duplicate language assignment for %s', field_name);
+end
+lang = setfield(lang, field_name, name); %#ok<SFLD>
+field_name = [id '_descr'];
+if isfield(lang, field_name)
+    error('duplicate language assignment for %s', field_name);
+end
+lang = setfield(lang, field_name, description); %#ok<SFLD>
+
 end

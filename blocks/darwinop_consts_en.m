@@ -1,215 +1,191 @@
-function consts = darwinop_consts_en
+function lang = darwinop_consts_en
 
-consts.mx28_fields = {};
-consts.mx28_fields = add_field(consts.mx28_fields,0,2,'Model Number','Model number','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,2,1,'Version of Firmware','Information on the version of firmware','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,3,1,'ID','ID of MX28 on Dynamixel Bus','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,4,1,'Baud Rate','Baud Rate of Dynamixel','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,5,1,'Return Delay Time','Return Delay Time','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,6,2,'CW Angle Limit','Clockwise Angle Limit','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,8,2,'CCW Angle Limit','Counterclockwise Angle Limit','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,11,1,'Highest Temperature','Highest Limit Temperature','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,12,1,'Lowest Voltage','Lowest Limit Voltage','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,13,1,'Highest Voltage','Highest Limit Voltage','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,14,2,'Max Torque','Max. Torque','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,16,1,'Status Return Level','Status Return Level','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,17,1,'Alarm LED','LED for Alarm','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,18,1,'Alarm Shutdown','Shutdown for Alarm','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,24,1,'Torque Enable','Torque On/Off','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,25,1,'LED','LED On/Off','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,26,1,'D Gain','Derivative Gain','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,27,1,'I Gain','Integral Gain','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,28,1,'P Gain','Proportional Gain','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,30,2,'Goal Position','Goal Position','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,32,2,'Moving Speed','Moving Speed','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,34,2,'Torque Limit','Torque Limit','RW');
-consts.mx28_fields = add_field(consts.mx28_fields,36,2,'Position','Current Position','R');
-consts.mx28_fields = add_field(consts.mx28_fields,38,2,'Speed','Current Speed','R');
-consts.mx28_fields = add_field(consts.mx28_fields,40,2,'Load','Current Load','R');
-consts.mx28_fields = add_field(consts.mx28_fields,42,1,'Voltage','Current Voltage','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,43,1,'Temperature','Current Temperature','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,44,1,'Registered','Means if Current Instruction is registered','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,46,1,'Moving','Means if there is any movement','AR');
-consts.mx28_fields = add_field(consts.mx28_fields,47,1,'Lock','Locking EEPROM','ARW');
-consts.mx28_fields = add_field(consts.mx28_fields,48,2,'Punch','Punch','ARW');
+lang.language = 'english';
 
-consts.cm730_fields = {};
-consts.cm730_fields = add_field(consts.cm730_fields,0,2,'Model Number','Model number','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,2,1,'Version of Firmware','Information on the version of firmware','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,3,1,'ID','ID of CM730 on Dynamixel Bus','ARW');
-consts.cm730_fields = add_field(consts.cm730_fields,4,1,'Baud Rate','Dynamixel baud rate','ARW');
-consts.cm730_fields = add_field(consts.cm730_fields,5,1,'Return Delay Time','Return Delay Time','ARW');
-consts.cm730_fields = add_field(consts.cm730_fields,16,1,'Status Return Level','Status Return Level','ARW');
-consts.cm730_fields = add_field(consts.cm730_fields,24,1,'Dynamixel Power','Dynamixel On/Off','ARW');
-consts.cm730_fields = add_field(consts.cm730_fields,25,1,'LED Pannel','LED Pannel On/Off','RW');
-consts.cm730_fields = add_field(consts.cm730_fields,26,2,'LED Head','LED Head','RW');
-consts.cm730_fields = add_field(consts.cm730_fields,28,2,'LED Eye','LED Eye','RW');
-consts.cm730_fields = add_field(consts.cm730_fields,30,1,'Button','Button status','R');
-consts.cm730_fields = add_field(consts.cm730_fields,38,2,'Gyro Z','Gyroscope Z-axis','R');
-consts.cm730_fields = add_field(consts.cm730_fields,40,2,'Gyro Y','Gyroscope Y-axis','R');
-consts.cm730_fields = add_field(consts.cm730_fields,42,2,'Gyro X','Gyroscope X-axis','R');
-consts.cm730_fields = add_field(consts.cm730_fields,44,2,'ACC X','Accelerometer X-axis','R');
-consts.cm730_fields = add_field(consts.cm730_fields,46,2,'ACC Y','Accelerometer Y-axis','R');
-consts.cm730_fields = add_field(consts.cm730_fields,48,2,'ACC Z','Accelerometer Z-axis','R');
-consts.cm730_fields = add_field(consts.cm730_fields,50,1,'Present Voltage','Current Voltage','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,51,2,'MIC Left','Microphone Left','R');
-consts.cm730_fields = add_field(consts.cm730_fields,53,2,'ADC 2','ADC channel 2','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,55,2,'ADC 3','ADC channel 3','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,57,2,'ADC 4','ADC channel 4','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,59,2,'ADC 5','ADC channel 5','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,61,2,'ADC 6','ADC channel 6','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,63,2,'ADC 7','ADC channel 7','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,65,2,'ADC 8','ADC channel 8','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,67,2,'MIC Right','Microphone Right','R');
-consts.cm730_fields = add_field(consts.cm730_fields,69,2,'ADC 10','ADC channel 10','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,71,2,'ADC 11','ADC channel 11','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,73,2,'ADC 12','ADC channel 12','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,75,2,'ADC 13','ADC channel 13','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,77,2,'ADC 14','ADC channel 14','AR');
-consts.cm730_fields = add_field(consts.cm730_fields,79,2,'ADC 15','ADC channel 15','AR');
+lang = add_translation2(lang,'model_number','Model Number','Model number');
+lang = add_translation2(lang,'firmware_version','Version of Firmware','Information on the version of firmware');
+lang = add_translation2(lang,'ID','ID','ID of node on Dynamixel Bus');
+lang = add_translation2(lang,'baud_rate','Baud Rate','Baud Rate of Dynamixel');
+lang = add_translation2(lang,'return_delay_time','Return Delay Time','Return Delay Time');
+lang = add_translation2(lang,'clockwise_limit','CW Angle Limit','Clockwise Angle Limit');
+lang = add_translation2(lang,'counterclockwise_limit','CCW Angle Limit','Counterclockwise Angle Limit');
+lang = add_translation2(lang,'highest_temperature','Highest Temperature','Highest Limit Temperature');
+lang = add_translation2(lang,'lowest_voltage','Lowest Voltage','Lowest Limit Voltage');
+lang = add_translation2(lang,'highest_voltage','Highest Voltage','Highest Limit Voltage');
+lang = add_translation2(lang,'max_torque','Max Torque','Max. Torque');
+lang = add_translation2(lang,'status_return_level','Status Return Level','Status Return Level');
+lang = add_translation2(lang,'alarm_LED','Alarm LED','LED for Alarm');
+lang = add_translation2(lang,'alarm_shutdown','Alarm Shutdown','Shutdown for Alarm');
+lang = add_translation2(lang,'torque_enable','Torque Enable','Torque On/Off');
+lang = add_translation2(lang,'LED','LED','LED On/Off');
+lang = add_translation2(lang,'derivative_gain','D Gain','Derivative Gain');
+lang = add_translation2(lang,'integral_gain','I Gain','Integral Gain');
+lang = add_translation2(lang,'proportional_gain','P Gain','Proportional Gain');
+lang = add_translation2(lang,'goal_position','Goal Position','Goal Position');
+lang = add_translation2(lang,'moving_speed','Moving Speed','Moving Speed');
+lang = add_translation2(lang,'torque_limit','Torque Limit','Torque Limit');
+lang = add_translation2(lang,'current_position','Position','Current Position');
+lang = add_translation2(lang,'current_speed','Speed','Current Speed');
+lang = add_translation2(lang,'current_load','Load','Current Load');
+lang = add_translation2(lang,'current_voltage','Voltage','Current Voltage');
+lang = add_translation2(lang,'current_temperature','Temperature','Current Temperature');
+lang = add_translation2(lang,'registered','Registered','Means if Current Instruction is registered');
+lang = add_translation2(lang,'moving','Moving','Means if there is any movement');
+lang = add_translation2(lang,'lock','Lock','Locking EEPROM');
+lang = add_translation2(lang,'punch','Punch','Punch');
 
-consts.fsr_fields = {};
-consts.fsr_fields = add_field(consts.fsr_fields,0,2,'Model Number','Model number','AR');
-consts.fsr_fields = add_field(consts.fsr_fields,2,1,'Version of Firmware','Information on the version of firmware','AR');
-consts.fsr_fields = add_field(consts.fsr_fields,3,1,'ID','ID of FSR on Dynamixel Bus','ARW');
-consts.fsr_fields = add_field(consts.fsr_fields,4,1,'Baud Rate','Dynamixel baud rate','ARW');
-consts.fsr_fields = add_field(consts.fsr_fields,5,1,'Return Delay Time','Return Delay Time','ARW');
-consts.fsr_fields = add_field(consts.fsr_fields,16,1,'Status Return Level','Status Return Level','ARW');
-consts.fsr_fields = add_field(consts.fsr_fields,19,1,'Operating mode','Operating mode','RW');
-consts.fsr_fields = add_field(consts.fsr_fields,25,1,'LED','LED On/Off','RW');
-consts.fsr_fields = add_field(consts.fsr_fields,26,2,'FSR1','Force Sensitive Resistor 1','R');
-consts.fsr_fields = add_field(consts.fsr_fields,28,2,'FSR2','Force Sensitive Resistor 2','R');
-consts.fsr_fields = add_field(consts.fsr_fields,30,2,'FSR3','Force Sensitive Resistor 3','R');
-consts.fsr_fields = add_field(consts.fsr_fields,32,2,'FSR4','Force Sensitive Resistor 4','R');
-consts.fsr_fields = add_field(consts.fsr_fields,34,1,'FSRX','Force Sensitive Resistor X-axis','R');
-consts.fsr_fields = add_field(consts.fsr_fields,35,1,'FSRY','Force Sensitive Resistor Y-axis','R');
-consts.fsr_fields = add_field(consts.fsr_fields,42,1,'Voltage','Current Voltage','AR');
-consts.fsr_fields = add_field(consts.fsr_fields,44,1,'Registered','Means if Current Instruction is registered','AR');
-consts.fsr_fields = add_field(consts.fsr_fields,47,1,'Lock','Locking EEPROM','ARW');
+lang = add_translation2(lang,'dynamixel_power','Dynamixel Power','Dynamixel On/Off');
+lang = add_translation2(lang,'LED_panel','LED Pannel','LED Pannel On/Off');
+lang = add_translation2(lang,'LED_head','LED Head','LED Head');
+lang = add_translation2(lang,'LED_eye','LED Eye','LED Eye');
+lang = add_translation2(lang,'button','Button','Button status');
+lang = add_translation2(lang,'gyroZ','Gyro Z','Gyroscope Z-axis');
+lang = add_translation2(lang,'gyroY','Gyro Y','Gyroscope Y-axis');
+lang = add_translation2(lang,'gyroX','Gyro X','Gyroscope X-axis');
+lang = add_translation2(lang,'accX','ACC X','Accelerometer X-axis');
+lang = add_translation2(lang,'accY','ACC Y','Accelerometer Y-axis');
+lang = add_translation2(lang,'accZ','ACC Z','Accelerometer Z-axis');
+lang = add_translation2(lang,'mic_left','MIC Left','Microphone Left');
+lang = add_translation2(lang,'ADC2','ADC 2','ADC channel 2');
+lang = add_translation2(lang,'ADC3','ADC 3','ADC channel 3');
+lang = add_translation2(lang,'ADC4','ADC 4','ADC channel 4');
+lang = add_translation2(lang,'ADC5','ADC 5','ADC channel 5');
+lang = add_translation2(lang,'ADC6','ADC 6','ADC channel 6');
+lang = add_translation2(lang,'ADC7','ADC 7','ADC channel 7');
+lang = add_translation2(lang,'ADC8','ADC 8','ADC channel 8');
+lang = add_translation2(lang,'mic_right','MIC Right','Microphone Right');
+lang = add_translation2(lang,'ADC10','ADC 10','ADC channel 10');
+lang = add_translation2(lang,'ADC11','ADC 11','ADC channel 11');
+lang = add_translation2(lang,'ADC12','ADC 12','ADC channel 12');
+lang = add_translation2(lang,'ADC13','ADC 13','ADC channel 13');
+lang = add_translation2(lang,'ADC14','ADC 14','ADC channel 14');
+lang = add_translation2(lang,'ADC15','ADC 15','ADC channel 15');
 
-consts.vision_fields = {};
-consts.vision_fields = add_field(consts.vision_fields,1,1,'Enable','Enable vision processing','RW');
-consts.vision_fields = add_field(consts.vision_fields,2,1,'Ball enable','Enable the ball finding','RW');
-consts.vision_fields = add_field(consts.vision_fields,3,1,'Red enable','Enable the red finding','RW');
-consts.vision_fields = add_field(consts.vision_fields,4,1,'Yellow enable','Enable the yellow finding','RW');
-consts.vision_fields = add_field(consts.vision_fields,5,1,'Blue enable','Enable the blue finding','RW');
-consts.vision_fields = add_field(consts.vision_fields,9,1,'Stream','Enable HTTP Server Streamer','RW');
-consts.vision_fields = add_field(consts.vision_fields,10,2,'Width','Webcam width in pixels','R');
-consts.vision_fields = add_field(consts.vision_fields,12,2,'Height','Webcam height in pixels','R');
-consts.vision_fields = add_field(consts.vision_fields,20,2,'Ball Hue Center','Ball Hue Center','ARW');
-consts.vision_fields = add_field(consts.vision_fields,22,2,'Ball Hue Tolerance','Ball Hue Tolerance','ARW');
-consts.vision_fields = add_field(consts.vision_fields,24,1,'Ball Min. Sat.','Ball Minimum Saturation Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,25,1,'Ball Max. Sat.','Ball Maximum Saturation Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,26,1,'Ball Min. Val.','Ball Minimum Value Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,27,1,'Ball Max. Val.','Ball Maximum Value Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,28,1,'Ball Min. Cov.','Ball Minimum Coverage Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,29,1,'Ball Max. Cov.','Ball Maximum Coverage Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,30,2,'Ball X','Ball X position','R');
-consts.vision_fields = add_field(consts.vision_fields,32,2,'Ball Y','Ball Y position','R');
-consts.vision_fields = add_field(consts.vision_fields,40,2,'Red Hue','Red Hue Center','ARW');
-consts.vision_fields = add_field(consts.vision_fields,42,2,'Red Hue Tolerance','Red Hue Tolerance','ARW');
-consts.vision_fields = add_field(consts.vision_fields,44,1,'Red Min. Sat.','Red Minimum Saturation Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,45,1,'Red Max. Sat.','Red Maximum Saturation Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,46,1,'Red Min. Val.','Red Minimum Value Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,47,1,'Red Max. Val.','Red Maximum Value Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,48,1,'Red Min. Cov.','Red Minimum Coverage Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,49,1,'Red Max. Cov.','Red Maximum Coverage Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,50,2,'Red X','Red X position','R');
-consts.vision_fields = add_field(consts.vision_fields,52,2,'Red Y','Red Y position','R');
-consts.vision_fields = add_field(consts.vision_fields,60,2,'Yellow Hue','Yellow Hue Center','ARW');
-consts.vision_fields = add_field(consts.vision_fields,62,2,'Yellow Hue Tolerance','Yellow Hue Tolerance','ARW');
-consts.vision_fields = add_field(consts.vision_fields,64,1,'Yellow Min. Sat.','Yellow Minimum Saturation Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,65,1,'Yellow Max. Sat.','Yellow Maximum Saturation Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,66,1,'Yellow Min. Val.','Yellow Minimum Value Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,67,1,'Yellow Max. Val.','Yellow Maximum Value Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,68,1,'Yellow Min. Cov.','Yellow Minimum Coverage Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,69,1,'Yellow Max. Cov.','Yellow Maximum Coverage Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,70,2,'Yellow X','Yellow X position','R');
-consts.vision_fields = add_field(consts.vision_fields,72,2,'Yellow Y','Yellow Y position','R');
-consts.vision_fields = add_field(consts.vision_fields,80,2,'Blue Hue','Blue Hue Center','ARW');
-consts.vision_fields = add_field(consts.vision_fields,82,2,'Blue Hue Tolerance','Blue Hue Tolerance','ARW');
-consts.vision_fields = add_field(consts.vision_fields,84,1,'Blue Min. Sat.','Blue Minimum Saturation Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,85,1,'Blue Max. Sat.','Blue Maximum Saturation Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,86,1,'Blue Min. Val.','Blue Minimum Value Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,87,1,'Blue Max. Val.','Blue Maximum Value Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,88,1,'Blue Min. Cov.','Blue Minimum Coverage Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,89,1,'Blue Max. Cov.','Blue Maximum Coverage Threshold','ARW');
-consts.vision_fields = add_field(consts.vision_fields,90,2,'Blue X','Blue X position','R');
-consts.vision_fields = add_field(consts.vision_fields,92,2,'Blue Y','Blue Y position','R');
+lang = add_translation2(lang,'operating_mode','Operating mode','Operating mode');
+lang = add_translation2(lang,'FSR1','FSR1','Force Sensitive Resistor 1');
+lang = add_translation2(lang,'FSR2','FSR2','Force Sensitive Resistor 2');
+lang = add_translation2(lang,'FSR3','FSR3','Force Sensitive Resistor 3');
+lang = add_translation2(lang,'FSR4','FSR4','Force Sensitive Resistor 4');
+lang = add_translation2(lang,'FSRX','FSRX','Force Sensitive Resistor X-axis');
+lang = add_translation2(lang,'FSRY','FSRY','Force Sensitive Resistor Y-axis');
 
-consts.ids = {};
-consts.ids = add_id(consts.ids,'Right Shoulder Pitch',1,200,315);
-consts.ids = add_id(consts.ids,'Left Shoulder Pitch',2,270,315);
-consts.ids = add_id(consts.ids,'Right Shoulder Roll',3,140,295);
-consts.ids = add_id(consts.ids,'Left Shoulder Roll',4,325,295);
-consts.ids = add_id(consts.ids,'Right Elbow',5,108,297);
-consts.ids = add_id(consts.ids,'Left Elbow',6,360,297);
-consts.ids = add_id(consts.ids,'Right Hip Yaw',7,200,250);
-consts.ids = add_id(consts.ids,'Left Hip Yaw',8,270,250);
-consts.ids = add_id(consts.ids,'Right Hip Roll',9,145,185);
-consts.ids = add_id(consts.ids,'Left Hip Roll',10,325,185);
-consts.ids = add_id(consts.ids,'Right Hip Pitch',11,200,185);
-consts.ids = add_id(consts.ids,'Left Hip Pitch',12,265,185);
-consts.ids = add_id(consts.ids,'Right Knee',13,200,125);
-consts.ids = add_id(consts.ids,'Left Knee',14,265,125);
-consts.ids = add_id(consts.ids,'Right Ankle Pitch',15,200,60);
-consts.ids = add_id(consts.ids,'Left Ankle Pitch',16,265,60);
-consts.ids = add_id(consts.ids,'Right Ankle Roll',17,140,50);
-consts.ids = add_id(consts.ids,'Left Ankle Roll',18,330,50);
-consts.ids = add_id(consts.ids,'Head Pan',19,235,310);
-consts.ids = add_id(consts.ids,'Head Tilt',20,235,355);
-consts.ids = add_id(consts.ids,'Sub controller',200,235,265);
-consts.ids = add_id(consts.ids,'Right Foot',111,200,20);
-consts.ids = add_id(consts.ids,'Left Foot',112,265,20);
-consts.ids = add_id(consts.ids,'Vision',-1,225,380);
+lang = add_translation2(lang,'vision_enable','Enable','Enable vision processing');
+lang = add_translation2(lang,'ball_enable','Ball Enable','Enable the ball finding');
+lang = add_translation2(lang,'red_enable','Red Enable','Enable the red finding');
+lang = add_translation2(lang,'yellow_enable','Yellow enable','Enable the yellow finding');
+lang = add_translation2(lang,'blue_enable','Blue enable','Enable the blue finding');
+lang = add_translation2(lang,'webcam_stream','Stream','Enable HTTP Server Streamer');
+lang = add_translation2(lang,'webcam_width','Width','Webcam width in pixels');
+lang = add_translation2(lang,'webcam_height','Height','Webcam height in pixels');
+lang = add_translation2(lang,'ball_hue_cen','Ball Hue Center','Ball Hue Center');
+lang = add_translation2(lang,'ball_hue_tol','Ball Hue Tolerance','Ball Hue Tolerance');
+lang = add_translation2(lang,'ball_min_sat','Ball Min. Sat.','Ball Minimum Saturation Threshold');
+lang = add_translation2(lang,'ball_max_sat','Ball Max. Sat.','Ball Maximum Saturation Threshold');
+lang = add_translation2(lang,'ball_min_val','Ball Min. Val.','Ball Minimum Value Threshold');
+lang = add_translation2(lang,'ball_max_val','Ball Max. Val.','Ball Maximum Value Threshold');
+lang = add_translation2(lang,'ball_min_cov','Ball Min. Cov.','Ball Minimum Coverage Threshold');
+lang = add_translation2(lang,'ball_max_cov','Ball Max. Cov.','Ball Maximum Coverage Threshold');
+lang = add_translation2(lang,'ball_X','Ball X','Ball X position');
+lang = add_translation2(lang,'ball_Y','Ball Y','Ball Y position');
+lang = add_translation2(lang,'red_hue_cen','Red Hue','Red Hue Center');
+lang = add_translation2(lang,'red_hue_tol','Red Hue Tolerance','Red Hue Tolerance');
+lang = add_translation2(lang,'red_min_sat','Red Min. Sat.','Red Minimum Saturation Threshold');
+lang = add_translation2(lang,'red_max_sat','Red Max. Sat.','Red Maximum Saturation Threshold');
+lang = add_translation2(lang,'red_min_val','Red Min. Val.','Red Minimum Value Threshold');
+lang = add_translation2(lang,'red_max_val','Red Max. Val.','Red Maximum Value Threshold');
+lang = add_translation2(lang,'red_min_cov','Red Min. Cov.','Red Minimum Coverage Threshold');
+lang = add_translation2(lang,'red_max_cov','Red Max. Cov.','Red Maximum Coverage Threshold');
+lang = add_translation2(lang,'red_X','Red X','Red X position');
+lang = add_translation2(lang,'red_Y','Red Y','Red Y position');
+lang = add_translation2(lang,'yellow_hue_cen','Yellow Hue','Yellow Hue Center');
+lang = add_translation2(lang,'yellow_hue_tol','Yellow Hue Tolerance','Yellow Hue Tolerance');
+lang = add_translation2(lang,'yellow_min_sat','Yellow Min. Sat.','Yellow Minimum Saturation Threshold');
+lang = add_translation2(lang,'yellow_max_sat','Yellow Max. Sat.','Yellow Maximum Saturation Threshold');
+lang = add_translation2(lang,'yellow_min_val','Yellow Min. Val.','Yellow Minimum Value Threshold');
+lang = add_translation2(lang,'yellow_max_val','Yellow Max. Val.','Yellow Maximum Value Threshold');
+lang = add_translation2(lang,'yellow_min_cov','Yellow Min. Cov.','Yellow Minimum Coverage Threshold');
+lang = add_translation2(lang,'yellow_max_cov','Yellow Max. Cov.','Yellow Maximum Coverage Threshold');
+lang = add_translation2(lang,'yellow_X','Yellow X','Yellow X position');
+lang = add_translation2(lang,'yellow_Y','Yellow Y','Yellow Y position');
+lang = add_translation2(lang,'blue_hue_cen','Blue Hue','Blue Hue Center');
+lang = add_translation2(lang,'blue_hue_tol','Blue Hue Tolerance','Blue Hue Tolerance');
+lang = add_translation2(lang,'blue_min_sat','Blue Min. Sat.','Blue Minimum Saturation Threshold');
+lang = add_translation2(lang,'blue_max_sat','Blue Max. Sat.','Blue Maximum Saturation Threshold');
+lang = add_translation2(lang,'blue_min_val','Blue Min. Val.','Blue Minimum Value Threshold');
+lang = add_translation2(lang,'blue_max_val','Blue Max. Val.','Blue Maximum Value Threshold');
+lang = add_translation2(lang,'blue_min_cov','Blue Min. Cov.','Blue Minimum Coverage Threshold');
+lang = add_translation2(lang,'blue_max_cov','Blue Max. Cov.','Blue Maximum Coverage Threshold');
+lang = add_translation2(lang,'blue_X','Blue X','Blue X position');
+lang = add_translation2(lang,'blue_Y','Blue Y','Blue Y position');
 
-consts.labels = struct( ...
-    'figure_title','Darwin-OP communication setup (%s)', ...
-    'label_read','Select items to read (ctrl+click for multiple):', ...
-    'label_write','Select item to write (ctrl+click for multiple):', ...
-    'label_selected_joint','selected joint', ...
-    'label_read_write_joint','read/write operation', ...
-    'label_write_joint','write operation', ...
-    'label_read_joint','read operation', ...
-    'label_no_operation_joint','no operation', ...
-    'label_ip_address','IP address:', ...
-    'label_port','Port:', ...
-    'label_protocol','Protocol:', ...
-    'label_sample_time','Sample Time (s):', ...
-    'label_advanced','Advanced configuration', ...
-    'label_save_and_close','Save and close' ...
-  );
+lang = add_translation1(lang,'right_shoulder_pitch','Right Shoulder Pitch');
+lang = add_translation1(lang,'left_shoulder_pitch','Left Shoulder Pitch');
+lang = add_translation1(lang,'right_shoulder_roll','Right Shoulder Roll');
+lang = add_translation1(lang,'left_shoulder_roll','Left Shoulder Roll');
+lang = add_translation1(lang,'right_elbow','Right Elbow');
+lang = add_translation1(lang,'left_elbow','Left Elbow');
+lang = add_translation1(lang,'right_hip_yaw','Right Hip Yaw');
+lang = add_translation1(lang,'left_hip_yaw','Left Hip Yaw');
+lang = add_translation1(lang,'right_hip_roll','Right Hip Roll');
+lang = add_translation1(lang,'left_hip_roll','Left Hip Roll');
+lang = add_translation1(lang,'right_hip_pitch','Right Hip Pitch');
+lang = add_translation1(lang,'left_hip_pitch','Left Hip Pitch');
+lang = add_translation1(lang,'right_knee','Right Knee');
+lang = add_translation1(lang,'left_knee','Left Knee');
+lang = add_translation1(lang,'right_ankle_pitch','Right Ankle Pitch');
+lang = add_translation1(lang,'left_ankle_pitch','Left Ankle Pitch');
+lang = add_translation1(lang,'right_ankle_roll','Right Ankle Roll');
+lang = add_translation1(lang,'left_ankle_roll','Left Ankle Roll');
+lang = add_translation1(lang,'head_pan','Head Pan');
+lang = add_translation1(lang,'head_tilt','Head Tilt');
+lang = add_translation1(lang,'sub_controller','Sub controller');
+lang = add_translation1(lang,'right_foot','Right Foot');
+lang = add_translation1(lang,'left_foot','Left Foot');
+lang = add_translation1(lang,'vision','Vision');
 
-consts.language = 'english';
+lang = add_translation1(lang,'figure_title','Darwin-OP communication setup (%s)');
+lang = add_translation1(lang,'label_read','Select items to read (ctrl+click for multiple):');
+lang = add_translation1(lang,'label_write','Select item to write (ctrl+click for multiple):');
+lang = add_translation1(lang,'label_selected_joint','selected joint');
+lang = add_translation1(lang,'label_read_write_joint','read/write operation');
+lang = add_translation1(lang,'label_write_joint','write operation');
+lang = add_translation1(lang,'label_read_joint','read operation');
+lang = add_translation1(lang,'label_no_operation_joint','no operation');
+lang = add_translation1(lang,'label_ip_address','IP address:');
+lang = add_translation1(lang,'label_port','Port:');
+lang = add_translation1(lang,'label_protocol','Protocol:');
+lang = add_translation1(lang,'label_sample_time','Sample Time (s):');
+lang = add_translation1(lang,'label_advanced','Advanced configuration');
+lang = add_translation1(lang,'label_save_and_close','Save and close');
+
+lang = add_translation2(lang,'low','%s (L)','Lowest byte of %s');
+lang = add_translation2(lang,'high','%s (H)','Highest byte of %s');
 
 end
 
-function fields = add_field(f, address, size, name, description, mode)
-fields = f;
-fields{end+1} = struct('address', address, ...
-                       'size', size, ...
-                       'name', name, ...
-                       'description', description, ...
-                       'mode', mode);
-if size == 2
-    fields{end+1} = struct('address', address, ...
-                           'size', 1, ...
-                           'name', sprintf('%s (L)', name), ...
-                           'description', sprintf('Lowest byte of %s', description), ...
-                           'mode', ['A' mode]);
-    fields{end+1} = struct('address', address + 1, ...
-                           'size', 1, ...
-                           'name', sprintf('%s (H)', name), ...
-                           'description', sprintf('Highest byte of %s', description), ...
-                           'mode', ['A' mode]);
+function lang = add_translation1(l, id, name)
+
+lang = l;
+field_name = [id '_name'];
+if isfield(lang, field_name)
+    error('duplicate language assignment for %s', field_name);
 end
+lang = setfield(lang, field_name, name); %#ok<SFLD>
 
 end
 
-function ids = add_id(i, name, address, posx, posy)
-ids = i;
-ids{end+1} = struct('address', address, ...
-                    'name', name, ...
-                    'posx', posx, ...
-                    'posy', posy);
+function lang = add_translation2(l, id, name, description)
+
+lang = l;
+field_name = [id '_name'];
+if isfield(lang, field_name)
+    error('duplicate language assignment for %s', field_name);
+end
+lang = setfield(lang, field_name, name); %#ok<SFLD>
+field_name = [id '_descr'];
+if isfield(lang, field_name)
+    error('duplicate language assignment for %s', field_name);
+end
+lang = setfield(lang, field_name, description); %#ok<SFLD>
+
 end
