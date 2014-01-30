@@ -143,7 +143,7 @@ lang = add_translation1(lang,'right_foot','Right Foot');
 lang = add_translation1(lang,'left_foot','Left Foot');
 lang = add_translation1(lang,'vision','Vision');
 
-lang = add_translation1(lang,'figure_title','Darwin-OP communication setup (%s)');
+lang = add_translation1(lang,'darwinop_title','Darwin-OP communication setup (%s)');
 lang = add_translation1(lang,'label_read','Select items to read (ctrl+click for multiple):');
 lang = add_translation1(lang,'label_write','Select item to write (ctrl+click for multiple):');
 lang = add_translation1(lang,'label_selected_joint','selected joint');

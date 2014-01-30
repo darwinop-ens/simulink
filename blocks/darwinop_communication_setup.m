@@ -550,7 +550,7 @@ end
 function SetFigureName(f)
 
 data = guidata(f);
-set(f,'Name',sprintf(data.consts.labels.figure_title, getfullname(data.simulink_block)));
+set(f,'Name',sprintf(data.consts.labels.darwinop_title, getfullname(data.simulink_block)));
 
 end
 

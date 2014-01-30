@@ -143,7 +143,7 @@ lang = add_translation1(lang,'right_foot','Pied droit');
 lang = add_translation1(lang,'left_foot','Pied gauche');
 lang = add_translation1(lang,'vision','Vision');
 
-lang = add_translation1(lang,'figure_title','Configuration de la communication avec le Darwin-OP (%s)');
+lang = add_translation1(lang,'darwinop_title','Configuration de la communication avec le Darwin-OP (%s)');
 lang = add_translation1(lang,'label_read','Données à lire (ctrl+click pour multiples):');
 lang = add_translation1(lang,'label_write','Données à écrire (ctrl+click pour multiples):');
 lang = add_translation1(lang,'label_selected_joint','Sélection');

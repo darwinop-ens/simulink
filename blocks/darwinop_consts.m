@@ -178,7 +178,7 @@ consts.ids = add_id(consts.ids,lang,'right_foot',111,200,20);
 consts.ids = add_id(consts.ids,lang,'left_foot',112,265,20);
 consts.ids = add_id(consts.ids,lang,'vision',-1,225,380);
 
-consts.labels.figure_title = lang.figure_title_name;
+consts.labels.darwinop_title = lang.darwinop_title_name;
 consts.labels.label_read = lang.label_read_name;
 consts.labels.label_write = lang.label_write_name;
 consts.labels.label_selected_joint = lang.label_selected_joint_name;
