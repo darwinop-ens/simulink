@@ -98,7 +98,7 @@ data = guidata(f);
 
 data.simulink_block = hBlk;
 
-data.consts = LoadConsts;
+data.consts = darwinop_consts;
 
 data.read_text = uicontrol(f,'Style','text', ...
                              'String',data.consts.labels{2}, ...
@@ -288,18 +288,6 @@ callback_button_id(data.id_buttons(1),[],1);
 
 SetFigureName(f);
 
-end
-
-function consts = LoadConsts
-    try
-        if ispref('darwinoplib','consts')
-            consts = eval(getpref('darwinoplib','consts'));
-        else
-            consts = darwinop_consts;
-        end
-    catch
-        consts = darwinop_consts;
-    end 
 end
 
 function LoadFigure(f)

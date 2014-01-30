@@ -16,7 +16,7 @@ disp('DarwinOP Target Path Setup Complete.');
 blockspath = fullfile(tgtpath, 'blocks');
 
 listing = dir(blockspath);
-ref = 'darwinop_consts';
+ref = 'darwinop_consts_';
 language_files = cell(0);
 languages = cell(0);
 i=1;
