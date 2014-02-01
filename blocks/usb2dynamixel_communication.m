@@ -84,16 +84,22 @@ if ~isreal(SampleTime) || ~isfloat(SampleTime) || (length(SampleTime) ~= 1)
     error('invalid sample time, it should be a floating point scalar');
 end
 
-if ~isreal(Frame) || ~isfloat(Frame)
-    error('invalid frame, it should be a floating point vector');
+if ~isempty(Frame)
+    if ~isreal(Frame) || ~isfloat(Frame)
+        error('invalid frame, it should be a floating point vector');
+    end
 end
 
-if ~isreal(ReadIndex) || ~isfloat(ReadIndex) || (size(ReadIndex,2) ~= 2)
-    error('invalid read index, it should be a floating point matrix');
+if ~isempty(ReadIndex)
+    if ~isreal(ReadIndex) || ~isfloat(ReadIndex) || (size(ReadIndex,2) ~= 2)
+        error('invalid read index, it should be a floating point matrix');
+    end
 end
 
-if ~isreal(WriteIndex) || ~isfloat(WriteIndex) || (size(WriteIndex,2) ~= 2)
-    error('invalid read index, it should be a floating point matrix');
+if ~isempty(WriteIndex)
+    if ~isreal(WriteIndex) || ~isfloat(WriteIndex) || (size(WriteIndex,2) ~= 2)
+        error('invalid read index, it should be a floating point matrix');
+    end
 end
 
 end
