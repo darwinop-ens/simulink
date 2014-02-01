@@ -8,6 +8,7 @@ addpath(fullfile(tgtpath, 'darwinoplib'));
 addpath(fullfile(tgtpath, 'blocks'));
 addpath(fullfile(tgtpath, 'darwinoplibdemos'));
 addpath(fullfile(tgtpath, 'putty'));
+addpath(fullfile(tgtpath, 'findjobj'));
 
 savepath;
 

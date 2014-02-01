@@ -48,6 +48,40 @@ consts.mx28_fields = add_field(consts.mx28_fields,lang,46,1,'moving','AR');
 consts.mx28_fields = add_field(consts.mx28_fields,lang,47,1,'lock','ARW');
 consts.mx28_fields = add_field(consts.mx28_fields,lang,48,2,'punch','ARW');
 
+consts.rx24f_fields = {};
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,0,2,'model_number','AR');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,2,1,'firmware_version','AR');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,3,1,'ID','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,4,1,'baud_rate','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,5,1,'return_delay_time','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,6,2,'clockwise_limit','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,8,2,'counterclockwise_limit','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,11,1,'highest_temperature','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,12,1,'lowest_voltage','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,13,1,'highest_voltage','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,14,2,'max_torque','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,16,1,'status_return_level','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,17,1,'alarm_LED','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,18,1,'alarm_shutdown','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,24,1,'torque_enable','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,25,1,'LED','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,26,1,'clockwise_compliance_margin','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,27,1,'counterclockwise_compliance_margin','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,28,1,'clockwise_compliance_slope','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,29,1,'counterclockwise_compliance_slope','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,30,2,'goal_position','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,32,2,'moving_speed','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,34,2,'torque_limit','RW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,36,2,'current_position','R');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,38,2,'current_speed','R');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,40,2,'current_load','R');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,42,1,'current_voltage','AR');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,43,1,'current_temperature','AR');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,44,1,'registered','AR');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,46,1,'moving','AR');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,47,1,'lock','ARW');
+consts.rx24f_fields = add_field(consts.rx24f_fields,lang,48,2,'punch','RW');
+
 consts.cm730_fields = {};
 consts.cm730_fields = add_field(consts.cm730_fields,lang,0,2,'model_number','AR');
 consts.cm730_fields = add_field(consts.cm730_fields,lang,2,1,'firmware_version','AR');
@@ -178,7 +212,12 @@ consts.ids = add_id(consts.ids,lang,'right_foot',111,200,20);
 consts.ids = add_id(consts.ids,lang,'left_foot',112,265,20);
 consts.ids = add_id(consts.ids,lang,'vision',-1,225,380);
 
+consts.models = {};
+consts.models = add_model(consts.models,24,'RX24F');
+consts.models = add_model(consts.models,29,'MX28');
+
 consts.labels.darwinop_title = lang.darwinop_title_name;
+consts.labels.usb2dynamixel_title = lang.usb2dynamixel_title_name;
 consts.labels.label_read = lang.label_read_name;
 consts.labels.label_write = lang.label_write_name;
 consts.labels.label_selected_joint = lang.label_selected_joint_name;
@@ -192,6 +231,21 @@ consts.labels.label_protocol = lang.label_protocol_name;
 consts.labels.label_sample_time = lang.label_sample_time_name;
 consts.labels.label_advanced = lang.label_advanced_name;
 consts.labels.label_save_and_close = lang.label_save_and_close_name;
+consts.labels.label_com_port = lang.label_com_port_name;
+consts.labels.label_baud_rate = lang.label_baud_rate_name;
+consts.labels.label_auto_detect = lang.label_auto_detect_name;
+consts.labels.label_auto_detect_progress = lang.label_auto_detect_progress_name;
+consts.labels.label_new_node = lang.label_new_node_name;
+consts.labels.label_del_node = lang.label_del_node_name;
+consts.labels.label_replace_existing_node = lang.label_replace_existing_node_name;
+consts.labels.label_replace_existing_node2 = lang.label_replace_existing_node2_name;
+consts.labels.label_yes = lang.label_yes_name;
+consts.labels.label_no = lang.label_no_name;
+consts.labels.label_new_id = lang.label_new_id_name;
+consts.labels.label_invalid_id = lang.label_invalid_id_name;
+consts.labels.label_node_name = lang.label_node_name_name;
+consts.labels.label_ok = lang.label_ok_name;
+consts.labels.label_cancel = lang.label_cancel_name;
 
 end
 
@@ -227,4 +281,10 @@ ids{end+1} = struct('address', address, ...
                     'name', getfield(lang,[name '_name']), ...
                     'posx', posx, ...
                     'posy', posy); %#ok<GFLD>
+end
+
+function models = add_model(m, version, name)
+  models = m;
+  models{end+1} = struct('version_number', version, ...
+                         'name', name);
 end
