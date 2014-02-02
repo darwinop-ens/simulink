@@ -263,7 +263,6 @@ WriteIndex = block.DialogPrm(6).Data;
 global ComObjects;
 ComObj = ComObjects(block.Dwork(1).Data);
 StatusReturnLevels = block.Dwork(2).Data;
-disp(StatusReturnLevels);
 
 for i=1:size(WriteIndex,1)
     if WriteIndex(i,2) == 1
