@@ -437,13 +437,13 @@ function WriteRTW(block)
     OutputOperationAddress = zeros(1,OutputCount);
     OutputOperationSize = zeros(1,OutputCount);
     InternalInputCount = size(WriteIndex,1);
-    InternalInputOperationIndex = zeros(1,InputCount);
-    InternalInputOperationAddress = zeros(1,InputCount);
-    InternalInputOperationSize = zeros(1,InputCount);
+    InternalInputOperationIndex = zeros(1,InternalInputCount);
+    InternalInputOperationAddress = zeros(1,InternalInputCount);
+    InternalInputOperationSize = zeros(1,InternalInputCount);
     InternalOutputCount = size(ReadIndex,1);
-    InternalOutputOperationIndex = zeros(1,OutputCount);
-    InternalOutputOperationAddress = zeros(1,OutputCount);
-    InternalOutputOperationSize = zeros(1,OutputCount);
+    InternalOutputOperationIndex = zeros(1,InternalOutputCount);
+    InternalOutputOperationAddress = zeros(1,InternalOutputCount);
+    InternalOutputOperationSize = zeros(1,InternalOutputCount);
 
     i=1;
     OperationIndex = 1;
