@@ -46,8 +46,7 @@ block.DialogPrmsTunable = {'Nontunable','Nontunable','Nontunable','Nontunable','
 % No parallel queries
 block.SupportsMultipleExecInstances(false);
 
-% Specify if Accelerator should use TLC or call back into
-% M-file
+% Specify if Accelerator should use TLC or call back into M-file
 block.SetAccelRunOnTLC(false);
 
 block.RegBlockMethod('CheckParameters',          @CheckPrms);
@@ -66,11 +65,11 @@ end
 function CheckPrms(block)
 
 COMPort = block.DialogPrm(1).Data;
-BaudRate  = block.DialogPrm(2).Data;
-SampleTime   = block.DialogPrm(3).Data;
-Frame   = block.DialogPrm(4).Data;
-ReadIndex   = block.DialogPrm(5).Data;
-WriteIndex   = block.DialogPrm(6).Data;
+BaudRate = block.DialogPrm(2).Data;
+SampleTime = block.DialogPrm(3).Data;
+Frame = block.DialogPrm(4).Data;
+ReadIndex = block.DialogPrm(5).Data;
+WriteIndex = block.DialogPrm(6).Data;
 
 if ~isreal(COMPort) || ~ischar(COMPort) || (length(COMPort) <= 1)
     error('invalid COM port, it should be a string (eg. ''COM11'')');
@@ -116,8 +115,8 @@ function DoPostPropagationSetup(block)
 % Register all tunable parameters as runtime parameters.
 block.AutoRegRuntimePrms;
 
-% 1 internal state for holding tcp/udp object
 block.NumDWorks = 1;
+
 % 1 = COM port object
 block.Dwork(1).Usage = 'DState';
 block.Dwork(1).UsedAsDiscState = true;
@@ -136,11 +135,11 @@ if strcmp(get_param(gcs,'RTWCGKeepContext'),'on')
 end
 
 COMPort = block.DialogPrm(1).Data;
-BaudRate  = block.DialogPrm(2).Data;
-SampleTime   = block.DialogPrm(3).Data;
-%Frame   = block.DialogPrm(4).Data;
-%ReadIndex   = block.DialogPrm(5).Data;
-%WriteIndex   = block.DialogPrm(6).Data;
+BaudRate = block.DialogPrm(2).Data;
+SampleTime = block.DialogPrm(3).Data;
+%Frame = block.DialogPrm(4).Data;
+%ReadIndex = block.DialogPrm(5).Data;
+%WriteIndex = block.DialogPrm(6).Data;
 
 %InputBufferSize = max(sum(ReadIndex,2)) - 1;
 
@@ -233,7 +232,7 @@ try
             ReadFrame = fread(ComObj,6+n,'uint8');
             Data = [Data ReadFrame(6:(end-1))]; %#ok
             i = i+4;
-        else
+        elseif Frame(i) == 3
             % write frame
             n = Frame(i+3);
             WriteFrame = [255 255 Frame(i+1) (3+n) 3 Frame(i+2) Frame((i+4):(i+3+n)) 0];
@@ -241,6 +240,8 @@ try
             fwrite(ComObj,uint8(WriteFrame));
             ReadFrame = fread(ComObj,6); %#ok
             i = i+4+n;
+        else
+            error('USB2Dynamixel: invalid frame');
         end
     end
 catch
