@@ -115,7 +115,7 @@ function DoPostPropagationSetup(block)
 % Register all tunable parameters as runtime parameters.
 block.AutoRegRuntimePrms;
 
-block.NumDWorks = 1;
+block.NumDWorks = 2;
 
 % 1 = COM port object
 block.Dwork(1).Usage = 'DState';
@@ -124,6 +124,14 @@ block.Dwork(1).Dimensions = 1;
 block.Dwork(1).DatatypeID = 0; % double
 block.Dwork(1).Complexity = 'real';
 block.Dwork(1).Name = 'ComObj';
+
+% 2 = state for storing whether the node answers status return or not
+block.Dwork(2).Usage = 'DState';
+block.Dwork(2).UsedAsDiscState = true;
+block.Dwork(2).Dimensions = 256;
+block.Dwork(2).DatatypeID = 0; % double
+block.Dwork(2).Complexity = 'real';
+block.Dwork(2).Name = 'StatusReturn';
 
 end
 
@@ -137,7 +145,7 @@ end
 COMPort = block.DialogPrm(1).Data;
 BaudRate = block.DialogPrm(2).Data;
 SampleTime = block.DialogPrm(3).Data;
-%Frame = block.DialogPrm(4).Data;
+Frame = block.DialogPrm(4).Data;
 %ReadIndex = block.DialogPrm(5).Data;
 %WriteIndex = block.DialogPrm(6).Data;
 
@@ -161,17 +169,66 @@ if isempty(ComObjects)
     ComObjects = [ComObj]; %#ok
     block.Dwork(1).Data = 1;
 else
+    done = 0;
     for i = 1:length(ComObjects)
         if strcmp(ComObjects(i).Status,'closed')
             ComObjects(i) = ComObj;
             block.Dwork(1).Data = i;
-            return;
+            done = 1;
+            break;
         end
     end
-    ComObjects = [ComObjects ComObj];
-    block.Dwork(1).Data = length(ComObjects);
+    if done == 0
+        ComObjects = [ComObjects ComObj];
+        block.Dwork(1).Data = length(ComObjects);
+    end
 end
 
+Nodes = GetNodes(Frame);
+StatusReturnLevel = zeros(1,256);
+for i = 1:length(Nodes)
+    NodeID = Nodes(i);
+    StatusReturnLevel(NodeID) = NodeReadByte(ComObj,NodeID,16);
+end
+block.Dwork(2).Data = StatusReturnLevel;
+
+end
+
+function Nodes = GetNodes(Frame)
+Flags = zeros(1,256);
+i = 1;
+while i < length(Frame)
+    if Frame(i) == 2
+        % read frame
+        Flags(Frame(i+1)) = 1;
+        i = i+4;
+    elseif Frame(i) == 3
+        % write frame
+        Flags(Frame(i+1)) = 1;
+        i = i+4+Frame(i+3);
+    else
+        error('USB2Dynamixel: invalid frame');
+    end
+end
+Nodes = find(Flags);
+end
+
+function val = NodeReadByte(s,id,addr)
+ck = bitxor(bitand(id + 4 + 2 + addr + 1, 255), 255);
+fwrite(s,[255 255 id 4 2 addr 1 ck]);
+r = fread(s,7);
+if length(r) ~= 7
+    error('incorrect read length');
+end
+if bitxor(bitand(sum(r(3:6)),255),255) ~= r(7)
+    error('incorrect read checksum');
+end
+if (r(1) ~= 255) || (r(2) ~= 255) || (r(3) ~= id) || (r(4) ~= 3)
+    error('incorrect status packet');
+end
+%status = r(5);
+%dynamixel_check_status(status,id);
+val = r(6);
 end
 
 function SetInputPortSamplingMode(block, idx, mode)
@@ -205,6 +262,8 @@ WriteIndex = block.DialogPrm(6).Data;
 
 global ComObjects;
 ComObj = ComObjects(block.Dwork(1).Data);
+StatusReturnLevels = block.Dwork(2).Data;
+disp(StatusReturnLevels);
 
 for i=1:size(WriteIndex,1)
     if WriteIndex(i,2) == 1
@@ -223,22 +282,30 @@ Data = [];
 try
     i = 1;
     while i < length(Frame)
+        id = Frame(i+1);
+        StatusReturnLevel = StatusReturnLevels(id);
         if Frame(i) == 2
             % read frame
             n = Frame(i+3);
-            WriteFrame = [255 255 Frame(i+1) 4 2 Frame(i+2) n 0];
+            WriteFrame = [255 255 id 4 2 Frame(i+2) n 0];
             WriteFrame(end) = bitxor(bitand(sum(WriteFrame(3:end)),255),255);
             fwrite(ComObj,uint8(WriteFrame));
-            ReadFrame = fread(ComObj,6+n,'uint8');
-            Data = [Data ReadFrame(6:(end-1))]; %#ok
+            if StatusReturnLevel >= 1
+                ReadFrame = fread(ComObj,6+n,'uint8');
+                Data = [Data ReadFrame(6:(end-1))]; %#ok
+            else
+                Data = [Data zeros(1,n)]; %#ok
+            end
             i = i+4;
         elseif Frame(i) == 3
             % write frame
             n = Frame(i+3);
-            WriteFrame = [255 255 Frame(i+1) (3+n) 3 Frame(i+2) Frame((i+4):(i+3+n)) 0];
+            WriteFrame = [255 255 id (3+n) 3 Frame(i+2) Frame((i+4):(i+3+n)) 0];
             WriteFrame(end) = bitxor(bitand(sum(WriteFrame(3:end)),255),255);
             fwrite(ComObj,uint8(WriteFrame));
-            ReadFrame = fread(ComObj,6); %#ok
+            if StatusReturnLevel == 2
+                ReadFrame = fread(ComObj,6); %#ok
+            end
             i = i+4+n;
         else
             error('USB2Dynamixel: invalid frame');
