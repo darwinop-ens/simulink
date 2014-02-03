@@ -177,6 +177,8 @@ lang = add_translation1(lang,'label_invalid_id','ID incorrect, un nombre entier 
 lang = add_translation1(lang,'label_node_name','Type du nouveau noeud :');
 lang = add_translation1(lang,'label_ok','OK');
 lang = add_translation1(lang,'label_cancel','Annuler');
+lang = add_translation1(lang,'label_optimizations','Optimisations:');
+lang = add_translation1(lang,'label_status_return','Désact. les retours de statut');
 
 lang = add_translation2(lang,'low','%s (f)','%s (poids faible)');
 lang = add_translation2(lang,'high','%s (F)','%s (poids fort)');

@@ -15,6 +15,7 @@ values = get_param(block.BlockHandle,'MaskValues');
 % values{4} = Frame
 % values{5} = ReadIndex
 % values{6} = WriteIndex
+% values{7} = DisableStatusReturn
 
 block.NumInputPorts = size(eval(values{6}),1);
 block.NumOutputPorts = size(eval(values{5}),1);
@@ -40,8 +41,8 @@ for i = 1:block.NumOutputPorts
     block.OutputPort(i).SampleTime = [eval(values{3}) 0];
 end
 
-block.NumDialogPrms     = 6;
-block.DialogPrmsTunable = {'Nontunable','Nontunable','Nontunable','Nontunable','Nontunable','Nontunable'};
+block.NumDialogPrms     = 7;
+block.DialogPrmsTunable = {'Nontunable','Nontunable','Nontunable','Nontunable','Nontunable','Nontunable','Nontunable'};
 
 % No parallel queries
 block.SupportsMultipleExecInstances(false);
@@ -70,6 +71,7 @@ SampleTime = block.DialogPrm(3).Data;
 Frame = block.DialogPrm(4).Data;
 ReadIndex = block.DialogPrm(5).Data;
 WriteIndex = block.DialogPrm(6).Data;
+DisableStatusReturn = block.DialogPrm(7).Data;
 
 if ~isreal(COMPort) || ~ischar(COMPort) || (length(COMPort) <= 1)
     error('invalid COM port, it should be a string (eg. ''COM11'')');
@@ -101,6 +103,10 @@ if ~isempty(WriteIndex)
     end
 end
 
+if ~isreal(DisableStatusReturn) || ~isfloat(DisableStatusReturn) || (length(DisableStatusReturn) ~= 1)
+    error('invalid disable status return, it should be a floating point scalar');
+end
+
 end
 
 function ProcessPrms(block)
@@ -115,7 +121,7 @@ function DoPostPropagationSetup(block)
 % Register all tunable parameters as runtime parameters.
 block.AutoRegRuntimePrms;
 
-block.NumDWorks = 2;
+block.NumDWorks = 3;
 
 % 1 = COM port object
 block.Dwork(1).Usage = 'DState';
@@ -125,13 +131,21 @@ block.Dwork(1).DatatypeID = 0; % double
 block.Dwork(1).Complexity = 'real';
 block.Dwork(1).Name = 'ComObj';
 
-% 2 = state for storing whether the node answers status return or not
+% 2 = state for storing node status return level
 block.Dwork(2).Usage = 'DState';
 block.Dwork(2).UsedAsDiscState = true;
 block.Dwork(2).Dimensions = 256;
 block.Dwork(2).DatatypeID = 0; % double
 block.Dwork(2).Complexity = 'real';
 block.Dwork(2).Name = 'StatusReturn';
+
+% 3 = state for storing old node status return level
+block.Dwork(3).Usage = 'DState';
+block.Dwork(3).UsedAsDiscState = true;
+block.Dwork(3).Dimensions = 256;
+block.Dwork(3).DatatypeID = 0; % double
+block.Dwork(3).Complexity = 'real';
+block.Dwork(3).Name = 'OldStatusReturn';
 
 end
 
@@ -148,6 +162,7 @@ SampleTime = block.DialogPrm(3).Data;
 Frame = block.DialogPrm(4).Data;
 %ReadIndex = block.DialogPrm(5).Data;
 %WriteIndex = block.DialogPrm(6).Data;
+DisableStatusReturn = block.DialogPrm(7).Data;
 
 %InputBufferSize = max(sum(ReadIndex,2)) - 1;
 
@@ -186,11 +201,20 @@ end
 
 Nodes = GetNodes(Frame);
 StatusReturnLevel = zeros(1,256);
+OldStatusReturnLevel = zeros(1,256);
 for i = 1:length(Nodes)
     NodeID = Nodes(i);
-    StatusReturnLevel(NodeID) = NodeReadByte(ComObj,NodeID,16);
+    val = NodeReadByte(ComObj,NodeID,16);
+    if (val == 2) && DisableStatusReturn
+        OldStatusReturnLevel(NodeID) = val;
+        NodeWriteByte(ComObj,NodeID,16,1);
+        StatusReturnLevel(NodeID) = 1;
+    else
+        StatusReturnLevel(NodeID) = val;
+    end
 end
 block.Dwork(2).Data = StatusReturnLevel;
+block.Dwork(3).Data = OldStatusReturnLevel;
 
 end
 
@@ -229,6 +253,12 @@ end
 %status = r(5);
 %dynamixel_check_status(status,id);
 val = r(6);
+end
+
+function NodeWriteByte(s,id,addr,val)
+ck = bitxor(bitand(id + 4 + 3 + addr + val, 255), 255);
+fwrite(s,[255 255 id 4 3 addr val ck]);
+%dynamixel_read_check_status(s,id);
 end
 
 function SetInputPortSamplingMode(block, idx, mode)
@@ -331,6 +361,17 @@ function Terminate(block)
     global ComObjects;
     if block.Dwork(1).Data > 0
         ComObj = ComObjects(block.Dwork(1).Data);
+
+        % restore old status return level
+        OldStatusReturnLevels = block.Dwork(3).Data;
+        for id = 1:length(OldStatusReturnLevels)
+            OldStatusReturnLevel = OldStatusReturnLevels(id);
+            if OldStatusReturnLevel ~= 0
+                NodeWriteByte(ComObj,id,16,OldStatusReturnLevel);
+            end
+        end
+
+        % close communication port
         try
             fclose(ComObj);
         catch

@@ -246,6 +246,8 @@ consts.labels.label_invalid_id = lang.label_invalid_id_name;
 consts.labels.label_node_name = lang.label_node_name_name;
 consts.labels.label_ok = lang.label_ok_name;
 consts.labels.label_cancel = lang.label_cancel_name;
+consts.labels.label_optimizations = lang.label_optimizations_name;
+consts.labels.label_status_return = lang.label_status_return_name;
 
 end
 

@@ -177,6 +177,8 @@ lang = add_translation1(lang,'label_invalid_id','Invalid ID, expecting a scalar 
 lang = add_translation1(lang,'label_node_name','Select node type:');
 lang = add_translation1(lang,'label_ok','OK');
 lang = add_translation1(lang,'label_cancel','Cancel');
+lang = add_translation1(lang,'label_optimizations','Optimizations:');
+lang = add_translation1(lang,'label_status_return','Disable status return packets');
 
 lang = add_translation2(lang,'low','%s (L)','Lowest byte of %s');
 lang = add_translation2(lang,'high','%s (H)','Highest byte of %s');
