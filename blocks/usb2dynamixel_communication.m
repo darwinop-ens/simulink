@@ -30,7 +30,7 @@ for i = 1:block.NumInputPorts
     block.InputPort(i).Complexity  = 'Real';
     block.InputPort(i).SamplingMode = 'Sample'; % sample based
     block.InputPort(i).SampleTime = [-1 0];
-    block.InputPort(i).DirectFeedthrough = false;
+    block.InputPort(i).DirectFeedthrough = true;
 end
 
 % Override output port properties
