@@ -166,36 +166,49 @@ DisableStatusReturn = block.DialogPrm(7).Data;
 
 %InputBufferSize = max(sum(ReadIndex,2)) - 1;
 
-ComObj = serial(COMPort);
-ComObj.BaudRate = BaudRate;
-ComObj.DataBits = 8;
-ComObj.Parity = 'none';
-ComObj.StopBits = 1;
-ComObj.Timeout = SampleTime;
-
-try
-    fopen(ComObj);
-catch
-    error('USB2Dynamixel communication error: failed to open the COM Port');
-end
-
 global ComObjects;
-if isempty(ComObjects)
-    ComObjects = [ComObj]; %#ok
-    block.Dwork(1).Data = 1;
-else
-    done = 0;
+done = 0;
+if ~isempty(ComObjects)
     for i = 1:length(ComObjects)
-        if strcmp(ComObjects(i).Status,'closed')
-            ComObjects(i) = ComObj;
-            block.Dwork(1).Data = i;
+        ComObj = ComObjects(i);
+        if strcmp(ComObj.Port, COMPort) && strcmp(ComObj.Status,'open')
             done = 1;
+            block.Dwork(1).Data = i;
             break;
         end
     end
-    if done == 0
-        ComObjects = [ComObjects ComObj];
-        block.Dwork(1).Data = length(ComObjects);
+end
+
+if done == 0
+    ComObj = serial(COMPort);
+    ComObj.BaudRate = BaudRate;
+    ComObj.DataBits = 8;
+    ComObj.Parity = 'none';
+    ComObj.StopBits = 1;
+    ComObj.Timeout = SampleTime;
+
+    try
+        fopen(ComObj);
+    catch
+        error('USB2Dynamixel communication error: failed to open the COM Port');
+    end
+
+    if isempty(ComObjects)
+        ComObjects = [ComObj]; %#ok
+        block.Dwork(1).Data = 1;
+    else
+        for i = 1:length(ComObjects)
+            if strcmp(ComObjects(i).Status,'closed')
+                ComObjects(i) = ComObj;
+                block.Dwork(1).Data = i;
+                done = 1;
+                break;
+            end
+        end
+        if done == 0
+            ComObjects = [ComObjects ComObj];
+            block.Dwork(1).Data = length(ComObjects);
+        end
     end
 end
 
@@ -361,23 +374,29 @@ function Terminate(block)
     global ComObjects;
     if block.Dwork(1).Data > 0
         ComObj = ComObjects(block.Dwork(1).Data);
-
-        % restore old status return level
         OldStatusReturnLevels = block.Dwork(3).Data;
-        for id = 1:length(OldStatusReturnLevels)
-            OldStatusReturnLevel = OldStatusReturnLevels(id);
-            if OldStatusReturnLevel ~= 0
-                NodeWriteByte(ComObj,id,16,OldStatusReturnLevel);
+
+        if strcmp(ComObj.Status,'closed')&&~isempty(find(OldStatusReturnLevels,1))
+            fopen(ComObj);
+        
+            % restore old status return level
+            for id = 1:length(OldStatusReturnLevels)
+                OldStatusReturnLevel = OldStatusReturnLevels(id);
+                if OldStatusReturnLevel ~= 0
+                    NodeWriteByte(ComObj,id,16,OldStatusReturnLevel);
+                end
             end
         end
 
-        % close communication port
-        try
-            fclose(ComObj);
-        catch
-            error('USB2Dynamixel communication error: failed to close the communication');
+        if strcmp(ComObj.Status,'open')
+            % close communication port
+            try
+                fclose(ComObj);
+            catch
+                error('USB2Dynamixel communication error: failed to close the communication');
+            end
+            ComObjects(block.Dwork(1).Data) = ComObj;
         end
-        ComObjects(block.Dwork(1).Data) = ComObj;
     end
 end
 
