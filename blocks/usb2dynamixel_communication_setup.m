@@ -254,6 +254,8 @@ data.disable_status_return_checkbox = uicontrol(data.optimizations_panel, ...
                                                 'Style','checkbox', ...
                                                 'String',data.consts.labels.label_status_return, ...
                                                 'Value',0, ...
+                                                'Max',1, ...
+                                                'Min',0, ...
                                                 'Units','pixels', ...
                                                 'Position',[10,130,160,14], ...
                                                 'Callback',@callback_checkbox_advanced);
@@ -296,7 +298,7 @@ end
 if isempty(values{3})
     values{3} = '0.5';
 end
-if (length(values) <= 7) || isempty(values{7})
+if (length(values) < 7) || isempty(values{7})
     values{7} = 0;
 end
 
@@ -304,7 +306,8 @@ comport = values{1};
 set(data.comport_edit,'String',comport(2:(end-1)));
 set(data.baudrate_edit,'String',values{2});
 set(data.sampletime_edit,'String',values{3});
-set(data.disable_status_return_checkbox,'Value',values{7});
+disp(values{7});
+set(data.disable_status_return_checkbox,'Value',str2double(values{7}));
 
 block_user_data = get_param(hBlk,'UserData');
 if isempty(block_user_data) || ~isfield(block_user_data,'nodes')
