@@ -417,10 +417,12 @@ function WriteRTW(block)
     OperationCount = 0;
     i=1;
     while (i<=length(Frame))
-        if Frame(i) == 2
+        if (Frame(i) == 2) || (Frame(i) == 17)
             i = i+4;
-        else
+        elseif (Frame(i) == 3) || (Frame(i) == 18)
             i = i+4+Frame(i+3);
+        else
+            error('unknown instruction %d', Frame(i));
         end
         OperationCount = OperationCount + 1;
     end
