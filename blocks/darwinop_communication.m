@@ -236,6 +236,42 @@ function StartInstrumentation
     disp('### connecting to darwin');
     ssh_proc = ssh_pb.start();
     ssh_os = java.io.PrintWriter(ssh_proc.getOutputStream());
+
+    ssh_wait_ready(ssh_proc, -DarwinOPTimeout);
+
+    % configure remote shell
+    disp('### accepting RSA key');
+    ssh_os.write(['y', ...
+                  new_line]);
+    ssh_os.flush();
+    
+    ssh_wait_ready(ssh_proc, -DarwinOPTimeout);
+
+    % close SSH connection
+    disp('### closing connection');
+    ssh_os.write(['exit', ...
+                  new_line]);
+    ssh_os.flush();
+    ssh_wait_ready(ssh_proc, -DarwinOPTimeout);
+    % wait for the plink process to terminate
+    ssh_proc.waitFor();
+    disp('### ok');
+  catch me
+    if ssh_proc ~= [] %#ok
+      ssh_proc.destroy();
+    end
+    rethrow(me);
+  end
+  
+  % initialize ssh process
+  ssh_pb = java.lang.ProcessBuilder(sshCmd);
+  ssh_pb.redirectErrorStream(true);
+
+  try
+    % start ssh process
+    disp('### connecting to darwin');
+    ssh_proc = ssh_pb.start();
+    ssh_os = java.io.PrintWriter(ssh_proc.getOutputStream());
     ssh_wait_ready(ssh_proc, DarwinOPTimeout);
 
     % configure remote shell
@@ -306,7 +342,7 @@ function ssh_wait_ready(ssh_proc, timeout)
   % time reference
   tic;
   % check for timeout
-  while toc < timeout
+  while toc < abs(timeout)
     if ssh_is.available()
       c = ssh_is.read();
       if c == 36 % '$'
@@ -319,7 +355,9 @@ function ssh_wait_ready(ssh_proc, timeout)
     end
   end
   disp('### SSH command timeout');
-  error('SSH command timeout');
+  if timeout > 0
+    error('SSH command timeout');
+  end
 end
 
 function SetInputPortSamplingMode(block, idx, mode)
