@@ -1,0 +1,3305 @@
+Model {
+  Name			  "sequential"
+  Version		  7.7
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    0
+    NumRootOutports	    0
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.77"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  MaxMDLFileLineLength	  120
+  Created		  "Mon May 05 12:20:32 2014"
+  Creator		  "eleve"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "eleve"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Fri Jul 18 12:17:43 2014"
+  RTWModifiedTimeStamp	  327586663
+  ModelVersionFormat	  "1.%<AutoIncrement:77>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  Object {
+    $PropName		    "DataLoggingOverride"
+    $ObjectID		    7
+    $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
+    model_		    "sequential"
+    overrideMode_	    [0.0]
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      "sequential"
+      PropName		      "logAsSpecifiedByModels_"
+    }
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      []
+      PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
+  }
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  off
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      8
+      Version		      "1.11.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  9
+	  Version		  "1.11.0"
+	  StartTime		  "0.0"
+	  StopTime		  "inf"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  ConcurrentTasks	  off
+	  Solver		  "FixedStepDiscrete"
+	  SolverName		  "FixedStepDiscrete"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  10
+	  Version		  "1.11.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "Dataset"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  11
+	  Version		  "1.11.0"
+	  BlockReduction	  off
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  off
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  128
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode on
+	  LifeSpan		  "Inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	  ParallelExecutionInRapidAccelerator on
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  12
+	  Version		  "1.11.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "none"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "none"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Enable All"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "none"
+	  UnconnectedOutputMsg	  "none"
+	  UnconnectedLineMsg	  "none"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  13
+	  Version		  "1.11.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "LittleEndian"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "Generic->32-bit Embedded Processor"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  14
+	  Version		  "1.11.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  15
+	  Version		  "1.11.0"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  16
+	  Version		  "1.11.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    1
+	    Cell		    "TargetLang"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "darwinoplib.tlc"
+	  GenCodeOnly		  on
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "darwinoplib.tmf"
+	  Description		  "DarwinOP code generator"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  "darwinoplib_make_rtw_hook"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C++"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateCodeMetricsReport off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      17
+	      Version		      "1.11.0"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses off
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M_T"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.STFCustomTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      18
+	      Version		      "1.11.0"
+	      Array {
+		Type			"Cell"
+		Dimension		2
+		Cell			"GenerateSampleERTMain"
+		Cell			"ModelReferenceCompliant"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      TargetFunctionLibrary   "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant off
+	      CompOptLevelCompliant   off
+	      ConcurrentExecutionCompliant off
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Use local settings"
+	      CombineOutputUpdateFcns on
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    on
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      off
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   off
+	      SupportNonInlinedSFcns  off
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      SystemTargetFile	      "darwinoplib.tlc"
+	      DialogCategory	      0
+	      Array {
+		Type			"Handle"
+		Dimension		1
+		Simulink.ERTTargetCC {
+		  $BackupClass		  "Simulink.TargetCC"
+		  $ObjectID		  19
+		  Version		  "1.13.0"
+		  Array {
+		    Type		    "Cell"
+		    Dimension		    2
+		    Cell		    "GenerateSampleERTMain"
+		    Cell		    "ModelReferenceCompliant"
+		    PropName		    "DisabledProps"
+		  }
+		  TargetFcnLib		  "ansi_tfl_table_tmw.mat"
+		  TargetLibSuffix	  ""
+		  TargetPreCompLibLocation ""
+		  TargetFunctionLibrary	  "ANSI_C"
+		  UtilityFuncGeneration	  "Auto"
+		  ERTMultiwordTypeDef	  "System defined"
+		  ERTMultiwordLength	  256
+		  MultiwordLength	  2048
+		  GenerateFullHeader	  on
+		  GenerateSampleERTMain	  off
+		  GenerateTestInterfaces  off
+		  IsPILTarget		  off
+		  ModelReferenceCompliant on
+		  ParMdlRefBuildCompliant off
+		  CompOptLevelCompliant	  off
+		  IncludeMdlTerminateFcn  on
+		  GeneratePreprocessorConditionals "Use local settings"
+		  CombineOutputUpdateFcns on
+		  CombineSignalStateStructs off
+		  SuppressErrorStatus	  off
+		  ERTFirstTimeCompliant	  off
+		  IncludeFileDelimiter	  "Auto"
+		  ERTCustomFileBanners	  on
+		  SupportAbsoluteTime	  on
+		  LogVarNameModifier	  "rt_"
+		  MatFileLogging	  off
+		  MultiInstanceERTCode	  off
+		  SupportNonFinite	  on
+		  SupportComplex	  on
+		  PurelyIntegerCode	  off
+		  SupportContinuousTime	  off
+		  SupportNonInlinedSFcns  off
+		  SupportVariableSizeSignals off
+		  EnableShiftOperators	  on
+		  ParenthesesLevel	  "Nominal"
+		  ModelStepFunctionPrototypeControlCompliant off
+		  CPPClassGenCompliant	  off
+		  AutosarCompliant	  off
+		  GRTInterface		  off
+		  GenerateASAP2		  off
+		  ExtMode		  off
+		  ExtModeTransport	  0
+		  ExtModeStaticAlloc	  off
+		  ExtModeStaticAllocSize  1000000
+		  ExtModeTesting	  off
+		  ExtModeMexFile	  "ext_comm"
+		  ExtModeIntrfLevel	  "Level1"
+		  InlinedParameterPlacement "NonHierarchical"
+		  TargetOS		  "BareBoardExample"
+		  MultiInstanceErrorCode  "Error"
+		  RateGroupingCode	  on
+		  RootIOFormat		  "Individual arguments"
+		  RTWCAPISignals	  off
+		  RTWCAPIParams		  off
+		  RTWCAPIStates		  off
+		  RTWCAPIRootIO		  off
+		  ERTSrcFileBannerTemplate "ert_code_template.cgt"
+		  ERTHdrFileBannerTemplate "ert_code_template.cgt"
+		  ERTDataSrcFileTemplate  "ert_code_template.cgt"
+		  ERTDataHdrFileTemplate  "ert_code_template.cgt"
+		  ERTCustomFileTemplate	  "darwinoplib_main.tlc"
+		  ModuleNamingRule	  "Unspecified"
+		  SignalDisplayLevel	  10
+		  ParamTuneLevel	  10
+		  GlobalDataDefinition	  "Auto"
+		  DataDefinitionFile	  "global.c"
+		  GlobalDataReference	  "Auto"
+		  ERTFilePackagingFormat  "Modular"
+		  DataReferenceFile	  "global.h"
+		  PreserveExpressionOrder off
+		  PreserveIfCondition	  off
+		  ConvertIfToSwitch	  off
+		  PreserveExternInFcnDecls on
+		  SuppressUnreachableDefaultCases off
+		  EnableUserReplacementTypes off
+		  Array {
+		    Type		    "Struct"
+		    Dimension		    1
+		    MATStruct {
+		    double		    ""
+		    single		    ""
+		    int32		    ""
+		    int16		    ""
+		    int8		    ""
+		    uint32		    ""
+		    uint16		    ""
+		    uint8		    ""
+		    boolean		    ""
+		    int			    ""
+		    uint		    ""
+		    char		    ""
+		    }
+		    PropName		    "ReplacementTypes"
+		  }
+		  MemSecPackage		  "--- None ---"
+		  MemSecDataConstants	  "Default"
+		  MemSecDataIO		  "Default"
+		  MemSecDataInternal	  "Default"
+		  MemSecDataParameters	  "Default"
+		  MemSecFuncInitTerm	  "Default"
+		  MemSecFuncExecute	  "Default"
+		  MemSecFuncSharedUtil	  "Default"
+		  GenerateErtSFunction	  off
+		  CreateSILPILBlock	  "None"
+		  PortableWordSizes	  off
+		  CodeExecutionProfiling  off
+		  CodeExecutionProfileVariable "executionProfile"
+		  CodeProfilingSaveOptions "SummaryOnly"
+		  CodeProfilingInstrumentation off
+		}
+		PropName		"Components"
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"DarwinOPIP"
+		Value			"192.168.123.1"
+	      }
+	      CustomProperty {
+		DataType		"int32"
+		Name			"DarwinOPPort"
+		Value			22
+	      }
+	      CustomProperty {
+		DataType		"int32"
+		Name			"DarwinOPTimeout"
+		Value			15
+	      }
+	      CustomProperty {
+		DataType		"int32"
+		Name			"DarwinOPDisconnect"
+		Value			2
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"DarwinOPUser"
+		Value			"darwin"
+	      }
+	      CustomProperty {
+		DataType		"int32"
+		Name			"DarwinOPPassword"
+		Value			111111
+	      }
+	      CustomProperty {
+		DataType		"string"
+		Name			"DarwinOPWork"
+		Value			"/darwin/Linux/Simulink"
+	      }
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
+      CurrentDlgPage	      "Code Generation/DarwinOP options"
+      ConfigPrmDlgPosition    [ 173, 234, 1281, 718 ]  
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    8
+  }
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParamDataTypeStr	      "Inherit: Same as input"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Logic
+      Operator		      "AND"
+      Inputs		      "2"
+      IconShape		      "rectangular"
+      AllPortsSameDT	      on
+      OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      M-S-Function
+      FunctionName	      "matlabfile"
+      DisplayMFileStacktrace  on
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      S-Function
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Terminator
+    }
+  }
+  System {
+    Name		    "sequential"
+    Location		    [215, 169, 1601, 913]
+    Open		    off
+    ModelBrowserVisibility  on
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "A4"
+    PaperUnits		    "centimeters"
+    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "189"
+    Block {
+      BlockType		      SubSystem
+      Name		      "Blue Detection"
+      SID		      "155"
+      Ports		      [2, 1]
+      Position		      [1370, 510, 1450, 545]
+      ZOrder		      132
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Blue Detection"
+	Location		[-8, 0, 1374, 744]
+	Open			off
+	ModelBrowserVisibility	on
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In X"
+	  SID			  "156"
+	  Position		  [35, 98, 65, 112]
+	  ZOrder		  26
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "In Y"
+	  SID			  "157"
+	  Position		  [35, 238, 65, 252]
+	  ZOrder		  30
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator"
+	  SID			  "158"
+	  Ports			  [2, 1]
+	  Position		  [260, 162, 290, 193]
+	  ZOrder		  32
+	  AllPortsSameDT	  off
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "X Detect"
+	  SID			  "159"
+	  Ports			  [1, 1]
+	  Position		  [145, 90, 195, 120]
+	  ZOrder		  33
+	  LibraryVersion	  "1.274"
+	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+	  SourceType		  "Compare To Constant"
+	  relop			  "<="
+	  const			  "320.0"
+	  LogicOutDataTypeMode	  "boolean"
+	  ZeroCross		  on
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "X Detect1"
+	  SID			  "160"
+	  Ports			  [1, 1]
+	  Position		  [145, 230, 195, 260]
+	  ZOrder		  34
+	  LibraryVersion	  "1.274"
+	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+	  SourceType		  "Compare To Constant"
+	  relop			  "<="
+	  const			  "240.0"
+	  LogicOutDataTypeMode	  "boolean"
+	  ZeroCross		  on
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Detected"
+	  SID			  "161"
+	  Position		  [335, 173, 365, 187]
+	  ZOrder		  27
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator"
+	  SrcPort		  1
+	  DstBlock		  "Detected"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "X Detect"
+	  SrcPort		  1
+	  Points		  [27, 0; 0, 65]
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "X Detect1"
+	  SrcPort		  1
+	  Points		  [27, 0; 0, -60]
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "In Y"
+	  SrcPort		  1
+	  DstBlock		  "X Detect1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In X"
+	  SrcPort		  1
+	  DstBlock		  "X Detect"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Blue Display"
+      SID		      "154"
+      Ports		      [1]
+      Position		      [1525, 515, 1570, 545]
+      ZOrder		      133
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Center position"
+      SID		      "181"
+      Position		      [790, 335, 820, 365]
+      ZOrder		      141
+      Value		      "2048"
+    }
+    Block {
+      BlockType		      M-S-Function
+      Name		      "DarwinOP communication"
+      SID		      "2"
+      Ports		      [13, 10]
+      Position		      [890, 251, 1345, 579]
+      ZOrder		      18
+      UserDataPersistent      on
+      UserData		      "DataTag0"
+      DeleteFcn		      "darwinop_communication_setup('DeleteFcn');"
+      ModelCloseFcn	      "darwinop_communication_setup('ModelCloseFcn');"
+      StartFcn		      "darwinop_communication_setup('StartFcn');"
+      StopFcn		      "darwinop_communication_setup('StopFcn');"
+      NameChangeFcn	      "darwinop_communication_setup('NameChangeFcn');"
+      OpenFcn		      "darwinop_communication_setup('OpenFcn');"
+      FunctionName	      "darwinop_communication"
+      Parameters	      "IP,Port,Protocol,SampleTime,Frame,ReadIndex,WriteIndex"
+      MaskPromptString	      "IP|Port|Protocol|SampleTime|Frame|ReadIndex|WriteIndex"
+      MaskStyleString	      "edit,edit,popup(tcp|udp),edit,edit,edit,edit"
+      MaskVariables	      "IP=&1;Port=@2;Protocol=@3;SampleTime=@4;Frame=@5;ReadIndex=@6;WriteIndex=@7;"
+      MaskTunableValueString  "on,on,on,on,on,on,on"
+      MaskCallbackString      "||||||"
+      MaskEnableString	      "on,on,on,on,on,on,on"
+      MaskVisibilityString    "on,on,on,on,on,on,on"
+      MaskToolTipString	      "on,on,on,on,on,on,on"
+      MaskSelfModifiable      on
+      MaskDisplay	      "image(imread('darwin-blk.jpg'))                                      \n                      "
+      "                                       \nport_label('output',1,'Right Shoulder Pitch(1)/Position')    \nport_lab"
+      "el('output',2,'Left Shoulder Pitch(2)/Moving')       \nport_label('output',3,'Head Pan(19)/Moving')             "
+      "    \nport_label('output',4,'Head Tilt(20)/Moving')                \nport_label('output',5,'Vision(1)/Red X')   "
+      "                  \nport_label('output',6,'Vision(1)/Red Y')                     \nport_label('output',7,'Vision"
+      "(1)/Yellow X')                  \nport_label('output',8,'Vision(1)/Yellow Y')                  \nport_label('out"
+      "put',9,'Vision(1)/Blue X')                    \nport_label('output',10,'Vision(1)/Blue Y')                   \n "
+      "                                                            \nport_label('input',1,'Right Shoulder Pitch(1)/Torq"
+      "ue Enable')\nport_label('input',2,'Left Shoulder Pitch(2)/Goal Position') \nport_label('input',3,'Right Shoulder"
+      " Roll(3)/Goal Position') \nport_label('input',4,'Left Shoulder Roll(4)/Goal Position')  \nport_label('input',5,'"
+      "Right Elbow(5)/Goal Position')         \nport_label('input',6,'Left Elbow(6)/Goal Position')          \nport_lab"
+      "el('input',7,'Head Pan(19)/Goal Position')           \nport_label('input',8,'Head Tilt(20)/Goal Position')      "
+      "    \nport_label('input',9,'Sub controller(200)/LED Eye')          \nport_label('input',10,'Vision(1)/Enable')  "
+      "                  \nport_label('input',11,'Vision(1)/Red Enable')                \nport_label('input',12,'Vision"
+      "(1)/Yellow enable')             \nport_label('input',13,'Vision(1)/Blue enable')               "
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "192.168.123.1|1234|tcp|0.05|[ 2 1 36 2 3 1 24 1 0 2 2 46 1 3 2 30 2 0 0 3 3 30 2 0 0 3 4 "
+      "30 2 0 0 3 5 30 2 0 0 3 6 30 2 0 0 2 19 46 1 3 19 30 2 0 0 2 20 46 1 3 20 30 2 0 0 3 200 28 2 0 0 17 1 50 4 17 1"
+      " 70 4 17 1 90 4 18 1 1 1 0 18 1 3 3 0 0 0]|[ 1 2;3 1;4 1;5 1;6 2;8 2;10 2;12 2;14 2;16 2]|[ 9 1;18 2;24 2;30 2;3"
+      "6 2;42 2;52 2;62 2;68 2;86 1;91 1;92 1;93 1]"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "ID19 position Delay"
+      SID		      "186"
+      Ports		      [1, 1]
+      Position		      [720, 373, 755, 407]
+      ZOrder		      146
+      LibraryVersion	      "1.1"
+      UserDataPersistent      on
+      UserData		      "DataTag1"
+      SourceBlock	      "simulink/Discrete/Integer Delay"
+      SourceType	      "Integer Delay"
+      NumDelays		      "1"
+      InputProcessing	      "Elements as channels (sample based)"
+      vinit		      "2048"
+      samptime		      "-1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "ID2 position Delay"
+      SID		      "187"
+      Ports		      [1, 1]
+      Position		      [720, 273, 755, 307]
+      ZOrder		      147
+      LibraryVersion	      "1.1"
+      UserDataPersistent      on
+      UserData		      "DataTag2"
+      SourceBlock	      "simulink/Discrete/Integer Delay"
+      SourceType	      "Integer Delay"
+      NumDelays		      "1"
+      InputProcessing	      "Elements as channels (sample based)"
+      vinit		      "2048"
+      samptime		      "-1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "ID20 position Delay"
+      SID		      "188"
+      Ports		      [1, 1]
+      Position		      [720, 423, 755, 457]
+      ZOrder		      148
+      LibraryVersion	      "1.1"
+      UserDataPersistent      on
+      UserData		      "DataTag3"
+      SourceBlock	      "simulink/Discrete/Integer Delay"
+      SourceType	      "Integer Delay"
+      NumDelays		      "1"
+      InputProcessing	      "Elements as channels (sample based)"
+      vinit		      "2048"
+      samptime		      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "LED Color"
+      SID		      "174"
+      Ports		      [3, 1]
+      Position		      [630, 550, 690, 620]
+      ZOrder		      138
+      BlockRotation	      270
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"LED Color"
+	Location		[-8, 0, 1374, 744]
+	Open			off
+	ModelBrowserVisibility	on
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Red"
+	  SID			  "175"
+	  Position		  [20, 28, 50, 42]
+	  ZOrder		  128
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Green"
+	  SID			  "176"
+	  Position		  [20, 88, 50, 102]
+	  ZOrder		  129
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Blue"
+	  SID			  "177"
+	  Position		  [20, 153, 50, 167]
+	  ZOrder		  130
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add"
+	  SID			  "133"
+	  Ports			  [3, 1]
+	  Position		  [150, 79, 180, 111]
+	  ZOrder		  123
+	  Inputs		  "+++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Eye Blue\nOffset"
+	  SID			  "135"
+	  Position		  [85, 145, 115, 175]
+	  ZOrder		  127
+	  Gain			  "1024"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Eye Green\nOffset"
+	  SID			  "137"
+	  Position		  [85, 80, 115, 110]
+	  ZOrder		  125
+	  Gain			  "32"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Eye Red\nOffset"
+	  SID			  "139"
+	  Position		  [85, 20, 115, 50]
+	  ZOrder		  122
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Color"
+	  SID			  "178"
+	  Position		  [200, 88, 230, 102]
+	  ZOrder		  131
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Red"
+	  SrcPort		  1
+	  DstBlock		  "Eye Red\nOffset"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Eye Green\nOffset"
+	  SrcPort		  1
+	  DstBlock		  "Add"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Eye Blue\nOffset"
+	  SrcPort		  1
+	  Points		  [12, 0; 0, -55]
+	  DstBlock		  "Add"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Green"
+	  SrcPort		  1
+	  DstBlock		  "Eye Green\nOffset"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Blue"
+	  SrcPort		  1
+	  DstBlock		  "Eye Blue\nOffset"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Eye Red\nOffset"
+	  SrcPort		  1
+	  Points		  [12, 0; 0, 50]
+	  DstBlock		  "Add"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Add"
+	  SrcPort		  1
+	  DstBlock		  "Color"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "LED Eye Delay"
+      SID		      "189"
+      Ports		      [1, 1]
+      Position		      [720, 473, 755, 507]
+      ZOrder		      149
+      LibraryVersion	      "1.1"
+      UserDataPersistent      on
+      UserData		      "DataTag4"
+      SourceBlock	      "simulink/Discrete/Integer Delay"
+      SourceType	      "Integer Delay"
+      NumDelays		      "1"
+      InputProcessing	      "Elements as channels (sample based)"
+      vinit		      "2048"
+      samptime		      "-1"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Real-time simulation"
+      SID		      "1"
+      Ports		      []
+      Position		      [1035, 161, 1135, 209]
+      ZOrder		      17
+      LibraryVersion	      "1.28"
+      SourceBlock	      "lib_darwinop/Real-time simulation"
+      SourceType	      "Real-time simulation parameters "
+      TimeScalingFactor	      "1"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Red Detection"
+      SID		      "69"
+      Ports		      [2, 1]
+      Position		      [1370, 390, 1450, 425]
+      ZOrder		      61
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Red Detection"
+	Location		[-8, 0, 1374, 744]
+	Open			off
+	ModelBrowserVisibility	on
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In X"
+	  SID			  "70"
+	  Position		  [35, 98, 65, 112]
+	  ZOrder		  26
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "In Y"
+	  SID			  "71"
+	  Position		  [35, 238, 65, 252]
+	  ZOrder		  30
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator"
+	  SID			  "141"
+	  Ports			  [2, 1]
+	  Position		  [260, 162, 290, 193]
+	  ZOrder		  32
+	  AllPortsSameDT	  off
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "X Detect"
+	  SID			  "142"
+	  Ports			  [1, 1]
+	  Position		  [145, 90, 195, 120]
+	  ZOrder		  33
+	  LibraryVersion	  "1.274"
+	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+	  SourceType		  "Compare To Constant"
+	  relop			  "<="
+	  const			  "320.0"
+	  LogicOutDataTypeMode	  "boolean"
+	  ZeroCross		  on
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "X Detect1"
+	  SID			  "143"
+	  Ports			  [1, 1]
+	  Position		  [145, 230, 195, 260]
+	  ZOrder		  34
+	  LibraryVersion	  "1.274"
+	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+	  SourceType		  "Compare To Constant"
+	  relop			  "<="
+	  const			  "240.0"
+	  LogicOutDataTypeMode	  "boolean"
+	  ZeroCross		  on
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Detected"
+	  SID			  "76"
+	  Position		  [335, 173, 365, 187]
+	  ZOrder		  27
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator"
+	  SrcPort		  1
+	  DstBlock		  "Detected"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "X Detect"
+	  SrcPort		  1
+	  Points		  [27, 0; 0, 65]
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "X Detect1"
+	  SrcPort		  1
+	  Points		  [27, 0; 0, -60]
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "In Y"
+	  SrcPort		  1
+	  DstBlock		  "X Detect1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In X"
+	  SrcPort		  1
+	  DstBlock		  "X Detect"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Red Display"
+      SID		      "145"
+      Ports		      [1]
+      Position		      [1525, 395, 1570, 425]
+      ZOrder		      129
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "State machine"
+      SID		      "123"
+      Ports		      [7, 6]
+      Position		      [805, 624, 1080, 746]
+      ZOrder		      110
+      BlockMirror	      on
+      LibraryVersion	      "1.262"
+      ErrorFcn		      "Stateflow.Translate.translate"
+      PermitHierarchicalResolution "ParametersOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Stateflow diagram"
+      MaskSelfModifiable      on
+      MaskDisplay	      "plot(sf('Private','sfblk','xIcon'),sf('Private','sfblk','yIcon'));text(0.5,0,sf('Private', 's"
+      "fblk', 'tIcon'),'HorizontalAl','Center','VerticalAl','Bottom');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "normalized"
+      System {
+	Name			"State machine"
+	Location		[215, 169, 1601, 913]
+	Open			off
+	ModelBrowserVisibility	on
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"189"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Red_Detect"
+	  SID			  "123::45"
+	  Position		  [20, 101, 40, 119]
+	  ZOrder		  25
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Yellow_Detect"
+	  SID			  "123::46"
+	  Position		  [20, 136, 40, 154]
+	  ZOrder		  26
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Blue_Detect"
+	  SID			  "123::47"
+	  Position		  [20, 171, 40, 189]
+	  ZOrder		  27
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "ID1_Position"
+	  SID			  "123::57"
+	  Position		  [20, 206, 40, 224]
+	  ZOrder		  37
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "ID2_Moving"
+	  SID			  "123::50"
+	  Position		  [20, 246, 40, 264]
+	  ZOrder		  30
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "ID19_Moving"
+	  SID			  "123::51"
+	  Position		  [20, 281, 40, 299]
+	  ZOrder		  31
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "ID20_Moving"
+	  SID			  "123::60"
+	  Position		  [20, 316, 40, 334]
+	  ZOrder		  40
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "123::42"
+	  Ports			  [1, 1]
+	  Position		  [270, 350, 320, 390]
+	  ZOrder		  22
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  " SFunction "
+	  SID			  "123::41"
+	  Tag			  "Stateflow S-Function sequential 1"
+	  Ports			  [7, 7]
+	  Position		  [180, 115, 230, 275]
+	  ZOrder		  21
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[7 7]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "Eye_Red"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "Eye_Green"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "Eye_Blue"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "ID2_Position"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "ID19_Position"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "ID20_Position"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "123::49"
+	  Position		  [460, 361, 480, 379]
+	  ZOrder		  29
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Eye_Red"
+	  SID			  "123::53"
+	  Position		  [460, 101, 480, 119]
+	  ZOrder		  33
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Eye_Green"
+	  SID			  "123::54"
+	  Position		  [460, 136, 480, 154]
+	  ZOrder		  34
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Eye_Blue"
+	  SID			  "123::55"
+	  Position		  [460, 171, 480, 189]
+	  ZOrder		  35
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ID2_Position"
+	  SID			  "123::58"
+	  Position		  [460, 206, 480, 224]
+	  ZOrder		  38
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ID19_Position"
+	  SID			  "123::59"
+	  Position		  [460, 246, 480, 264]
+	  ZOrder		  39
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ID20_Position"
+	  SID			  "123::61"
+	  Position		  [460, 281, 480, 299]
+	  ZOrder		  41
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Red_Detect"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Yellow_Detect"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Blue_Detect"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "ID1_Position"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "ID2_Moving"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "ID19_Moving"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "ID20_Moving"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "Eye_Red"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "Eye_Red"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "Eye_Green"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "Eye_Green"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "Eye_Blue"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  4
+	  DstBlock		  "Eye_Blue"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ID2_Position"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  5
+	  DstBlock		  "ID2_Position"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ID19_Position"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  6
+	  DstBlock		  "ID19_Position"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "ID20_Position"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  7
+	  DstBlock		  "ID20_Position"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Torque disable"
+      SID		      "180"
+      Position		      [790, 220, 820, 250]
+      ZOrder		      140
+      Value		      "0"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Vision enable"
+      SID		      "179"
+      Position		      [790, 515, 820, 545]
+      ZOrder		      139
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Yellow Detection"
+      SID		      "147"
+      Ports		      [2, 1]
+      Position		      [1370, 450, 1450, 485]
+      ZOrder		      130
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Yellow Detection"
+	Location		[-8, 0, 1374, 744]
+	Open			off
+	ModelBrowserVisibility	on
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"A4"
+	PaperUnits		"centimeters"
+	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "In X"
+	  SID			  "148"
+	  Position		  [35, 98, 65, 112]
+	  ZOrder		  26
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "In Y"
+	  SID			  "149"
+	  Position		  [35, 238, 65, 252]
+	  ZOrder		  30
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator"
+	  SID			  "150"
+	  Ports			  [2, 1]
+	  Position		  [260, 162, 290, 193]
+	  ZOrder		  32
+	  AllPortsSameDT	  off
+	  OutDataTypeStr	  "boolean"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "X Detect"
+	  SID			  "151"
+	  Ports			  [1, 1]
+	  Position		  [145, 90, 195, 120]
+	  ZOrder		  33
+	  LibraryVersion	  "1.274"
+	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+	  SourceType		  "Compare To Constant"
+	  relop			  "<="
+	  const			  "320.0"
+	  LogicOutDataTypeMode	  "boolean"
+	  ZeroCross		  on
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "X Detect1"
+	  SID			  "152"
+	  Ports			  [1, 1]
+	  Position		  [145, 230, 195, 260]
+	  ZOrder		  34
+	  LibraryVersion	  "1.274"
+	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+	  SourceType		  "Compare To Constant"
+	  relop			  "<="
+	  const			  "240.0"
+	  LogicOutDataTypeMode	  "boolean"
+	  ZeroCross		  on
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Detected"
+	  SID			  "153"
+	  Position		  [335, 173, 365, 187]
+	  ZOrder		  27
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator"
+	  SrcPort		  1
+	  DstBlock		  "Detected"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "X Detect"
+	  SrcPort		  1
+	  Points		  [27, 0; 0, 65]
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "X Detect1"
+	  SrcPort		  1
+	  Points		  [27, 0; 0, -60]
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "In Y"
+	  SrcPort		  1
+	  DstBlock		  "X Detect1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "In X"
+	  SrcPort		  1
+	  DstBlock		  "X Detect"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Yellow Display"
+      SID		      "146"
+      Ports		      [1]
+      Position		      [1525, 455, 1570, 485]
+      ZOrder		      131
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Line {
+      SrcBlock		      "Red Detection"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	Points			[0, 230]
+	DstBlock		"State machine"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"Red Display"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Yellow Detection"
+      SrcPort		      1
+      Points		      [38, 0]
+      Branch {
+	Points			[0, 185]
+	DstBlock		"State machine"
+	DstPort			2
+      }
+      Branch {
+	DstBlock		"Yellow Display"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Blue Detection"
+      SrcPort		      1
+      Points		      [50, 0]
+      Branch {
+	Points			[0, 140]
+	DstBlock		"State machine"
+	DstPort			3
+      }
+      Branch {
+	DstBlock		"Blue Display"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "LED Color"
+      SrcPort		      1
+      Points		      [0, -55]
+      DstBlock		      "LED Eye Delay"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Vision enable"
+      SrcPort		      1
+      Points		      [30, 0]
+      Branch {
+	Points			[0, 10]
+	Branch {
+	  DstBlock		  "DarwinOP communication"
+	  DstPort		  12
+	}
+	Branch {
+	  Points		  [0, 25]
+	  DstBlock		  "DarwinOP communication"
+	  DstPort		  13
+	}
+      }
+      Branch {
+	Points			[0, -15]
+	Branch {
+	  DstBlock		  "DarwinOP communication"
+	  DstPort		  11
+	}
+	Branch {
+	  Points		  [0, -25]
+	  DstBlock		  "DarwinOP communication"
+	  DstPort		  10
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Torque disable"
+      SrcPort		      1
+      Points		      [36, 0; 0, 30]
+      DstBlock		      "DarwinOP communication"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Center position"
+      SrcPort		      1
+      Points		      [16, 0]
+      Branch {
+	Points			[0, -10]
+	Branch {
+	  DstBlock		  "DarwinOP communication"
+	  DstPort		  4
+	}
+	Branch {
+	  Points		  [0, -25]
+	  DstBlock		  "DarwinOP communication"
+	  DstPort		  3
+	}
+      }
+      Branch {
+	Points			[0, 15]
+	Branch {
+	  DstBlock		  "DarwinOP communication"
+	  DstPort		  5
+	}
+	Branch {
+	  Points		  [0, 25]
+	  DstBlock		  "DarwinOP communication"
+	  DstPort		  6
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "ID2 position Delay"
+      SrcPort		      1
+      DstBlock		      "DarwinOP communication"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "ID19 position Delay"
+      SrcPort		      1
+      Points		      [49, 0; 0, 25]
+      DstBlock		      "DarwinOP communication"
+      DstPort		      7
+    }
+    Line {
+      SrcBlock		      "State machine"
+      SrcPort		      1
+      DstBlock		      "LED Color"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "State machine"
+      SrcPort		      2
+      Points		      [-140, 0]
+      DstBlock		      "LED Color"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "State machine"
+      SrcPort		      3
+      Points		      [-120, 0]
+      DstBlock		      "LED Color"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "State machine"
+      SrcPort		      4
+      Points		      [-185, 0; 0, -405]
+      DstBlock		      "ID2 position Delay"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "State machine"
+      SrcPort		      5
+      Points		      [-224, 0; 0, -325]
+      DstBlock		      "ID19 position Delay"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "DarwinOP communication"
+      SrcPort		      1
+      Points		      [240, 0; 0, 405]
+      DstBlock		      "State machine"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "DarwinOP communication"
+      SrcPort		      2
+      Points		      [253, 0; 0, 390]
+      DstBlock		      "State machine"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "DarwinOP communication"
+      SrcPort		      3
+      Points		      [268, 0; 0, 375]
+      DstBlock		      "State machine"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "DarwinOP communication"
+      SrcPort		      10
+      Points		      [5, 0]
+      DstBlock		      "Blue Detection"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "DarwinOP communication"
+      SrcPort		      9
+      DstBlock		      "Blue Detection"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "DarwinOP communication"
+      SrcPort		      8
+      Points		      [5, 0]
+      DstBlock		      "Yellow Detection"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "DarwinOP communication"
+      SrcPort		      7
+      DstBlock		      "Yellow Detection"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "DarwinOP communication"
+      SrcPort		      6
+      Points		      [5, 0]
+      DstBlock		      "Red Detection"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "DarwinOP communication"
+      SrcPort		      5
+      DstBlock		      "Red Detection"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "ID20 position Delay"
+      SrcPort		      1
+      DstBlock		      "DarwinOP communication"
+      DstPort		      8
+    }
+    Line {
+      SrcBlock		      "State machine"
+      SrcPort		      6
+      Points		      [-204, 0; 0, -295]
+      DstBlock		      "ID20 position Delay"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "DarwinOP communication"
+      SrcPort		      4
+      Points		      [282, 0; 0, 360]
+      DstBlock		      "State machine"
+      DstPort		      7
+    }
+    Line {
+      SrcBlock		      "LED Eye Delay"
+      SrcPort		      1
+      Points		      [23, 0; 0, -25]
+      DstBlock		      "DarwinOP communication"
+      DstPort		      9
+    }
+  }
+}
+MatData {
+  NumRecords		  5
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    .%L   8    (     @         %    \"     $    !     0         %  0 %@    $    L    <V5L96"
+    "-T961?<F5A9%]F:65L9',  '-E;&5C=&5D7W=R:71E7V9I96QD<P      #@   & M   &    \"     $         !0    @    !    &     $"
+    "         #@   -@!   &    \"     8         !0    @    !    -0    $         \"0   *@!                               "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                     #P/P                                                                                         "
+    "                                                                                 #@   -@!   &    \"     8         "
+    "!0    @    !    -0    $         \"0   *@!                                                                         "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                           #P/P   "
+    "                                       #@   -@!   &    \"     8         !0    @    !    -0    $         \"0   *@! "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                               #@ "
+    "  -@!   &    \"     8         !0    @    !    -0    $         \"0   *@!                                           "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                     #@   -@!   &    \"     8         !0    @    !"
+    "    -0    $         \"0   *@!                                                                                     "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                           #@   -@!   &    \"     8         !0    @    !    -0    $         \"0   *@!             "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                   #@   -@!   &   "
+    " \"     8         !0    @    !    -0    $         \"0   *@!                                                       "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                         #@   -@!   &    \"     8         !0    @    !    -0    $ "
+    "        \"0   *@!                                                                                                 "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "               #@   -@!   &    \"     8         !0    @    !    -0    $         \"0   *@!                         "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                       #@   -@!   &    \"     8   "
+    "      !0    @    !    -0    $         \"0   *@!                                                                   "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                             #@   -@!   &    \"     8         !0    @    !    -0    $         \"0 "
+    "  *@!                                                                                                             "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "   #@   -@!   &    \"     8         !0    @    !    -0    $         \"0   *@!                                     "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                           #@   -@!   &    \"     8         !0    "
+    "@    !    -0    $         \"0   *@!                                                                               "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                 #@   -@!   &    \"     8         !0    @    !    -0    $         \"0   *@!       "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                         #@   -@! "
+    "  &    \"     8         !0    @    !    -0    $         \"0   *@!                                                 "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                               #@   -@!   &    \"     8         !0    @    !    -0"
+    "    $         \"0   *@!                                                                                           "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                     #@   -@!   &    \"     8         !0    @    !    -0    $         \"0   *@!                   "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                             #@   -@!   &    \"   "
+    "  8         !0    @    !    -0    $         \"0   *@!                                                             "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                   #@   -@!   &    \"     8         !0    @    !    -0    $       "
+    "  \"0   *@!                                                                                                       "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                             #P/P                                 "
+    "         #@   -@!   &    \"     8         !0    @    !    -0    $         \"0   *@!                               "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                   #P/P                                          #@   +@\"   &    \"     8        "
+    " !0    @    !    40    $         \"0   (@\"                                                                       "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                . "
+    "   \" $   8    (    !@         %    \"     $    ;     0         )    V                                            "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                     X    ( 0  !@    @    &          4    (     0   !L    !          D   #8                       "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                         #@   - \"   &    \"     8         !0    @    !    5     $         \"0   *"
+    " \"                                                                                                               "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "     #P/P                            #P/P                                                                         "
+    "                                                                                   #P/P                           "
+    " #P/P                                                                                                             "
+    "                                               #P/P                            #P/P                     .    8\"T "
+    "  8    (     0         %    \"     $    8     0         .    V $   8    (    !@         %    \"     $    U     0  "
+    "       )    J $                                                                                                   "
+    "                                                                                                                  "
+    "                                \\#\\                                                                             "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "               .    V $   8    (    !@         %    \"     $    U     0         )    J $                          "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                            / _                                                                   "
+    "                                                                                                                  "
+    "                                                                                      .    V $   8    (    !@     "
+    "    %    \"     $    U     0         )    J $                                                                     "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    " / _                                                                                                              "
+    "                                                                                                                  "
+    "                                           .    V $   8    (    !@         %    \"     $    U     0         )    J"
+    " $                                                                                                                "
+    "                                                                                                                  "
+    "                                                                        / _                                       "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    ".    V $   8    (    !@         %    \"     $    U     0         )    J $                                         "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                             / _                                                                                  "
+    "                                                                                                                  "
+    "                                                                       .    V $   8    (    !@         %    \"    "
+    " $    U     0         )    J $                                                                                    "
+    "                                                                                                                  "
+    "                                                                                                    / _           "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                            .    V $   8    (    !@         %    \"     $    U     0         )    J $             "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                   .    V $   8   "
+    " (    !@         %    \"     $    U     0         )    J $                                                        "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                        .    V $   8    (    !@         %    \"     $    U     0  "
+    "       )    J $                                                                                                   "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "             .    V $   8    (    !@         %    \"     $    U     0         )    J $                            "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                    .    V $   8    (    !@       "
+    "  %    \"     $    U     0         )    J $                                                                       "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                         .    V $   8    (    !@         %    \"     $    U     0         )    J $"
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                . "
+    "   V $   8    (    !@         %    \"     $    U     0         )    J $                                           "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                     .    V $   8    (    !@         %    \"     $"
+    "    U     0         )    J $                                                                                      "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                          .    V $   8    (    !@         %    \"     $    U     0         )    J $               "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                 .    V $   8    ("
+    "    !@         %    \"     $    U     0         )    J $                                                          "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                      .    V $   8    (    !@         %    \"     $    U     0    "
+    "     )    J $                                                                                                     "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "           .    V $   8    (    !@         %    \"     $    U     0         )    J $                              "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                  .    V $   8    (    !@         "
+    "%    \"     $    U     0         )    J $                                                                         "
+    "                                                                                                                  "
+    "                                                                                                               / _"
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                       .    V $   8    (    !@         %    \"     $    U     0         )    J $  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                    / _                                           "
+    "                                                                                                                  "
+    "                                                                                                              .   "
+    " N (   8    (    !@         %    \"     $   !1     0         )    B (                                             "
+    "                                                                                                        \\#\\     "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                          X    ( 0  !@    @    &          4    (     0   !L    !          D   #8                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                              #@    @!   &    \"     8         !0    @    !    &P    $         \"0"
+    "   -@                                                                                                             "
+    "                                                                                                                  "
+    "                                                                     .    T (   8    (    !@         %    \"     $"
+    "   !4     0         )    H (          / _                  #P/P       / _        \\#\\                            "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                 "
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    D     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/P"
+  }
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    D     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/P"
+  }
+  DataRecord {
+    Tag			    DataTag3
+    Data		    "  %)30     .    D     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/P"
+  }
+  DataRecord {
+    Tag			    DataTag4
+    Data		    "  %)30     .    D     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/P"
+  }
+}
+# Finite State Machines
+#
+#    Stateflow Version 7.6 (R2013a) dated Jan 19 2013, 14:32:03
+#
+#
+Stateflow {
+  machine {
+    id			    1
+    name		    "sequential"
+    created		    "17-Jun-2014 18:33:38"
+    isLibrary		    0
+    firstTarget		    42
+    sfVersion		    75014001.0001
+  }
+  chart {
+    id			    2
+    name		    "State machine"
+    windowPosition	    [169.5 246.75 417 348.75]
+    viewLimits		    [-685.66 743.09 -209.166 582.084]
+    zoomFactor		    1.667
+    stateColor		    [0.3803921568627451 0.2745098039215687 0.1803921568627451]
+    stateLabelColor	    [0.4588235294117647 0.2980392156862745 0.1411764705882353]
+    transitionColor	    [0.3215686274509804 0.5450980392156862 0.7725490196078432]
+    transitionLabelColor    [0.3215686274509804 0.5450980392156862 0.7725490196078432]
+    junctionColor	    [0.7764705882352941 0.4980392156862745 0]
+    chartColor		    [1 0.9882352941176471 0.9254901960784314]
+    screen		    [1 1 1920 1200 1.333333333333333]
+    treeNode		    [0 3 0 0]
+    firstTransition	    26
+    viewObj		    2
+    machine		    1
+    ssIdHighWaterMark	    48
+    decomposition	    CLUSTER_CHART
+    firstData		    13
+    chartFileNumber	    1
+    userSpecifiedStateTransitionExecutionOrder 1
+    disableImplicitCasting  1
+  }
+  state {
+    id			    3
+    labelString		    "Initialisation\nentry: Eye_Red = 0;\nentry: Eye_Green = 0;\nentry: Eye_Blue = 0;\nentry: ID2_Pos"
+    "ition = 2048;\nentry: ID19_Position = 2048;\nentry: ID20_Position = 2048;\n"
+    position		    [522 81 184 127]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 0 4]
+    visible		    0
+    subviewer		    2
+    ssIdNumber		    5
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    4
+    labelString		    "Yes_Up\nentry: ID20_Position = 2248;\nentry: Eye_Green = 31;\nentry: Eye_Red = 31;"
+    position		    [838.5901 118.2509 160 67.3333]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 3 5]
+    visible		    0
+    subviewer		    2
+    ssIdNumber		    36
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    5
+    labelString		    "No_Left\nentry: ID19_Position = 2248;\nentry: Eye_Red = 31;"
+    position		    [178.6667 201 164.3333 53.6667]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 4 6]
+    visible		    0
+    subviewer		    2
+    ssIdNumber		    8
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    6
+    labelString		    "Yes_Down_Wait"
+    position		    [737.2568 228.9176 90 60]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 5 7]
+    visible		    0
+    subviewer		    2
+    ssIdNumber		    42
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    7
+    labelString		    "Yes_Up_Wait"
+    position		    [1014.5901 254.2509 88 30]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 6 8]
+    visible		    0
+    subviewer		    2
+    ssIdNumber		    38
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    8
+    labelString		    "No_Left_Wait"
+    position		    [356.6991 314.675 87 30]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 7 9]
+    visible		    0
+    subviewer		    2
+    ssIdNumber		    26
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    9
+    labelString		    "No_Right_Wait"
+    position		    [62.5901 325.5842 92 30]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 8 10]
+    visible		    0
+    subviewer		    2
+    ssIdNumber		    34
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    10
+    labelString		    "Yes_Down\nentry: ID20_Position = 1848;"
+    position		    [825.9235 330.2509 161.3333 40.6667]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 9 11]
+    visible		    0
+    subviewer		    2
+    ssIdNumber		    40
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    11
+    labelString		    "Copy\nentry: Eye_Blue = 31;\nduring: ID2_Position = 4095 - ID1_Position;"
+    position		    [589.3401 388.3342 247.5 76.25]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 10 12]
+    visible		    0
+    subviewer		    2
+    ssIdNumber		    46
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    12
+    labelString		    "No_Right\nentry: ID19_Position = 1848;"
+    position		    [177.1667 407.675 168 45]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 11 0]
+    visible		    0
+    subviewer		    2
+    ssIdNumber		    28
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  data {
+    id			    13
+    ssIdNumber		    1
+    name		    "Red_Detect"
+    linkNode		    [2 0 14]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_BOOLEAN_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "boolean"
+  }
+  data {
+    id			    14
+    ssIdNumber		    2
+    name		    "Yellow_Detect"
+    linkNode		    [2 13 15]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_BOOLEAN_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "boolean"
+  }
+  data {
+    id			    15
+    ssIdNumber		    3
+    name		    "Blue_Detect"
+    linkNode		    [2 14 16]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_BOOLEAN_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "boolean"
+  }
+  data {
+    id			    16
+    ssIdNumber		    18
+    name		    "ID1_Position"
+    linkNode		    [2 15 17]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	expression		"Inherit: Same as Simulink"
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    17
+    ssIdNumber		    13
+    name		    "ID2_Moving"
+    linkNode		    [2 16 18]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    18
+    ssIdNumber		    14
+    name		    "ID19_Moving"
+    linkNode		    [2 17 19]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    19
+    ssIdNumber		    15
+    name		    "Eye_Red"
+    linkNode		    [2 18 20]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    20
+    ssIdNumber		    16
+    name		    "Eye_Green"
+    linkNode		    [2 19 21]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    21
+    ssIdNumber		    17
+    name		    "Eye_Blue"
+    linkNode		    [2 20 22]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    22
+    ssIdNumber		    19
+    name		    "ID2_Position"
+    linkNode		    [2 21 23]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    23
+    ssIdNumber		    20
+    name		    "ID19_Position"
+    linkNode		    [2 22 24]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    24
+    ssIdNumber		    23
+    name		    "ID20_Moving"
+    linkNode		    [2 23 25]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    25
+    ssIdNumber		    24
+    name		    "ID20_Position"
+    linkNode		    [2 24 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  transition {
+    id			    26
+    labelString		    ""
+    labelPosition	    [616.044 38.625 0 0]
+    fontSize		    12
+    src {
+      intersection	      [0 0 0 0 616.0444 18 0 0]
+    }
+    dst {
+      id		      3
+      intersection	      [1 0 -1 0.5111 616.0444 81 0 0]
+    }
+    midPoint		    [616.0444 38.625]
+    chart		    2
+    linkNode		    [2 0 27]
+    dataLimits		    [613.644 618.444 18 81]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    6
+  }
+  transition {
+    id			    27
+    labelString		    "[Red_Detect == 0]"
+    labelPosition	    [328.24 104.17 99.5 17]
+    fontSize		    12
+    src {
+      id		      5
+      intersection	      [1 0 -1 0.1909 210.0325 201 0 0]
+    }
+    dst {
+      id		      3
+      intersection	      [4 -1 0 0.7585 522 111.675 0 0]
+    }
+    midPoint		    [322.4137 116.7349]
+    chart		    2
+    linkNode		    [2 26 28]
+    dataLimits		    [210.032 522 109.275 201]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    2
+    ssIdNumber		    33
+  }
+  transition {
+    id			    28
+    labelString		    "[Red_Detect == 0 && Yellow_Detect == 1 && Blue_Detect == 0]"
+    labelPosition	    [768.295 105.54 339 17]
+    fontSize		    12
+    src {
+      id		      3
+      intersection	      [2 1 0 0.3143 706 120.9176 0 0]
+    }
+    dst {
+      id		      4
+      intersection	      [4 -1 -0 0.867 838.5901 127.2062 0 0]
+    }
+    midPoint		    [768.2951 124.0619]
+    chart		    2
+    linkNode		    [2 27 29]
+    dataLimits		    [706 838.59 120.918 129.606]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    2
+    ssIdNumber		    37
+  }
+  transition {
+    id			    29
+    labelString		    "[Yellow_Detect == 0]"
+    labelPosition	    [719.628 135.584 110.5 17]
+    fontSize		    12
+    src {
+      id		      4
+      intersection	      [4 -1 0 0.5149 838.5901 150.9176 0 0]
+    }
+    dst {
+      id		      3
+      intersection	      [2 1 -0 0.5295 706 148.2509 0 0]
+    }
+    midPoint		    [776.2951 149.5842]
+    chart		    2
+    linkNode		    [2 28 30]
+    dataLimits		    [706 838.59 145.851 150.918]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    2
+    ssIdNumber		    45
+  }
+  transition {
+    id			    30
+    labelString		    "[Red_Detect == 1 && Yellow_Detect == 0 && Blue_Detect == 0]"
+    labelPosition	    [198.025 146.105 339 17]
+    fontSize		    12
+    src {
+      id		      3
+      intersection	      [4 -1 0 0.4224 522 154.3614 0 0]
+    }
+    dst {
+      id		      5
+      intersection	      [1 -0 -1 0.7568 303.0325 201 0 0]
+    }
+    midPoint		    [344.0171 169.9266]
+    chart		    2
+    linkNode		    [2 29 31]
+    dataLimits		    [300.632 522 154.29 201]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    21
+  }
+  transition {
+    id			    31
+    labelString		    "[ID20_Moving == 0]"
+    labelPosition	    [741.715 207.542 106.5 17]
+    fontSize		    12
+    src {
+      id		      6
+      intersection	      [1 0 -1 0.4778 780.2568 228.9176 0 0]
+    }
+    dst {
+      id		      4
+      intersection	      [4 -1 0 0.3366 838.5901 162.9176 0 0]
+    }
+    midPoint		    [795.0481 185.5422]
+    chart		    2
+    linkNode		    [2 30 32]
+    dataLimits		    [780.257 838.59 160.518 228.918]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    44
+  }
+  transition {
+    id			    32
+    labelString		    "[ID20_Moving == 1 && Yellow_Detect == 1]"
+    labelPosition	    [1039.71 173.964 230.75 17]
+    fontSize		    12
+    src {
+      id		      4
+      intersection	      [2 1 0 0.6634 998.5901 162.9176 0 0]
+    }
+    dst {
+      id		      7
+      intersection	      [1 0 -1 0.4659 1055.5901 254.2509 0 0]
+    }
+    midPoint		    [1039.7105 191.9639]
+    chart		    2
+    linkNode		    [2 31 33]
+    dataLimits		    [998.59 1057.99 162.918 254.251]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    39
+  }
+  transition {
+    id			    33
+    labelString		    "[Blue_Detect == 0]"
+    labelPosition	    [515.59 357.917 101.25 17]
+    fontSize		    12
+    src {
+      id		      11
+      intersection	      [1 0 -1 0.1212 619.3401 388.3342 0 0]
+    }
+    dst {
+      id		      3
+      intersection	      [3 -0 1 0.471 619.3401 208 0 0]
+    }
+    midPoint		    [619.3401 302.1671]
+    chart		    2
+    linkNode		    [2 32 34]
+    dataLimits		    [616.94 621.74 208 388.334]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    48
+  }
+  transition {
+    id			    34
+    labelString		    "[Red_Detect == 0 && Yellow_Detect == 0 && Blue_Detect == 1]"
+    labelPosition	    [672.465 276.167 339 17]
+    fontSize		    12
+    src {
+      id		      3
+      intersection	      [3 0 1 0.2943 651.8401 208 0 0]
+    }
+    dst {
+      id		      11
+      intersection	      [1 -0 -1 0.4192 693.0901 388.3342 0 0]
+    }
+    midPoint		    [672.4651 294.1671]
+    chart		    2
+    linkNode		    [2 33 35]
+    dataLimits		    [651.84 695.49 208 388.334]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    3
+    ssIdNumber		    47
+  }
+  transition {
+    id			    35
+    labelString		    "[ID19_Moving == 1 && Red_Detect == 1]"
+    labelPosition	    [383.263 277.224 220 17]
+    fontSize		    12
+    src {
+      id		      5
+      intersection	      [2 1 0 0.3126 343 217.7757 0 0]
+    }
+    dst {
+      id		      8
+      intersection	      [1 0 -1 0.424 393.5901 314.675 0 0]
+    }
+    midPoint		    [381.0808 249.4396]
+    chart		    2
+    linkNode		    [2 34 36]
+    dataLimits		    [343 395.99 217.776 314.675]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    27
+  }
+  transition {
+    id			    36
+    labelString		    "[ID19_Moving == 0]"
+    labelPosition	    [40.442 235.912 106.5 17]
+    fontSize		    12
+    src {
+      id		      9
+      intersection	      [1 0 -1 0.5109 109.5901 325.5842 0 0]
+    }
+    dst {
+      id		      5
+      intersection	      [4 -1 0 0.4053 178.6667 232.9176 0 0]
+    }
+    midPoint		    [126.2554 265.3779]
+    chart		    2
+    linkNode		    [2 35 37]
+    dataLimits		    [109.59 178.667 230.518 325.584]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    35
+  }
+  transition {
+    id			    37
+    labelString		    "[ID20_Moving == 0]"
+    labelPosition	    [1014 352.36 106.5 17]
+    fontSize		    12
+    src {
+      id		      7
+      intersection	      [3 0 1 0.4811 1060.2568 284.2509 0 0]
+    }
+    dst {
+      id		      10
+      intersection	      [2 1 0 0.3934 987.2568 346.2509 0 0]
+    }
+    midPoint		    [1038.9853 326.4793]
+    chart		    2
+    linkNode		    [2 36 38]
+    dataLimits		    [987.257 1060.257 284.251 348.651]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    41
+  }
+  transition {
+    id			    38
+    labelString		    "[ID20_Moving == 1]"
+    labelPosition	    [792.791 311.884 106.5 17]
+    fontSize		    12
+    src {
+      id		      10
+      intersection	      [4 -1 0 0.623 825.9235 345.5842 0 0]
+    }
+    dst {
+      id		      6
+      intersection	      [3 0 1 0.5593 776.9235 288.9176 0 0]
+    }
+    midPoint		    [792.7908 329.8835]
+    chart		    2
+    linkNode		    [2 37 39]
+    dataLimits		    [774.523 825.923 288.918 345.584]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    43
+  }
+  transition {
+    id			    39
+    labelString		    "[ID19_Moving == 0]"
+    labelPosition	    [368.665 386.449 106.5 17]
+    fontSize		    12
+    src {
+      id		      8
+      intersection	      [3 0 1 0.3908 409.6991 344.675 0 0]
+    }
+    dst {
+      id		      12
+      intersection	      [2 1 0 0.3556 345.1667 423.675 0 0]
+    }
+    midPoint		    [393.5759 396.318]
+    chart		    2
+    linkNode		    [2 38 40]
+    dataLimits		    [345.167 409.699 344.675 426.075]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    29
+  }
+  transition {
+    id			    40
+    labelString		    "[ID19_Moving == 1]"
+    labelPosition	    [78.234 401.459 106.5 17]
+    fontSize		    12
+    src {
+      id		      12
+      intersection	      [4 -1 0 0.6316 177.1667 424.2509 0 0]
+    }
+    dst {
+      id		      9
+      intersection	      [3 0 1 0.5181 106.9235 355.5842 0 0]
+    }
+    midPoint		    [130.4432 405.5194]
+    chart		    2
+    linkNode		    [2 39 0]
+    dataLimits		    [104.523 177.167 355.584 424.251]
+    subviewer		    2
+    drawStyle		    SMART
+    slide {
+      sticky		      BOTH_STICK
+    }
+    executionOrder	    1
+    ssIdNumber		    31
+  }
+  instance {
+    id			    41
+    name		    "State machine"
+    machine		    1
+    chart		    2
+  }
+  target {
+    id			    42
+    name		    "sfun"
+    description		    "Default Simulink S-Function Target."
+    machine		    1
+    linkNode		    [1 0 0]
+  }
+}
