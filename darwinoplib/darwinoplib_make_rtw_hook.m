@@ -229,7 +229,15 @@ function send_archive(modelName, archiveName)
     disp('### connecting to darwin');
     ssh_proc = ssh_pb.start();
     ssh_os = java.io.PrintWriter(ssh_proc.getOutputStream());
-    ssh_wait_ready(ssh_proc, DarwinOPTimeout);
+    
+    if ssh_wait_ready(ssh_proc, -DarwinOPTimeout) ~= 0
+        % accept RSA key
+        disp('### accepting RSA key');
+        ssh_os.write(['y', ...
+                     new_line]);
+        ssh_os.flush();
+        ssh_wait_ready(ssh_proc, DarwinOPTimeout);
+    end
 
     % configure remote shell
     disp('### configuring remote shell');
@@ -365,13 +373,15 @@ function val = get_string_param(name)
   end
 end
 
-function ssh_wait_ready(ssh_proc, timeout)
+function error = ssh_wait_ready(ssh_proc, timeout)
+  % no error
+  error = 0;
   % get ssh input stream
   ssh_is = ssh_proc.getInputStream();
   % time reference
   tic;
   % check for timeout
-  while toc < timeout
+  while toc < abs(timeout)
     if ssh_is.available()
       c = ssh_is.read();
       if c == 36 % '$'
@@ -384,7 +394,10 @@ function ssh_wait_ready(ssh_proc, timeout)
     end
   end
   disp('### SSH command timeout');
-  error('SSH command timeout');
+  error = 1;
+  if timeout > 0
+    error('SSH command timeout');
+  end
 end
 
 function ssh_wait_disconnect(ssh_proc, timeout)

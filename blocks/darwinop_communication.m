@@ -231,38 +231,6 @@ function StartInstrumentation
   ssh_proc = [];
   new_line = char(10);
 
-  try
-    % start ssh process
-    disp('### connecting to darwin');
-    ssh_proc = ssh_pb.start();
-    ssh_os = java.io.PrintWriter(ssh_proc.getOutputStream());
-
-    ssh_wait_ready(ssh_proc, -DarwinOPTimeout);
-
-    % configure remote shell
-    disp('### accepting RSA key');
-    ssh_os.write(['y', ...
-                  new_line]);
-    ssh_os.flush();
-    
-    ssh_wait_ready(ssh_proc, -DarwinOPTimeout);
-
-    % close SSH connection
-    disp('### closing connection');
-    ssh_os.write(['exit', ...
-                  new_line]);
-    ssh_os.flush();
-    ssh_wait_ready(ssh_proc, -DarwinOPTimeout);
-    % wait for the plink process to terminate
-    ssh_proc.waitFor();
-    disp('### ok');
-  catch me
-    if ssh_proc ~= [] %#ok
-      ssh_proc.destroy();
-    end
-    rethrow(me);
-  end
-  
   % initialize ssh process
   ssh_pb = java.lang.ProcessBuilder(sshCmd);
   ssh_pb.redirectErrorStream(true);
@@ -272,7 +240,15 @@ function StartInstrumentation
     disp('### connecting to darwin');
     ssh_proc = ssh_pb.start();
     ssh_os = java.io.PrintWriter(ssh_proc.getOutputStream());
-    ssh_wait_ready(ssh_proc, DarwinOPTimeout);
+    
+    if ssh_wait_ready(ssh_proc, -DarwinOPTimeout) ~= 0
+        % accept RSA key
+        disp('### accepting RSA key');
+        ssh_os.write(['y', ...
+                      new_line]);
+        ssh_os.flush();
+        ssh_wait_ready(ssh_proc, DarwinOPTimeout);
+    end
 
     % configure remote shell
     disp('### configuring remote shell');
@@ -336,7 +312,9 @@ function val = get_string_param(name)
   end
 end
 
-function ssh_wait_ready(ssh_proc, timeout)
+function error = ssh_wait_ready(ssh_proc, timeout)
+  % no error
+  error = 0;
   % get ssh input stream
   ssh_is = ssh_proc.getInputStream();
   % time reference
@@ -355,6 +333,7 @@ function ssh_wait_ready(ssh_proc, timeout)
     end
   end
   disp('### SSH command timeout');
+  error = 1;
   if timeout > 0
     error('SSH command timeout');
   end
