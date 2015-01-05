@@ -92,6 +92,8 @@
         %endforeach
       %endif
 
+      %<FcnGenerateExtModeOneStep()>
+
       #ifdef rtmGetFinalTime
       step_index++;
       {
