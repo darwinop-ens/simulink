@@ -92,7 +92,9 @@
         %endforeach
       %endif
 
+      %if ExtMode == 1
       %<FcnGenerateExtModeOneStep()>
+      %endif
 
       #ifdef rtmGetFinalTime
       step_index++;
