@@ -94,10 +94,12 @@
 
       #ifdef rtmGetFinalTime
       step_index++;
-      if((step_index * %<CompiledModel.FundamentalStepSize>) > rtmGetFinalTime(%<tSimStruct>)) {
-        %<RTMSetStopRequested("TRUE")>;
+      {
+        time_T FinalTime = rtmGetFinalTime(%<tSimStruct>);
+        if((FinalTime >= 0.0) && ((step_index * %<CompiledModel.FundamentalStepSize>) > FinalTime)) {
+          %<RTMSetStopRequested("TRUE")>;
+        }
       }
-      else
       #endif
       {
         clock_ns += uint64_t(%<CompiledModel.FundamentalStepSize> * 1000000000);
