@@ -2,16 +2,15 @@ Model {
   Name			  "arm_copy"
   Version		  7.7
   MdlSubVersion		  0
+  SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.4"
+    ComputedModelVersion    "1.7"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
-  SavedCharacterEncoding  "windows-1252"
-  SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -26,10 +25,10 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "florent"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 18 12:28:47 2014"
-  RTWModifiedTimeStamp	  327587324
-  ModelVersionFormat	  "1.%<AutoIncrement:4>"
-  ConfigurationManager	  "None"
+  LastModifiedDate	  "Tue Jan 06 14:09:21 2015"
+  RTWModifiedTimeStamp	  342454161
+  ModelVersionFormat	  "1.%<AutoIncrement:7>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   WideLines		  off
@@ -198,7 +197,6 @@ Model {
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
-	  UseIntDivNetSlope	  off
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
@@ -232,6 +230,7 @@ Model {
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
 	  ParallelExecutionInRapidAccelerator on
+	  UseIntDivNetSlope	  off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  11
@@ -397,10 +396,12 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  SystemTargetFile	  "darwinoplib.tlc"
+	  TLCOptions		  ""
 	  GenCodeOnly		  off
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
 	  TemplateMakefile	  "darwinoplib.tmf"
+	  PostCodeGenCommand	  ""
 	  Description		  "DarwinOP code generator"
 	  GenerateReport	  off
 	  SaveLog		  off
@@ -413,9 +414,17 @@ Model {
 	  ProcessScriptMode	  "Default"
 	  ConfigurationMode	  "Optimized"
 	  ProcessScript		  "darwinoplib_make_rtw_hook"
+	  ConfigurationScript	  ""
 	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
+	  CustomSourceCode	  ""
+	  CustomHeaderCode	  ""
+	  CustomInclude		  ""
+	  CustomSource		  ""
+	  CustomLibrary		  ""
+	  CustomInitializer	  ""
+	  CustomTerminator	  ""
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
 	  TargetLang		  "C++"
@@ -429,8 +438,10 @@ Model {
 	  GenerateCodeInfo	  off
 	  GenerateCodeMetricsReport off
 	  RTWCompilerOptimization "Off"
+	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
+	  DataInitializer	  ""
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
@@ -486,7 +497,7 @@ Model {
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      TargetFunctionLibrary   "ANSI_C"
+	      TargetFunctionLibrary   "C89/C90 (ANSI)"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
 	      ERTMultiwordLength      256
@@ -494,14 +505,13 @@ Model {
 	      GenerateFullHeader      on
 	      GenerateSampleERTMain   off
 	      GenerateTestInterfaces  off
-	      IsPILTarget	      off
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant off
 	      CompOptLevelCompliant   off
 	      ConcurrentExecutionCompliant off
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Use local settings"
-	      CombineOutputUpdateFcns on
+	      CombineOutputUpdateFcns off
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
 	      ERTFirstTimeCompliant   off
@@ -530,7 +540,7 @@ Model {
 		Simulink.ERTTargetCC {
 		  $BackupClass		  "Simulink.TargetCC"
 		  $ObjectID		  18
-		  Version		  "1.13.0"
+		  Version		  "1.14.3"
 		  Array {
 		    Type		    "Cell"
 		    Dimension		    2
@@ -541,7 +551,7 @@ Model {
 		  TargetFcnLib		  "ansi_tfl_table_tmw.mat"
 		  TargetLibSuffix	  ""
 		  TargetPreCompLibLocation ""
-		  TargetFunctionLibrary	  "ANSI_C"
+		  TargetFunctionLibrary	  "C89/C90 (ANSI)"
 		  UtilityFuncGeneration	  "Auto"
 		  ERTMultiwordTypeDef	  "System defined"
 		  ERTMultiwordLength	  256
@@ -549,7 +559,6 @@ Model {
 		  GenerateFullHeader	  on
 		  GenerateSampleERTMain	  off
 		  GenerateTestInterfaces  off
-		  IsPILTarget		  off
 		  ModelReferenceCompliant on
 		  ParMdlRefBuildCompliant off
 		  CompOptLevelCompliant	  off
@@ -640,13 +649,13 @@ Model {
 		  MemSecFuncInitTerm	  "Default"
 		  MemSecFuncExecute	  "Default"
 		  MemSecFuncSharedUtil	  "Default"
-		  GenerateErtSFunction	  off
-		  CreateSILPILBlock	  "None"
 		  PortableWordSizes	  off
 		  CodeExecutionProfiling  off
 		  CodeExecutionProfileVariable "executionProfile"
 		  CodeProfilingSaveOptions "SummaryOnly"
 		  CodeProfilingInstrumentation off
+		  GenerateErtSFunction	  off
+		  CreateSILPILBlock	  "None"
 		}
 		PropName		"Components"
 	      }
@@ -752,6 +761,24 @@ Model {
       DisplayMFileStacktrace  on
     }
     Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      DataFormat	      "Array"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      Sum
       IconShape		      "rectangular"
       Inputs		      "++"
@@ -770,7 +797,7 @@ Model {
   }
   System {
     Name		    "arm_copy"
-    Location		    [92, 70, 1212, 856]
+    Location		    [62, 52, 1238, 1022]
     Open		    off
     ModelBrowserVisibility  on
     ModelBrowserWidth	    200
@@ -784,7 +811,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "13"
+    SIDHighWatermark	    "17"
     Block {
       BlockType		      Constant
       Name		      "Constant"
@@ -837,10 +864,10 @@ Model {
     Block {
       BlockType		      Reference
       Name		      "Delay"
-      SID		      "11"
+      SID		      "15"
       Ports		      [1, 1]
       Position		      [140, 238, 175, 272]
-      ZOrder		      31
+      ZOrder		      35
       LibraryVersion	      "1.1"
       UserDataPersistent      on
       UserData		      "DataTag1"
@@ -854,10 +881,10 @@ Model {
     Block {
       BlockType		      Reference
       Name		      "Delay1"
-      SID		      "12"
+      SID		      "16"
       Ports		      [1, 1]
       Position		      [140, 288, 175, 322]
-      ZOrder		      32
+      ZOrder		      36
       LibraryVersion	      "1.1"
       UserDataPersistent      on
       UserData		      "DataTag2"
@@ -871,10 +898,10 @@ Model {
     Block {
       BlockType		      Reference
       Name		      "Delay2"
-      SID		      "13"
+      SID		      "17"
       Ports		      [1, 1]
       Position		      [140, 338, 175, 372]
-      ZOrder		      33
+      ZOrder		      37
       LibraryVersion	      "1.1"
       UserDataPersistent      on
       UserData		      "DataTag3"
@@ -900,10 +927,30 @@ Model {
       Ports		      []
       Position		      [350, 126, 450, 174]
       ZOrder		      21
-      LibraryVersion	      "1.27"
+      LibraryVersion	      "1.28"
       SourceBlock	      "lib_darwinop/Real-time simulation"
       SourceType	      "Real-time simulation parameters "
       TimeScalingFactor	      "1"
+    }
+    Block {
+      BlockType		      Scope
+      Name		      "Scope"
+      SID		      "14"
+      Ports		      [3]
+      Position		      [805, 304, 835, 336]
+      ZOrder		      34
+      Floating		      off
+      Location		      [188, 365, 895, 822]
+      Open		      on
+      NumInputPorts	      "3"
+      List {
+	ListType		AxesTitles
+	axes1			"%<SignalLabel>"
+	axes2			"%<SignalLabel>"
+	axes3			"%<SignalLabel>"
+      }
+      YMin		      "-5~-5~-5"
+      YMax		      "5~5~5"
     }
     Block {
       BlockType		      Sum
@@ -989,23 +1036,45 @@ Model {
     Line {
       SrcBlock		      "DarwinOP communication"
       SrcPort		      1
-      Points		      [55, 0; 0, 208; -661, 0; 0, -191; 86, 0]
-      DstBlock		      "Sum"
-      DstPort		      2
+      Points		      [55, 0; 0, 40]
+      Branch {
+	DstBlock		"Scope"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 168; -661, 0; 0, -191; 86, 0]
+	DstBlock		"Sum"
+	DstPort			2
+      }
     }
     Line {
       SrcBlock		      "DarwinOP communication"
       SrcPort		      2
-      Points		      [41, 0; 0, 133; -628, 0; 0, -123]
-      DstBlock		      "Sum1"
-      DstPort		      2
+      Points		      [41, 0]
+      Branch {
+	DstBlock		"Scope"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, 133; -628, 0; 0, -123]
+	DstBlock		"Sum1"
+	DstPort			2
+      }
     }
     Line {
       SrcBlock		      "DarwinOP communication"
       SrcPort		      3
-      Points		      [3, 0; 0, 67; -523, 0]
-      DstBlock		      "Sum2"
-      DstPort		      2
+      Points		      [3, 0]
+      Branch {
+	Points			[0, 67; -523, 0]
+	DstBlock		"Sum2"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -40]
+	DstBlock		"Scope"
+	DstPort			3
+      }
     }
     Line {
       SrcBlock		      "Constant"

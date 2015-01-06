@@ -25,8 +25,8 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "florent"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jan 05 20:21:58 2015"
-  RTWModifiedTimeStamp	  342390118
+  LastModifiedDate	  "Tue Jan 06 14:14:13 2015"
+  RTWModifiedTimeStamp	  342454453
   ModelVersionFormat	  "1.%<AutoIncrement:121>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off

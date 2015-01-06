@@ -2,16 +2,15 @@ Model {
   Name			  "vision_processing"
   Version		  7.7
   MdlSubVersion		  0
+  SavedCharacterEncoding  "windows-1252"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.119"
+    ComputedModelVersion    "1.92"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
-  SavedCharacterEncoding  "windows-1252"
-  SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -20,16 +19,16 @@ Model {
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
   MaxMDLFileLineLength	  120
-  Created		  "Wed Nov 20 19:25:03 2013"
+  Created		  "Wed Nov 20 20:25:03 2013"
   Creator		  "florent"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "eleve"
+  LastModifiedBy	  "florent"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 18 12:18:12 2014"
-  RTWModifiedTimeStamp	  327586692
-  ModelVersionFormat	  "1.%<AutoIncrement:119>"
-  ConfigurationManager	  "None"
+  LastModifiedDate	  "Tue Jan 06 14:13:49 2015"
+  RTWModifiedTimeStamp	  342454429
+  ModelVersionFormat	  "1.%<AutoIncrement:92>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   WideLines		  off
@@ -51,7 +50,7 @@ Model {
   StatusBar		  on
   BrowserShowLibraryLinks off
   BrowserLookUnderMasks	  off
-  SimulationMode	  "normal"
+  SimulationMode	  "external"
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
@@ -129,7 +128,7 @@ Model {
 	  $ObjectID		  8
 	  Version		  "1.11.0"
 	  StartTime		  "0.0"
-	  StopTime		  "inf"
+	  StopTime		  "20.0"
 	  AbsTol		  "auto"
 	  FixedStep		  "0.05"
 	  InitialStep		  "auto"
@@ -198,7 +197,6 @@ Model {
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
-	  UseIntDivNetSlope	  off
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
@@ -232,6 +230,7 @@ Model {
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
 	  ParallelExecutionInRapidAccelerator on
+	  UseIntDivNetSlope	  off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  11
@@ -397,10 +396,12 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  SystemTargetFile	  "darwinoplib.tlc"
+	  TLCOptions		  ""
 	  GenCodeOnly		  on
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
 	  TemplateMakefile	  "darwinoplib.tmf"
+	  PostCodeGenCommand	  ""
 	  Description		  "DarwinOP code generator"
 	  GenerateReport	  off
 	  SaveLog		  off
@@ -413,9 +414,17 @@ Model {
 	  ProcessScriptMode	  "Default"
 	  ConfigurationMode	  "Optimized"
 	  ProcessScript		  "darwinoplib_make_rtw_hook"
+	  ConfigurationScript	  ""
 	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
+	  CustomSourceCode	  ""
+	  CustomHeaderCode	  ""
+	  CustomInclude		  ""
+	  CustomSource		  ""
+	  CustomLibrary		  ""
+	  CustomInitializer	  ""
+	  CustomTerminator	  ""
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
 	  TargetLang		  "C++"
@@ -429,8 +438,10 @@ Model {
 	  GenerateCodeInfo	  off
 	  GenerateCodeMetricsReport off
 	  RTWCompilerOptimization "Off"
+	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
+	  DataInitializer	  ""
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
@@ -486,7 +497,7 @@ Model {
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      TargetFunctionLibrary   "ANSI_C"
+	      TargetFunctionLibrary   "C89/C90 (ANSI)"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
 	      ERTMultiwordLength      256
@@ -494,14 +505,13 @@ Model {
 	      GenerateFullHeader      on
 	      GenerateSampleERTMain   off
 	      GenerateTestInterfaces  off
-	      IsPILTarget	      off
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant off
 	      CompOptLevelCompliant   off
 	      ConcurrentExecutionCompliant off
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Use local settings"
-	      CombineOutputUpdateFcns on
+	      CombineOutputUpdateFcns off
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
 	      ERTFirstTimeCompliant   off
@@ -530,7 +540,7 @@ Model {
 		Simulink.ERTTargetCC {
 		  $BackupClass		  "Simulink.TargetCC"
 		  $ObjectID		  18
-		  Version		  "1.13.0"
+		  Version		  "1.14.3"
 		  Array {
 		    Type		    "Cell"
 		    Dimension		    2
@@ -541,7 +551,7 @@ Model {
 		  TargetFcnLib		  "ansi_tfl_table_tmw.mat"
 		  TargetLibSuffix	  ""
 		  TargetPreCompLibLocation ""
-		  TargetFunctionLibrary	  "ANSI_C"
+		  TargetFunctionLibrary	  "C89/C90 (ANSI)"
 		  UtilityFuncGeneration	  "Auto"
 		  ERTMultiwordTypeDef	  "System defined"
 		  ERTMultiwordLength	  256
@@ -549,7 +559,6 @@ Model {
 		  GenerateFullHeader	  on
 		  GenerateSampleERTMain	  off
 		  GenerateTestInterfaces  off
-		  IsPILTarget		  off
 		  ModelReferenceCompliant on
 		  ParMdlRefBuildCompliant off
 		  CompOptLevelCompliant	  off
@@ -578,13 +587,12 @@ Model {
 		  AutosarCompliant	  off
 		  GRTInterface		  off
 		  GenerateASAP2		  off
-		  ExtMode		  off
+		  ExtMode		  on
 		  ExtModeTransport	  0
 		  ExtModeStaticAlloc	  off
 		  ExtModeStaticAllocSize  1000000
 		  ExtModeTesting	  off
 		  ExtModeMexFile	  "ext_comm"
-		  ExtModeMexArgs	  "'192.168.123.1' 1 17725"
 		  ExtModeIntrfLevel	  "Level1"
 		  InlinedParameterPlacement "NonHierarchical"
 		  TargetOS		  "BareBoardExample"
@@ -641,13 +649,13 @@ Model {
 		  MemSecFuncInitTerm	  "Default"
 		  MemSecFuncExecute	  "Default"
 		  MemSecFuncSharedUtil	  "Default"
-		  GenerateErtSFunction	  off
-		  CreateSILPILBlock	  "None"
 		  PortableWordSizes	  off
 		  CodeExecutionProfiling  off
 		  CodeExecutionProfileVariable "executionProfile"
 		  CodeProfilingSaveOptions "SummaryOnly"
 		  CodeProfilingInstrumentation off
+		  GenerateErtSFunction	  off
+		  CreateSILPILBlock	  "None"
 		}
 		PropName		"Components"
 	      }
@@ -669,7 +677,7 @@ Model {
 	      CustomProperty {
 		DataType		"int32"
 		Name			"DarwinOPDisconnect"
-		Value			2
+		Value			15
 	      }
 	      CustomProperty {
 		DataType		"string"
@@ -695,7 +703,7 @@ Model {
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
       CurrentDlgPage	      "Code Generation/Interface"
-      ConfigPrmDlgPosition    [ 469, 100, 1452, 896 ]  
+      ConfigPrmDlgPosition    [ 713, 97, 1825, 931 ]  
     }
     PropName		    "ConfigurationSets"
   }
@@ -749,21 +757,6 @@ Model {
       PreserveConstantTs      off
     }
     Block {
-      BlockType		      Gain
-      Gain		      "1"
-      Multiplication	      "Element-wise(K.*u)"
-      ParamMin		      "[]"
-      ParamMax		      "[]"
-      ParamDataTypeStr	      "Inherit: Same as input"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Same as input"
-      LockScale		      off
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	on
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      Inport
       Port		      "1"
       OutputFunctionCall      off
@@ -785,20 +778,6 @@ Model {
       BlockType		      M-S-Function
       FunctionName	      "matlabfile"
       DisplayMFileStacktrace  on
-    }
-    Block {
-      BlockType		      MinMax
-      Function		      "min"
-      Inputs		      "1"
-      InputSameDT	      on
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-      LockScale		      off
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	on
-      ZeroCross		      on
-      SampleTime	      "-1"
     }
     Block {
       BlockType		      Outport
@@ -840,22 +819,6 @@ Model {
       GeneratePreprocessorConditionals off
     }
     Block {
-      BlockType		      Sum
-      IconShape		      "rectangular"
-      Inputs		      "++"
-      CollapseMode	      "All dimensions"
-      CollapseDim	      "1"
-      InputSameDT	      on
-      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Same as first input"
-      LockScale		      off
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	on
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      Switch
       Criteria		      "u2 >= Threshold"
       Threshold		      "0"
@@ -873,7 +836,7 @@ Model {
   }
   System {
     Name		    "vision_processing"
-    Location		    [121, 142, 1164, 850]
+    Location		    [121, 142, 1019, 772]
     Open		    off
     ModelBrowserVisibility  on
     ModelBrowserWidth	    200
@@ -887,22 +850,15 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "127"
-    Block {
-      BlockType		      Constant
-      Name		      "Activation"
-      SID		      "33"
-      Position		      [245, 455, 275, 485]
-      ZOrder		      22
-    }
+    SIDHighWatermark	    "85"
     Block {
       BlockType		      Reference
       Name		      "Ball Graph"
       SID		      "34"
       Ports		      [2]
-      Position		      [850, 300, 880, 335]
+      Position		      [725, 205, 755, 240]
       ZOrder		      23
-      LibraryVersion	      "1.274"
+      LibraryVersion	      "1.354"
       SourceBlock	      "simulink/Sinks/XY Graph"
       SourceType	      "XY scope."
       xmin		      "0"
@@ -916,18 +872,12 @@ Model {
       Name		      "Ball glitches"
       SID		      "37"
       Ports		      [2, 2]
-      Position		      [745, 295, 825, 335]
+      Position		      [620, 200, 700, 240]
       ZOrder		      26
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
       RequestExecContextInheritance off
-      MaskHideContents	      off
       System {
 	Name			"Ball glitches"
-	Location		[121, 142, 1164, 850]
+	Location		[121, 142, 1222, 772]
 	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
@@ -960,7 +910,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay X"
-	  SID			  "116"
+	  SID			  "78"
 	  Ports			  [1, 1]
 	  Position		  [195, 23, 230, 57]
 	  ZOrder		  32
@@ -978,7 +928,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay Y"
-	  SID			  "117"
+	  SID			  "79"
 	  Ports			  [1, 1]
 	  Position		  [195, 163, 230, 197]
 	  ZOrder		  33
@@ -1101,15 +1051,21 @@ Model {
 	  }
 	}
       }
+      RTWSystemCode	      "Auto"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
     }
     Block {
       BlockType		      Reference
       Name		      "Blue Graph"
       SID		      "64"
       Ports		      [2]
-      Position		      [850, 480, 880, 515]
+      Position		      [725, 390, 755, 425]
       ZOrder		      31
-      LibraryVersion	      "1.274"
+      LibraryVersion	      "1.354"
       SourceBlock	      "simulink/Sinks/XY Graph"
       SourceType	      "XY scope."
       xmin		      "0"
@@ -1123,15 +1079,9 @@ Model {
       Name		      "Blue glitches"
       SID		      "65"
       Ports		      [2, 2]
-      Position		      [745, 475, 825, 515]
+      Position		      [620, 385, 700, 425]
       ZOrder		      32
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
       RequestExecContextInheritance off
-      MaskHideContents	      off
       System {
 	Name			"Blue glitches"
 	Location		[121, 142, 1222, 772]
@@ -1167,7 +1117,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay X"
-	  SID			  "118"
+	  SID			  "80"
 	  Ports			  [1, 1]
 	  Position		  [195, 23, 230, 57]
 	  ZOrder		  32
@@ -1185,7 +1135,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay Y"
-	  SID			  "119"
+	  SID			  "81"
 	  Ports			  [1, 1]
 	  Position		  [195, 163, 230, 197]
 	  ZOrder		  33
@@ -1308,29 +1258,26 @@ Model {
 	  }
 	}
       }
+      RTWSystemCode	      "Auto"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
     }
     Block {
       BlockType		      Constant
-      Name		      "Center Pan"
-      SID		      "79"
-      Position		      [180, 410, 210, 440]
-      ZOrder		      34
-      Value		      "2048"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Center Tilt"
-      SID		      "111"
-      Position		      [180, 470, 210, 500]
-      ZOrder		      59
-      Value		      "2500"
+      Name		      "Constant"
+      SID		      "33"
+      Position		      [165, 205, 195, 235]
+      ZOrder		      22
     }
     Block {
       BlockType		      M-S-Function
       Name		      "DarwinOP communication"
       SID		      "29"
-      Ports		      [13, 8]
-      Position		      [310, 297, 635, 523]
+      Ports		      [5, 8]
+      Position		      [245, 200, 510, 360]
       ZOrder		      18
       UserDataPersistent      on
       UserData		      "DataTag4"
@@ -1351,336 +1298,29 @@ Model {
       MaskVisibilityString    "on,on,on,on,on,on,on"
       MaskToolTipString	      "on,on,on,on,on,on,on"
       MaskSelfModifiable      on
-      MaskDisplay	      "image(imread('darwin-blk.jpg'))                                      \n                      "
-      "                                       \nport_label('output',1,'Vision(1)/Ball X')                    \nport_lab"
-      "el('output',2,'Vision(1)/Ball Y')                    \nport_label('output',3,'Vision(1)/Red X')                 "
-      "    \nport_label('output',4,'Vision(1)/Red Y')                     \nport_label('output',5,'Vision(1)/Yellow X')"
-      "                  \nport_label('output',6,'Vision(1)/Yellow Y')                  \nport_label('output',7,'Vision"
-      "(1)/Blue X')                    \nport_label('output',8,'Vision(1)/Blue Y')                    \n               "
-      "                                              \nport_label('input',1,'Right Shoulder Pitch(1)/Goal Position')\np"
-      "ort_label('input',2,'Left Shoulder Pitch(2)/Goal Position') \nport_label('input',3,'Right Shoulder Roll(3)/Goal "
-      "Position') \nport_label('input',4,'Left Shoulder Roll(4)/Goal Position')  \nport_label('input',5,'Right Elbow(5)"
-      "/Goal Position')         \nport_label('input',6,'Left Elbow(6)/Goal Position')          \nport_label('input',7,'"
-      "Head Pan(19)/Goal Position')           \nport_label('input',8,'Head Tilt(20)/Goal Position')          \nport_lab"
-      "el('input',9,'Vision(1)/Enable')                     \nport_label('input',10,'Vision(1)/Ball enable')           "
-      "    \nport_label('input',11,'Vision(1)/Red enable')                \nport_label('input',12,'Vision(1)/Yellow ena"
-      "ble')             \nport_label('input',13,'Vision(1)/Blue enable')               "
+      MaskDisplay	      "image(imread('darwin-blk.jpg'))                        \n                                    "
+      "           \nport_label('output',1,'Vision(1)/Ball X')      \nport_label('output',2,'Vision(1)/Ball Y')      \np"
+      "ort_label('output',3,'Vision(1)/Red X')       \nport_label('output',4,'Vision(1)/Red Y')       \nport_label('out"
+      "put',5,'Vision(1)/Yellow X')    \nport_label('output',6,'Vision(1)/Yellow Y')    \nport_label('output',7,'Vision"
+      "(1)/Blue X')      \nport_label('output',8,'Vision(1)/Blue Y')      \n                                           "
+      "    \nport_label('input',1,'Vision(1)/Enable')       \nport_label('input',2,'Vision(1)/Ball enable')  \nport_lab"
+      "el('input',3,'Vision(1)/Red enable')   \nport_label('input',4,'Vision(1)/Yellow enable')\nport_label('input',5,'"
+      "Vision(1)/Blue enable')  "
       MaskIconFrame	      on
       MaskIconOpaque	      on
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
-      MaskValueString	      "192.168.123.1|1234|tcp|0.05|[ 3 1 30 2 0 0 3 2 30 2 0 0 3 3 30 2 0 0 3 4 30 2 0 0 3 5 30 "
-      "2 0 0 3 6 30 2 0 0 3 19 30 2 0 0 3 20 30 2 0 0 17 1 30 4 17 1 50 4 17 1 70 4 17 1 90 4 18 1 1 5 0 0 0 0 0]|[ 1 2"
-      ";3 2;5 2;7 2;9 2;11 2;13 2;15 2]|[ 5 2;11 2;17 2;23 2;29 2;35 2;41 2;47 2;69 1;70 1;71 1;72 1;73 1]"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Delay Left Shoulder Pitch"
-      SID		      "120"
-      Ports		      [1, 1]
-      Position		      [335, 233, 370, 267]
-      ZOrder		      65
-      BlockMirror	      on
-      LibraryVersion	      "1.1"
-      UserDataPersistent      on
-      UserData		      "DataTag5"
-      SourceBlock	      "simulink/Discrete/Integer Delay"
-      SourceType	      "Integer Delay"
-      NumDelays		      "1"
-      InputProcessing	      "Elements as channels (sample based)"
-      vinit		      "2048"
-      samptime		      "-1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Delay Left Shoulder Roll1"
-      SID		      "121"
-      Ports		      [1, 1]
-      Position		      [335, 148, 370, 182]
-      ZOrder		      66
-      BlockMirror	      on
-      LibraryVersion	      "1.1"
-      UserDataPersistent      on
-      UserData		      "DataTag6"
-      SourceBlock	      "simulink/Discrete/Integer Delay"
-      SourceType	      "Integer Delay"
-      NumDelays		      "1"
-      InputProcessing	      "Elements as channels (sample based)"
-      vinit		      "2048"
-      samptime		      "-1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Delay Right Shoulder Pitch"
-      SID		      "122"
-      Ports		      [1, 1]
-      Position		      [335, 203, 370, 237]
-      ZOrder		      67
-      BlockMirror	      on
-      LibraryVersion	      "1.1"
-      UserDataPersistent      on
-      UserData		      "DataTag7"
-      SourceBlock	      "simulink/Discrete/Integer Delay"
-      SourceType	      "Integer Delay"
-      NumDelays		      "1"
-      InputProcessing	      "Elements as channels (sample based)"
-      vinit		      "2048"
-      samptime		      "-1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Delay Right Shoulder Roll"
-      SID		      "123"
-      Ports		      [1, 1]
-      Position		      [335, 118, 370, 152]
-      ZOrder		      68
-      BlockMirror	      on
-      LibraryVersion	      "1.1"
-      UserDataPersistent      on
-      UserData		      "DataTag8"
-      SourceBlock	      "simulink/Discrete/Integer Delay"
-      SourceType	      "Integer Delay"
-      NumDelays		      "1"
-      InputProcessing	      "Elements as channels (sample based)"
-      vinit		      "2048"
-      samptime		      "-1"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Left Straight"
-      SID		      "81"
-      Position		      [180, 350, 210, 380]
-      ZOrder		      36
-      Value		      "3072"
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "Pitch computations"
-      SID		      "94"
-      Ports		      [1, 2]
-      Position		      [430, 205, 580, 265]
-      ZOrder		      49
-      BlockMirror	      on
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
-      RequestExecContextInheritance off
-      MaskHideContents	      off
-      System {
-	Name			"Pitch computations"
-	Location		[121, 142, 1143, 850]
-	Open			off
-	ModelBrowserVisibility	on
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"A4"
-	PaperUnits		"centimeters"
-	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	Block {
-	  BlockType		  Inport
-	  Name			  "Ball Y"
-	  SID			  "95"
-	  Position		  [635, 205, 665, 220]
-	  ZOrder		  49
-	  BlockRotation		  270
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Center Y"
-	  SID			  "85"
-	  Position		  [490, 145, 520, 175]
-	  ZOrder		  40
-	  Value			  "120"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Left Shoulder Pitch Center"
-	  SID			  "91"
-	  Position		  [240, 110, 270, 140]
-	  ZOrder		  46
-	  Value			  "1024"
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "MX28 Gain Y"
-	  SID			  "87"
-	  Position		  [335, 172, 405, 218]
-	  ZOrder		  42
-	  BlockMirror		  on
-	  Gain			  "4096/360"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Right Shoulder Pitch Center"
-	  SID			  "90"
-	  Position		  [240, 235, 270, 265]
-	  ZOrder		  45
-	  Value			  "3072"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "82"
-	  Ports			  [2, 1]
-	  Position		  [545, 185, 565, 205]
-	  ZOrder		  37
-	  BlockMirror		  on
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "-+|"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum2"
-	  SID			  "92"
-	  Ports			  [2, 1]
-	  Position		  [295, 165, 315, 185]
-	  ZOrder		  47
-	  BlockMirror		  on
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "++|"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum3"
-	  SID			  "93"
-	  Ports			  [2, 1]
-	  Position		  [295, 205, 315, 225]
-	  ZOrder		  48
-	  BlockMirror		  on
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|-+"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "Webcam Gain Y"
-	  SID			  "86"
-	  Position		  [420, 172, 475, 218]
-	  ZOrder		  41
-	  BlockMirror		  on
-	  Gain			  "46/240"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Right Shoulder Pitch"
-	  SID			  "96"
-	  Position		  [160, 208, 190, 222]
-	  ZOrder		  50
-	  BlockMirror		  on
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Left Shoulder Pitch"
-	  SID			  "97"
-	  Position		  [160, 168, 190, 182]
-	  ZOrder		  51
-	  BlockMirror		  on
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Webcam Gain Y"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Webcam Gain Y"
-	  SrcPort		  1
-	  DstBlock		  "MX28 Gain Y"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Center Y"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Right Shoulder Pitch Center"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum3"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Sum3"
-	  SrcPort		  1
-	  DstBlock		  "Right Shoulder Pitch"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Left Shoulder Pitch Center"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum2"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "MX28 Gain Y"
-	  SrcPort		  1
-	  Points		  [-4, 0]
-	  Branch {
-	    Points		    [0, 20]
-	    DstBlock		    "Sum3"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, -20]
-	    DstBlock		    "Sum2"
-	    DstPort		    2
-	  }
-	}
-	Line {
-	  SrcBlock		  "Sum2"
-	  SrcPort		  1
-	  DstBlock		  "Left Shoulder Pitch"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Ball Y"
-	  SrcPort		  1
-	  Points		  [0, -5]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-      }
+      MaskValueString	      "192.168.123.1|1234|tcp|0.05|[ 17 1 30 4 17 1 50 4 17 1 70 4 17 1 90 4 18 1 1 1 0 18 1 6 4"
+      " 0 0 0 0]|[ 1 2;3 2;5 2;7 2;9 2;11 2;13 2;15 2]|[ 21 1;26 1;27 1;28 1;29 1]"
     }
     Block {
       BlockType		      Reference
       Name		      "Real-time simulation"
-      SID		      "78"
+      SID		      "30"
       Ports		      []
-      Position		      [450, 551, 550, 599]
-      ZOrder		      33
+      Position		      [165, 412, 260, 458]
+      ZOrder		      19
       LibraryVersion	      "1.28"
       SourceBlock	      "lib_darwinop/Real-time simulation"
       SourceType	      "Real-time simulation parameters "
@@ -1691,9 +1331,9 @@ Model {
       Name		      "Red Graph"
       SID		      "44"
       Ports		      [2]
-      Position		      [850, 360, 880, 395]
+      Position		      [725, 265, 755, 300]
       ZOrder		      27
-      LibraryVersion	      "1.274"
+      LibraryVersion	      "1.354"
       SourceBlock	      "simulink/Sinks/XY Graph"
       SourceType	      "XY scope."
       xmin		      "0"
@@ -1707,15 +1347,9 @@ Model {
       Name		      "Red glitches"
       SID		      "45"
       Ports		      [2, 2]
-      Position		      [745, 355, 825, 395]
+      Position		      [620, 260, 700, 300]
       ZOrder		      28
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
       RequestExecContextInheritance off
-      MaskHideContents	      off
       System {
 	Name			"Red glitches"
 	Location		[121, 142, 1222, 772]
@@ -1751,14 +1385,14 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay X"
-	  SID			  "124"
+	  SID			  "82"
 	  Ports			  [1, 1]
 	  Position		  [195, 23, 230, 57]
 	  ZOrder		  32
 	  BlockMirror		  on
 	  LibraryVersion	  "1.1"
 	  UserDataPersistent	  on
-	  UserData		  "DataTag9"
+	  UserData		  "DataTag5"
 	  SourceBlock		  "simulink/Discrete/Integer Delay"
 	  SourceType		  "Integer Delay"
 	  NumDelays		  "1"
@@ -1769,14 +1403,14 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay Y"
-	  SID			  "125"
+	  SID			  "83"
 	  Ports			  [1, 1]
 	  Position		  [195, 163, 230, 197]
 	  ZOrder		  33
 	  BlockMirror		  on
 	  LibraryVersion	  "1.1"
 	  UserDataPersistent	  on
-	  UserData		  "DataTag10"
+	  UserData		  "DataTag6"
 	  SourceBlock		  "simulink/Discrete/Integer Delay"
 	  SourceType		  "Integer Delay"
 	  NumDelays		  "1"
@@ -1892,302 +1526,21 @@ Model {
 	  }
 	}
       }
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Right Straight"
-      SID		      "80"
-      Position		      [180, 300, 210, 330]
-      ZOrder		      35
-      Value		      "1024"
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "Roll computations"
-      SID		      "104"
-      Ports		      [1, 2]
-      Position		      [430, 120, 580, 180]
-      ZOrder		      58
-      BlockMirror	      on
+      RTWSystemCode	      "Auto"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
-      RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      RequestExecContextInheritance off
       MaskHideContents	      off
-      System {
-	Name			"Roll computations"
-	Location		[121, 142, 1143, 850]
-	Open			off
-	ModelBrowserVisibility	on
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"A4"
-	PaperUnits		"centimeters"
-	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	Block {
-	  BlockType		  Inport
-	  Name			  "Ball X"
-	  SID			  "105"
-	  Position		  [690, 115, 720, 130]
-	  ZOrder		  56
-	  BlockRotation		  270
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Center"
-	  SID			  "110"
-	  Position		  [300, 210, 330, 240]
-	  ZOrder		  61
-	  Value			  "0"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Center X"
-	  SID			  "84"
-	  Position		  [595, 35, 625, 65]
-	  ZOrder		  39
-	  Value			  "160"
-	}
-	Block {
-	  BlockType		  MinMax
-	  Name			  "Left Min"
-	  SID			  "108"
-	  Ports			  [2, 1]
-	  Position		  [300, 67, 330, 98]
-	  ZOrder		  59
-	  BlockMirror		  on
-	  Inputs		  "2"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Left Shoulder Roll Center"
-	  SID			  "98"
-	  Position		  [165, 20, 195, 50]
-	  ZOrder		  53
-	  Value			  "2560"
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "MX28 Gain X"
-	  SID			  "89"
-	  Position		  [440, 82, 510, 128]
-	  ZOrder		  44
-	  BlockMirror		  on
-	  Gain			  "4096/360"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  MinMax
-	  Name			  "Right Max"
-	  SID			  "109"
-	  Ports			  [2, 1]
-	  Position		  [300, 132, 330, 163]
-	  ZOrder		  60
-	  BlockMirror		  on
-	  Function		  "max"
-	  Inputs		  "2"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Right Shoulder Roll Center"
-	  SID			  "99"
-	  Position		  [165, 170, 195, 200]
-	  ZOrder		  52
-	  Value			  "1536"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum1"
-	  SID			  "83"
-	  Ports			  [2, 1]
-	  Position		  [650, 95, 670, 115]
-	  ZOrder		  38
-	  BlockMirror		  on
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "-+|"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum2"
-	  SID			  "100"
-	  Ports			  [2, 1]
-	  Position		  [220, 75, 240, 95]
-	  ZOrder		  54
-	  BlockMirror		  on
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "++|"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum3"
-	  SID			  "101"
-	  Ports			  [2, 1]
-	  Position		  [220, 140, 240, 160]
-	  ZOrder		  55
-	  BlockMirror		  on
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "Webcam Gain X"
-	  SID			  "88"
-	  Position		  [525, 82, 580, 128]
-	  ZOrder		  43
-	  BlockMirror		  on
-	  Gain			  "58/320"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Right Shoulder Roll"
-	  SID			  "106"
-	  Position		  [60, 143, 90, 157]
-	  ZOrder		  57
-	  BlockMirror		  on
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Left Shoulder Roll"
-	  SID			  "107"
-	  Position		  [60, 78, 90, 92]
-	  ZOrder		  58
-	  BlockMirror		  on
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  SrcBlock		  "Sum1"
-	  SrcPort		  1
-	  DstBlock		  "Webcam Gain X"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Webcam Gain X"
-	  SrcPort		  1
-	  DstBlock		  "MX28 Gain X"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Center X"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Sum2"
-	  SrcPort		  1
-	  DstBlock		  "Left Shoulder Roll"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Sum3"
-	  SrcPort		  1
-	  DstBlock		  "Right Shoulder Roll"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Left Shoulder Roll Center"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum2"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Right Shoulder Roll Center"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "Sum3"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Ball X"
-	  SrcPort		  1
-	  Points		  [0, -5]
-	  DstBlock		  "Sum1"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Left Min"
-	  SrcPort		  1
-	  DstBlock		  "Sum2"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "MX28 Gain X"
-	  SrcPort		  1
-	  Points		  [-49, 0]
-	  Branch {
-	    Points		    [0, -15]
-	    DstBlock		    "Left Min"
-	    DstPort		    2
-	  }
-	  Branch {
-	    Points		    [0, 35]
-	    DstBlock		    "Right Max"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "Right Max"
-	  SrcPort		  1
-	  DstBlock		  "Sum3"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Center"
-	  SrcPort		  1
-	  Points		  [13, 0; 0, -70]
-	  Branch {
-	    DstBlock		    "Right Max"
-	    DstPort		    2
-	  }
-	  Branch {
-	    Points		    [0, -80]
-	    DstBlock		    "Left Min"
-	    DstPort		    1
-	  }
-	}
-      }
     }
     Block {
       BlockType		      Reference
       Name		      "Yellow Graph"
       SID		      "54"
       Ports		      [2]
-      Position		      [850, 420, 880, 455]
+      Position		      [725, 325, 755, 360]
       ZOrder		      29
-      LibraryVersion	      "1.274"
+      LibraryVersion	      "1.354"
       SourceBlock	      "simulink/Sinks/XY Graph"
       SourceType	      "XY scope."
       xmin		      "0"
@@ -2201,15 +1554,9 @@ Model {
       Name		      "Yellow glitches"
       SID		      "55"
       Ports		      [2, 2]
-      Position		      [745, 415, 825, 455]
+      Position		      [620, 320, 700, 360]
       ZOrder		      30
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
       RequestExecContextInheritance off
-      MaskHideContents	      off
       System {
 	Name			"Yellow glitches"
 	Location		[121, 142, 1222, 772]
@@ -2245,14 +1592,14 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay X"
-	  SID			  "126"
+	  SID			  "84"
 	  Ports			  [1, 1]
 	  Position		  [195, 23, 230, 57]
 	  ZOrder		  32
 	  BlockMirror		  on
 	  LibraryVersion	  "1.1"
 	  UserDataPersistent	  on
-	  UserData		  "DataTag11"
+	  UserData		  "DataTag7"
 	  SourceBlock		  "simulink/Discrete/Integer Delay"
 	  SourceType		  "Integer Delay"
 	  NumDelays		  "1"
@@ -2263,14 +1610,14 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Delay Y"
-	  SID			  "127"
+	  SID			  "85"
 	  Ports			  [1, 1]
 	  Position		  [195, 163, 230, 197]
 	  ZOrder		  33
 	  BlockMirror		  on
 	  LibraryVersion	  "1.1"
 	  UserDataPersistent	  on
-	  UserData		  "DataTag12"
+	  UserData		  "DataTag8"
 	  SourceBlock		  "simulink/Discrete/Integer Delay"
 	  SourceType		  "Integer Delay"
 	  NumDelays		  "1"
@@ -2386,6 +1733,47 @@ Model {
 	  }
 	}
       }
+      RTWSystemCode	      "Auto"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
+    }
+    Line {
+      SrcBlock		      "Constant"
+      SrcPort		      1
+      Points		      [11, 0]
+      Branch {
+	Points			[0, 30]
+	Branch {
+	  Points		  [0, 30]
+	  Branch {
+	    Points		    [0, 30]
+	    Branch {
+	      Points		      [0, 30]
+	      DstBlock		      "DarwinOP communication"
+	      DstPort		      5
+	    }
+	    Branch {
+	      DstBlock		      "DarwinOP communication"
+	      DstPort		      4
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "DarwinOP communication"
+	    DstPort		    3
+	  }
+	}
+	Branch {
+	  DstBlock		  "DarwinOP communication"
+	  DstPort		  2
+	}
+      }
+      Branch {
+	DstBlock		"DarwinOP communication"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "DarwinOP communication"
@@ -2396,42 +1784,26 @@ Model {
     Line {
       SrcBlock		      "Ball glitches"
       SrcPort		      1
-      Points		      [4, 0]
-      Branch {
-	Points			[0, -155]
-	DstBlock		"Roll computations"
-	DstPort			1
-      }
-      Branch {
-	Points			[1, 0]
-	DstBlock		"Ball Graph"
-	DstPort			1
-      }
+      Points		      [5, 0]
+      DstBlock		      "Ball Graph"
+      DstPort		      1
     }
     Line {
       SrcBlock		      "DarwinOP communication"
       SrcPort		      2
-      Points		      [50, 0; 0, -10]
       DstBlock		      "Ball glitches"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Ball glitches"
       SrcPort		      2
-      Points		      [0, 0]
-      Branch {
-	Points			[0, -90]
-	DstBlock		"Pitch computations"
-	DstPort			1
-      }
-      Branch {
-	DstBlock		"Ball Graph"
-	DstPort			2
-      }
+      DstBlock		      "Ball Graph"
+      DstPort		      2
     }
     Line {
       SrcBlock		      "DarwinOP communication"
       SrcPort		      3
+      Points		      [73, 0; 0, 20]
       DstBlock		      "Red glitches"
       DstPort		      1
     }
@@ -2445,7 +1817,7 @@ Model {
     Line {
       SrcBlock		      "DarwinOP communication"
       SrcPort		      4
-      Points		      [50, 0; 0, -10]
+      Points		      [62, 0; 0, 20]
       DstBlock		      "Red glitches"
       DstPort		      2
     }
@@ -2458,6 +1830,7 @@ Model {
     Line {
       SrcBlock		      "DarwinOP communication"
       SrcPort		      5
+      Points		      [49, 0; 0, 40]
       DstBlock		      "Yellow glitches"
       DstPort		      1
     }
@@ -2471,7 +1844,7 @@ Model {
     Line {
       SrcBlock		      "DarwinOP communication"
       SrcPort		      6
-      Points		      [50, 0; 0, -10]
+      Points		      [34, 0; 0, 40]
       DstBlock		      "Yellow glitches"
       DstPort		      2
     }
@@ -2484,6 +1857,7 @@ Model {
     Line {
       SrcBlock		      "DarwinOP communication"
       SrcPort		      7
+      Points		      [24, 0; 0, 65]
       DstBlock		      "Blue glitches"
       DstPort		      1
     }
@@ -2497,7 +1871,7 @@ Model {
     Line {
       SrcBlock		      "DarwinOP communication"
       SrcPort		      8
-      Points		      [50, 0; 0, -10]
+      Points		      [12, 0; 0, 65]
       DstBlock		      "Blue glitches"
       DstPort		      2
     }
@@ -2507,123 +1881,10 @@ Model {
       DstBlock		      "Blue Graph"
       DstPort		      2
     }
-    Line {
-      SrcBlock		      "Activation"
-      SrcPort		      1
-      Points		      [13, 0]
-      Branch {
-	Points			[0, -15]
-	Branch {
-	  DstBlock		  "DarwinOP communication"
-	  DstPort		  10
-	}
-	Branch {
-	  Points		  [0, -15]
-	  DstBlock		  "DarwinOP communication"
-	  DstPort		  9
-	}
-      }
-      Branch {
-	DstBlock		"DarwinOP communication"
-	DstPort			11
-      }
-      Branch {
-	Points			[0, 15]
-	Branch {
-	  DstBlock		  "DarwinOP communication"
-	  DstPort		  12
-	}
-	Branch {
-	  Points		  [0, 15]
-	  DstBlock		  "DarwinOP communication"
-	  DstPort		  13
-	}
-      }
-    }
-    Line {
-      SrcBlock		      "Center Pan"
-      SrcPort		      1
-      Points		      [9, 0; 0, -15]
-      DstBlock		      "DarwinOP communication"
-      DstPort		      7
-    }
-    Line {
-      SrcBlock		      "Right Straight"
-      SrcPort		      1
-      Points		      [25, 0; 0, 65]
-      DstBlock		      "DarwinOP communication"
-      DstPort		      5
-    }
-    Line {
-      SrcBlock		      "Left Straight"
-      SrcPort		      1
-      Points		      [14, 0; 0, 30]
-      DstBlock		      "DarwinOP communication"
-      DstPort		      6
-    }
-    Line {
-      SrcBlock		      "Pitch computations"
-      SrcPort		      1
-      DstBlock		      "Delay Right Shoulder Pitch"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Pitch computations"
-      SrcPort		      2
-      DstBlock		      "Delay Left Shoulder Pitch"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Roll computations"
-      SrcPort		      1
-      DstBlock		      "Delay Right Shoulder Roll"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Roll computations"
-      SrcPort		      2
-      DstBlock		      "Delay Left Shoulder Roll1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Center Tilt"
-      SrcPort		      1
-      Points		      [19, 0; 0, -60]
-      DstBlock		      "DarwinOP communication"
-      DstPort		      8
-    }
-    Line {
-      SrcBlock		      "Delay Right Shoulder Roll"
-      SrcPort		      1
-      Points		      [-58, 0; 0, 215]
-      DstBlock		      "DarwinOP communication"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Delay Left Shoulder Roll1"
-      SrcPort		      1
-      Points		      [-72, 0; 0, 200]
-      DstBlock		      "DarwinOP communication"
-      DstPort		      4
-    }
-    Line {
-      SrcBlock		      "Delay Right Shoulder Pitch"
-      SrcPort		      1
-      Points		      [-44, 0; 0, 100]
-      DstBlock		      "DarwinOP communication"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Delay Left Shoulder Pitch"
-      SrcPort		      1
-      Points		      [-36, 0; 0, 85]
-      DstBlock		      "DarwinOP communication"
-      DstPort		      2
-    }
   }
 }
 MatData {
-  NumRecords		  13
+  NumRecords		  9
   DataRecord {
     Tag			    DataTag0
     Data		    "  %)30     .    D     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
@@ -2646,8 +1907,8 @@ MatData {
   }
   DataRecord {
     Tag			    DataTag4
-    Data		    "  %)30     .    .%L   8    (     @         %    \"     $    !     0         %  0 %@    $    L    <V5L96"
-    "-T961?<F5A9%]F:65L9',  '-E;&5C=&5D7W=R:71E7V9I96QD<P      #@   & M   &    \"     $         !0    @    !    &     $"
+    Data		    "  %)30     .    ^%@   8    (     @         %    \"     $    !     0         %  0 %@    $    L    <V5L96"
+    "-T961?<F5A9%]F:65L9',  '-E;&5C=&5D7W=R:71E7V9I96QD<P      #@   $ L   &    \"     $         !0    @    !    &     $"
     "         #@   -@!   &    \"     8         !0    @    !    -0    $         \"0   *@!                               "
     "                                                                                                                  "
     "                                                                                                                  "
@@ -2775,152 +2036,145 @@ MatData {
     "                     X    ( 0  !@    @    &          4    (     0   !L    !          D   #8                       "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                         #@   - \"   &    \"     8         !0    @    !    5     $         \"0   *"
-    " \"                                                                                                               "
+    "                                         #@   + !   &    \"     8         !0    @    !    ,     $         \"0   ( "
+    "!                                                                                                                 "
+    "                                                                    / _        \\#\\                              "
+    "                                                               \\#\\       #P/P                                   "
+    "                                                         #P/P       / _                                           "
+    "                                                  / _        \\#\\.    0\"P   8    (     0         %    \"     $  "
+    "  8     0         .    V $   8    (    !@         %    \"     $    U     0         )    J $                       "
     "                                                                                                                  "
-    "                                         #P/P                            #P/P                                     "
     "                                                                                                                  "
-    "     #P/P                            #P/P                                                                         "
-    "                                                                                   #P/P                           "
-    " #P/P                                                                                                             "
-    "                                               #P/P                            #P/P                     .    8\"T "
-    "  8    (     0         %    \"     $    8     0         .    V $   8    (    !@         %    \"     $    U     0  "
-    "       )    J $                                                                                                   "
     "                                                                                                                  "
-    "                                                                                     / _                          "
     "                                                                                                                  "
+    "                                                                                         .    V $   8    (    !@  "
+    "       %    \"     $    U     0         )    J $                                                                  "
     "                                                                                                                  "
-    "             .    V $   8    (    !@         %    \"     $    U     0         )    J $                            "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                          / _                                                                     "
     "                                                                                                                  "
-    "                                                                                    .    V $   8    (    !@       "
-    "  %    \"     $    U     0         )    J $                                                                       "
+    "                                              .    V $   8    (    !@         %    \"     $    U     0         )  "
+    "  J $                                                                                                             "
     "                                                                                                                  "
-    "                                                                                                                 /"
-    " _                                                                                                                "
     "                                                                                                                  "
-    "                                         .    V $   8    (    !@         %    \"     $    U     0         )    J $"
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                                                      / _                                         "
+    "   .    V $   8    (    !@         %    \"     $    U     0         )    J $                                      "
     "                                                                                                                  "
-    "                                                                                                                . "
-    "   V $   8    (    !@         %    \"     $    U     0         )    J $                                           "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                           / _                                                                                    "
     "                                                                                                                  "
-    "                                                                     .    V $   8    (    !@         %    \"     $"
-    "    U     0         )    J $                                                                                      "
+    "                                                                          .    V $   8    (    !@         %    \" "
+    "    $    U     0         )    J $                                                                                 "
     "                                                                                                                  "
-    "                                                                                                  / _             "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                          .    V $   8    (    !@         %    \"     $    U     0         )    J $               "
     "                                                                                                                  "
+    "                               .    V $   8    (    !@         %    \"     $    U     0         )    J $          "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                                                                                 .    V $   8    ("
-    "    !@         %    \"     $    U     0         )    J $                                                          "
     "                                                                                                                  "
+    "                                                                                                      .    V $   8"
+    "    (    !@         %    \"     $    U     0         )    J $                                                     "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                                      .    V $   8    (    !@         %    \"     $    U     0    "
-    "     )    J $                                                                                                     "
     "                                                                                                                  "
+    "                                                           .    V $   8    (    !@         %    \"     $    U     "
+    "0         )    J $                                                                                                "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "           .    V $   8    (    !@         %    \"     $    U     0         )    J $                              "
     "                                                                                                                  "
+    "                .    V $   8    (    !@         %    \"     $    U     0         )    J $                         "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                                                                  .    V $   8    (    !@         "
-    "%    \"     $    U     0         )    J $                                                                         "
     "                                                                                                                  "
+    "                                                                                       .    V $   8    (    !@    "
+    "     %    \"     $    U     0         )    J $                                                                    "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                       .    V $   8    (    !@         %    \"     $    U     0         )    J $  "
     "                                                                                                                  "
+    "                                            .    V $   8    (    !@         %    \"     $    U     0         )    "
+    "J $                                                                                                               "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                                                                                              .   "
-    " V $   8    (    !@         %    \"     $    U     0         )    J $                                             "
     "                                                                                                                  "
+    " .    V $   8    (    !@         %    \"     $    U     0         )    J $                                        "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                                                   .    V $   8    (    !@         %    \"     $  "
-    "  U     0         )    J $                                                                                        "
     "                                                                                                                  "
+    "                                                                        .    V $   8    (    !@         %    \"   "
+    "  $    U     0         )    J $                                                                                   "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                        .    V $   8    (    !@         %    \"     $    U     0         )    J $                 "
     "                                                                                                                  "
+    "                             .    V $   8    (    !@         %    \"     $    U     0         )    J $            "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                                                                               .    V $   8    (  "
-    "  !@         %    \"     $    U     0         )    J $                                                            "
     "                                                                                                                  "
+    "                                                                                                    .    V $   8  "
+    "  (    !@         %    \"     $    U     0         )    J $                                                       "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                                    .    V $   8    (    !@         %    \"     $    U     0      "
-    "   )    J $                                                                                                       "
     "                                                                                                                  "
+    "                                                         .    V $   8    (    !@         %    \"     $    U     0 "
+    "        )    J $                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "         .    V $   8    (    !@         %    \"     $    U     0         )    J $                                "
     "                                                                                                                  "
+    "              .    V $   8    (    !@         %    \"     $    U     0         )    J $                           "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                                                                .    V $   8    (    !@         % "
-    "   \"     $    U     0         )    J $                                                                           "
     "                                                                                                                  "
-    "                                                                                                             / _  "
+    "                                                                                     .    V $   8    (    !@      "
+    "   %    \"     $    U     0         )    J $                                                                      "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                     .    V $   8    (    !@         %    \"     $    U     0         )    J $    "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                                                  / _                                             "
+    "                                          .    V $   8    (    !@         %    \"     $    U     0         )    J "
+    "$                                                                                                                 "
     "                                                                                                                  "
-    "                                                                                                            .    N"
-    " (   8    (    !@         %    \"     $   !1     0         )    B (                                               "
     "                                                                                                                  "
     "                                                                                                                  "
+    "                                                                                                                 ."
+    "    V $   8    (    !@         %    \"     $    U     0         )    J $                                          "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
     "                                                                                                                  "
+    "                                                                      .    N (   8    (    !@         %    \"     "
+    "$   !1     0         )    B (                                                                                     "
     "                                                                                                                  "
-    "                      X    ( 0  !@    @    &          4    (     0   !L    !          D   #8                      "
     "                                                                                                                  "
     "                                                                                                                  "
-    "                                          #@    @!   &    \"     8         !0    @    !    &P    $         \"0   -"
-    "@                                                                                                                 "
     "                                                                                                                  "
-    "                                                                 .    T (   8    (    !@         %    \"     $   !"
-    "4     0         )    H (          / _        \\#\\       #P/P       / _        \\#\\                              "
     "                                                                                                                  "
     "                                                                                                                  "
+    "                                                                                                  X    ( 0  !@    "
+    "@    &          4    (     0   !L    !          D   #8                                                            "
     "                                                                                                                  "
     "                                                                                                                  "
+    "    #@    @!   &    \"     8         !0    @    !    &P    $         \"0   -@                                     "
     "                                                                                                                  "
     "                                                                                                                  "
+    "                           .    L $   8    (    !@         %    \"     $    P     0         )    @ $          / _ "
+    "                            / _        \\#\\       #P/P       / _                                                 "
     "                                                                                                                  "
-    "               "
+    "                                                                                                                  "
+    "                                                                                                                  "
+    "                                               "
   }
   DataRecord {
     Tag			    DataTag5
@@ -2942,30 +2196,10 @@ MatData {
     Data		    "  %)30     .    D     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
     "YH97)I=&5D3W!T:6]N        #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/P"
   }
-  DataRecord {
-    Tag			    DataTag9
-    Data		    "  %)30     .    D     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
-    "YH97)I=&5D3W!T:6]N        #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/P"
-  }
-  DataRecord {
-    Tag			    DataTag10
-    Data		    "  %)30     .    D     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
-    "YH97)I=&5D3W!T:6]N        #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/P"
-  }
-  DataRecord {
-    Tag			    DataTag11
-    Data		    "  %)30     .    D     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
-    "YH97)I=&5D3W!T:6]N        #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/P"
-  }
-  DataRecord {
-    Tag			    DataTag12
-    Data		    "  %)30     .    D     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
-    "YH97)I=&5D3W!T:6]N        #@   #@    &    \"     8         !0    @    !     0    $         \"0    @           #P/P"
-  }
 }
-# Finite State Machines
+#Finite State Machines
 #
-#    Stateflow Version 7.6 (R2013a) dated Jan 19 2013, 14:32:03
+#   Stateflow 80000001
 #
 #
 Stateflow {
