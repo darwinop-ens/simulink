@@ -37,6 +37,15 @@ lang = add_translation2(lang,'registered','Registered','Means if Current Instruc
 lang = add_translation2(lang,'moving','Moving','Means if there is any movement');
 lang = add_translation2(lang,'lock','Lock','Locking EEPROM');
 lang = add_translation2(lang,'punch','Punch','Punch');
+lang = add_translation2(lang,'pot','Mechanical Position','Sensor Mechanical Position');
+lang = add_translation2(lang,'pwm','Motor PWM','Motor PWM');
+lang = add_translation2(lang,'p_error','P Error','Proportional Error');
+lang = add_translation2(lang,'i_error','I Error','Integrator Error');
+lang = add_translation2(lang,'d_error','D Error','Derivative Error');
+lang = add_translation2(lang,'p_out','P Command','Proportional Command');
+lang = add_translation2(lang,'i_out','I Command','Integrator Command');
+lang = add_translation2(lang,'d_out','D Command','Derivative Command');
+lang = add_translation2(lang,'goal_acceleration','Goal Acceleration','Goal Acceleration');
 
 lang = add_translation2(lang,'dynamixel_power','Dynamixel Power','Dynamixel On/Off');
 lang = add_translation2(lang,'LED_panel','LED Pannel','LED Pannel On/Off');

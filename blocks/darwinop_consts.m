@@ -47,6 +47,15 @@ consts.mx28_fields = add_field(consts.mx28_fields,lang,44,1,'registered','AR');
 consts.mx28_fields = add_field(consts.mx28_fields,lang,46,1,'moving','AR');
 consts.mx28_fields = add_field(consts.mx28_fields,lang,47,1,'lock','ARW');
 consts.mx28_fields = add_field(consts.mx28_fields,lang,48,2,'punch','ARW');
+consts.mx28_fields = add_field(consts.mx28_fields,lang,52,2,'pot','ARW');
+consts.mx28_fields = add_field(consts.mx28_fields,lang,54,2,'pwm','R');
+consts.mx28_fields = add_field(consts.mx28_fields,lang,56,2,'p_error','R');
+consts.mx28_fields = add_field(consts.mx28_fields,lang,58,2,'i_error','R');
+consts.mx28_fields = add_field(consts.mx28_fields,lang,60,2,'d_error','R');
+consts.mx28_fields = add_field(consts.mx28_fields,lang,62,2,'p_out','R');
+consts.mx28_fields = add_field(consts.mx28_fields,lang,64,2,'i_out','R');
+consts.mx28_fields = add_field(consts.mx28_fields,lang,66,2,'d_out','R');
+consts.mx28_fields = add_field(consts.mx28_fields,lang,73,1,'goal_acceleration','RW');
 
 consts.rx24f_fields = {};
 consts.rx24f_fields = add_field(consts.rx24f_fields,lang,0,2,'model_number','AR');

@@ -37,6 +37,15 @@ lang = add_translation2(lang,'registered','"Registered"','Instruction en cours "
 lang = add_translation2(lang,'moving','Déplacement','Déplacement en cours');
 lang = add_translation2(lang,'lock','Verrouillage','Verrouillage de la mémoire EEPROM');
 lang = add_translation2(lang,'punch','Dépassement','Dépassement du couple maximal');
+lang = add_translation2(lang,'pot','Position mécanique','Position mécanique mesurée');
+lang = add_translation2(lang,'pwm','PWM moteur','PWM moteur');
+lang = add_translation2(lang,'p_error','Erreur P','Erreur proportionelle');
+lang = add_translation2(lang,'i_error','Erreur I','Erreur intégrée');
+lang = add_translation2(lang,'d_error','Erreur D','Erreur dérivée');
+lang = add_translation2(lang,'p_out','Commande P','Commande proportionelle');
+lang = add_translation2(lang,'i_out','Commande I','Commande intégrée');
+lang = add_translation2(lang,'d_out','Commande D','Commande dérivée');
+lang = add_translation2(lang,'goal_acceleration','Consigne d''accélération','Consigne d''accélération');
 
 lang = add_translation2(lang,'dynamixel_power','Activation du bus','Activation du bus Dynamixel');
 lang = add_translation2(lang,'LED_panel','LED du panneau','Activation des LED du panneau');
