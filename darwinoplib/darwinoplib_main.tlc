@@ -36,7 +36,16 @@
     #include "ext_svr.h"
     #include "ext_share.h"
     #include "updown.h"
-  #endif /* EXT_MODE */  
+  #endif /* EXT_MODE */
+
+  #ifndef TRUE
+    #define TRUE 1
+  #endif
+
+  #ifndef FALSE
+    #define FALSE 0
+  #endif
+
   %closefile tmpBuf
   
   %<LibSetSourceFileSection(cFile, "Includes", tmpBuf)>
