@@ -93,6 +93,10 @@
       %endif
 
       %if ExtMode == 1
+      %assign buffsRec   = ::CompiledModel.CachedCodeBuffsForRootSys
+      %if ISFIELD(buffsRec,"ExtModeHeader") && !WHITE_SPACE(buffsRec.ExtModeHeader)
+        %<buffsRec.ExtModeHeader>\
+      %endif
       %<FcnGenerateExtModeOneStep()>
       %endif
 
