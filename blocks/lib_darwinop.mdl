@@ -1,10 +1,9 @@
 Library {
-  Name			  "lib_darwinop_2011a"
+  Name			  "lib_darwinop"
   Version		  7.7
   MdlSubVersion		  0
   SavedCharacterEncoding  "windows-1252"
   LibraryType		  "BlockLibrary"
-  SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -13,12 +12,12 @@ Library {
   Creator		  "florent"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "eleve"
+  LastModifiedBy	  "florent"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 18 12:13:30 2014"
-  RTWModifiedTimeStamp	  327586410
-  ModelVersionFormat	  "1.%<AutoIncrement:28>"
-  ConfigurationManager	  "None"
+  LastModifiedDate	  "Sun Jan 18 10:34:00 2015"
+  RTWModifiedTimeStamp	  343478040
+  ModelVersionFormat	  "1.%<AutoIncrement:31>"
+  ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   WideLines		  off
@@ -33,6 +32,7 @@ Library {
   SortedOrder		  off
   ExecutionContextIcon	  off
   ShowLinearizationAnnotations on
+  ShowMarkup		  on
   BlockNameDataTip	  off
   BlockParametersDataTip  off
   BlockDescriptionStringDataTip	off
@@ -174,7 +174,6 @@ Library {
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
-	  UseIntDivNetSlope	  off
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
@@ -208,6 +207,7 @@ Library {
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
 	  ParallelExecutionInRapidAccelerator on
+	  UseIntDivNetSlope	  off
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  10
@@ -387,10 +387,13 @@ Library {
 	    PropName		    "DisabledProps"
 	  }
 	  SystemTargetFile	  "grt.tlc"
+	  TLCOptions		  ""
 	  GenCodeOnly		  off
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
 	  TemplateMakefile	  "grt_default_tmf"
+	  PostCodeGenCommand	  ""
+	  Description		  ""
 	  GenerateReport	  off
 	  SaveLog		  off
 	  RTWVerbose		  on
@@ -401,9 +404,18 @@ Library {
 	  TLCAssert		  off
 	  ProcessScriptMode	  "Default"
 	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  ""
+	  ConfigurationScript	  ""
 	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
+	  CustomSourceCode	  ""
+	  CustomHeaderCode	  ""
+	  CustomInclude		  ""
+	  CustomSource		  ""
+	  CustomLibrary		  ""
+	  CustomInitializer	  ""
+	  CustomTerminator	  ""
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
 	  TargetLang		  "C"
@@ -417,8 +429,10 @@ Library {
 	  GenerateCodeInfo	  off
 	  GenerateCodeMetricsReport off
 	  RTWCompilerOptimization "Off"
+	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
+	  DataInitializer	  ""
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
@@ -493,28 +507,27 @@ Library {
 	      Version		      "1.11.0"
 	      Array {
 		Type			"Cell"
-		Dimension		15
+		Dimension		14
 		Cell			"GeneratePreprocessorConditionals"
 		Cell			"IncludeMdlTerminateFcn"
-		Cell			"CombineOutputUpdateFcns"
+		Cell			"SupportNonInlinedSFcns"
 		Cell			"SuppressErrorStatus"
 		Cell			"ERTCustomFileBanners"
 		Cell			"GenerateSampleERTMain"
 		Cell			"GenerateTestInterfaces"
 		Cell			"ModelStepFunctionPrototypeControlCompliant"
 		Cell			"CPPClassGenCompliant"
-		Cell			"MultiInstanceERTCode"
+		Cell			"SupportContinuousTime"
 		Cell			"PurelyIntegerCode"
 		Cell			"SupportComplex"
 		Cell			"SupportAbsoluteTime"
-		Cell			"SupportContinuousTime"
-		Cell			"SupportNonInlinedSFcns"
+		Cell			"MultiInstanceERTCode"
 		PropName		"DisabledProps"
 	      }
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      TargetFunctionLibrary   "ANSI_C"
+	      TargetFunctionLibrary   "None"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
 	      ERTMultiwordLength      256
@@ -522,13 +535,12 @@ Library {
 	      GenerateFullHeader      on
 	      GenerateSampleERTMain   off
 	      GenerateTestInterfaces  off
-	      IsPILTarget	      off
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Disable all"
-	      CombineOutputUpdateFcns on
+	      CombineOutputUpdateFcns off
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
 	      ERTFirstTimeCompliant   off
@@ -547,7 +559,7 @@ Library {
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
 	      ModelStepFunctionPrototypeControlCompliant off
-	      CPPClassGenCompliant    off
+	      CPPClassGenCompliant    on
 	      AutosarCompliant	      off
 	      UseMalloc		      off
 	      ExtMode		      off
@@ -711,8 +723,8 @@ Library {
     }
   }
   System {
-    Name		    "lib_darwinop_2011a"
-    Location		    [256, 23, 1215, 742]
+    Name		    "lib_darwinop"
+    Location		    [226, 52, 1241, 955]
     Open		    off
     ModelBrowserVisibility  on
     ModelBrowserWidth	    200
@@ -729,19 +741,13 @@ Library {
     SIDHighWatermark	    "24"
     Block {
       BlockType		      SubSystem
-      Name		      "12-bit signed conversion"
+      Name		      "11-bit signed conversion"
       SID		      "5"
       Ports		      [1, 1]
       Position		      [200, 241, 365, 319]
       ZOrder		      17
       TreatAsAtomicUnit	      on
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
       RequestExecContextInheritance off
-      MaskHideContents	      off
       MaskType		      "Datatype conversion"
       MaskDescription	      "Convert Dynamixel raw speed and load values to signed numbers."
       MaskDisplay	      "image(imread('darwin-conversion.jpg'))                                \n                     "
@@ -752,8 +758,8 @@ Library {
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
       System {
-	Name			"12-bit signed conversion"
-	Location		[204, 264, 1163, 983]
+	Name			"11-bit signed conversion"
+	Location		[226, 52, 1241, 955]
 	Open			off
 	ModelBrowserVisibility	on
 	ModelBrowserWidth	200
@@ -781,7 +787,7 @@ Library {
 	  Ports			  [1, 1]
 	  Position		  [280, 91, 320, 129]
 	  ZOrder		  2
-	  LibraryVersion	  "1.274"
+	  LibraryVersion	  "1.354"
 	  SourceBlock		  "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
 	  SourceType		  "Bitwise Operator"
 	  logicop		  "AND"
@@ -893,6 +899,12 @@ Library {
 	  DstPort		  1
 	}
       }
+      RTWSystemCode	      "Auto"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
     }
     Block {
       BlockType		      M-S-Function
