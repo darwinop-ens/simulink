@@ -7,6 +7,8 @@ Library {
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
+  ForwardingTableString	  "||__slOldName__||lib_darwinop/12-bit signed conversion||__slNewName__||lib_darwinop/11-bit "
+  "signed conversion"
   MaxMDLFileLineLength	  120
   Created		  "Mon Nov 25 18:13:14 2013"
   Creator		  "florent"
@@ -14,9 +16,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "florent"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jan 18 10:34:00 2015"
-  RTWModifiedTimeStamp	  343478040
-  ModelVersionFormat	  "1.%<AutoIncrement:31>"
+  LastModifiedDate	  "Wed Jan 21 20:19:29 2015"
+  RTWModifiedTimeStamp	  343772369
+  ModelVersionFormat	  "1.%<AutoIncrement:33>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
