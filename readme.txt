@@ -10,7 +10,7 @@ This directory and its subdirectories contain Matlab code and Simulink libraries
 About this library:
 
 At this time, the "Software In Loop (SIL)" and "Hardware In Loop (HIL)" modes are supported:
-- During simulation, Matlab Simulink communicates with the robot using a custom instrumentation protocol with embedded program /darwin/Linux/project/instrumentation/instrumentation from the darwinop-op repository located at https://github.com/darwinop-ens/darwin-op
+- During simulation, Matlab Simulink communicates with the robot using a custom instrumentation protocol with embedded program /darwin/Linux/project/instrumentation/instrumentation from the darwinop-op repository located at https://github.com/darwinop-ens/darwin-op . The installation steps are described at https://github.com/darwinop-ens/darwin-op/wiki/Installation-guide
 - During execution, Matlab generates a C++ program based on the Simulink model, this program is automatically sent, compiled and executed on the robot.
 
 Installation steps:
