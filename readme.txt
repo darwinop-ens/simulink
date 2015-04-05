@@ -18,7 +18,7 @@ Installation steps:
 1. Open Matlab
 2. Download zip file https://github.com/darwinop-ens/darwin-op/archive/master.zip
 3. Extract this archive to your local hard disk
-4. Execute script darwinoplib_setup.m
+4. Execute script darwinoplib_setup.m located in directory subdirectory darwinoplib
 
 You should get "DarwinOP Target Path Setup Complete.", then you can select your language (English or French as of now).
 
