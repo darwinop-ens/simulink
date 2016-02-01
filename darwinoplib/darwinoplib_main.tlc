@@ -31,12 +31,6 @@
   using namespace Robot;
 
   #include "%<LibGetMdlPubHdrBaseName()>.h"
-  #ifdef EXT_MODE
-    #include "ext_work.h"          /* External mode header files */
-    #include "ext_svr.h"
-    #include "ext_share.h"
-    #include "updown.h"
-  #endif /* EXT_MODE */
 
   #ifndef TRUE
     #define TRUE 1
@@ -45,6 +39,17 @@
   #ifndef FALSE
     #define FALSE 0
   #endif
+
+  #ifndef rtmGetStopRequested
+    #define rtmGetStopRequested(S) FALSE
+  #endif
+
+  #ifdef EXT_MODE
+    #include "ext_work.h"          /* External mode header files */
+    #include "ext_svr.h"
+    #include "ext_share.h"
+    #include "updown.h"
+  #endif /* EXT_MODE */
 
   %closefile tmpBuf
   
