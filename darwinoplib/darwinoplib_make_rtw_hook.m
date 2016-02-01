@@ -48,8 +48,7 @@ end
 
 function setup_settings()
      % verify current settings from Simulink
-     ExtMode = get_string_param('ExtMode');
-     if strcmp(ExtMode, 'on')
+     if isExtMode()
          % automatically setup external mode mex arguments
          ExtModeMexArgs = get_string_param('ExtModeMexArgs');
          DarwinOPIP = get_string_param('DarwinOPIP');
@@ -75,8 +74,15 @@ function copy_file(filename)
   end
 end
 
+function em = isExtMode()
+  em = 0;
+  ExtMode = get_string_param('ExtMode');
+  if strcmp(ExtMode, 'on')
+    em = 1;
+  end
+end
+
 function copy_additional_files()
-     copy_file(fullfile(matlabroot,'test.txt'));
      MatFileLogging = get_string_param('MatFileLogging');
      if strcmp(MatFileLogging,'on')
          copy_file(fullfile(matlabroot,'rtw','c','src','rt_logging.h'));
@@ -84,8 +90,7 @@ function copy_additional_files()
          copy_file(fullfile(matlabroot,'rtw','c','src','rt_mxclassid.h'));
          copy_file(fullfile(matlabroot,'simulink','include','rtw_matlogging.h'));
      end
-     ExtMode = get_string_param('ExtMode');
-     if strcmp(ExtMode, 'on')
+     if isExtMode()
          copy_file(fullfile(matlabroot,'extern','include','matrix.h'));
          copy_file(fullfile(matlabroot,'extern','include','mex.h'));
          copy_file(fullfile(matlabroot,'extern','include','tmwtypes.h'));
