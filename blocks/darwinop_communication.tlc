@@ -38,24 +38,12 @@
     %assign OperationSize = ParamSettings.OperationSize[0]
 
     %assign InputCount = ParamSettings.InputCount[0]
-    %assign InputOperationIndex = ParamSettings.InputOperationIndex[0]
-    %assign InputOperationAddress = ParamSettings.InputOperationAddress[0]
-    %assign InputOperationSize = ParamSettings.InputOperationSize[0]
 
     %assign OutputCount = ParamSettings.OutputCount[0]
-    %assign OutputOperationIndex = ParamSettings.OutputOperationIndex[0]
-    %assign OutputOperationAddress = ParamSettings.OutputOperationAddress[0]
-    %assign OutputOperationSize = ParamSettings.OutputOperationSize[0]
 
     %assign InternalInputCount = ParamSettings.InternalInputCount[0]
-    %assign InternalInputOperationIndex = ParamSettings.InternalInputOperationIndex[0]
-    %assign InternalInputOperationAddress = ParamSettings.InternalInputOperationAddress[0]
-    %assign InternalInputOperationSize = ParamSettings.InternalInputOperationSize[0]
 
     %assign InternalOutputCount = ParamSettings.InternalOutputCount[0]
-    %assign InternalOutputOperationIndex = ParamSettings.InternalOutputOperationIndex[0]
-    %assign InternalOutputOperationAddress = ParamSettings.InternalOutputOperationAddress[0]
-    %assign InternalOutputOperationSize = ParamSettings.InternalOutputOperationSize[0]
 
     %if InputCount[0] > 0
     unsigned int int_value;
@@ -69,6 +57,9 @@
       %if OperationKind[i] == 3
         %% write operation
         %foreach j = InputCount[0]
+          %assign InputOperationIndex = ParamSettings.InputOperationIndex[0]
+          %assign InputOperationAddress = ParamSettings.InputOperationAddress[0]
+          %assign InputOperationSize = ParamSettings.InputOperationSize[0]
           %if InputOperationIndex[j] == i
             %assign u = LibBlockInputSignal(j, "", "", 0)
     int_value = (unsigned int) %<u>;
@@ -87,6 +78,9 @@
         %% read operation
     cm730->ReadTable(%<OperationID[i]>, %<OperationAddress[i]>, %<l>, buf, NULL);
         %foreach j = OutputCount[0]
+          %assign OutputOperationIndex = ParamSettings.OutputOperationIndex[0]
+          %assign OutputOperationAddress = ParamSettings.OutputOperationAddress[0]
+          %assign OutputOperationSize = ParamSettings.OutputOperationSize[0]
           %if OutputOperationIndex[j] == i
             %assign y = LibBlockOutputSignal(j, "", "", 0)
             %if OutputOperationSize[j] == 1
@@ -101,6 +95,9 @@
       %if OperationKind[i] == 18
         %% internal write operation
         %foreach j = InternalInputCount[0]
+          %assign InternalInputOperationIndex = ParamSettings.InternalInputOperationIndex[0]
+          %assign InternalInputOperationAddress = ParamSettings.InternalInputOperationAddress[0]
+          %assign InternalInputOperationSize = ParamSettings.InternalInputOperationSize[0]
           %if InternalInputOperationIndex[j] == i
             %assign u = LibBlockInputSignal(j, "", "", 0)
     int_value = (unsigned int) %<u>;
@@ -131,6 +128,9 @@
         %assign last_operation_index = i
         %assign last_operation_id = id
         %foreach j = InternalOutputCount[0]
+          %assign InternalOutputOperationIndex = ParamSettings.InternalOutputOperationIndex[0]
+          %assign InternalOutputOperationAddress = ParamSettings.InternalOutputOperationAddress[0]
+          %assign InternalOutputOperationSize = ParamSettings.InternalOutputOperationSize[0]
           %if InternalOutputOperationIndex[j] == i
             %assign y = LibBlockOutputSignal(j, "", "", 0)
             %if InternalOutputOperationSize[j] == 1

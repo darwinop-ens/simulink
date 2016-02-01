@@ -545,23 +545,32 @@ function WriteRTW(block)
     block.WriteRTWParam('matrix', 'OperationSize', int32(OperationSize));
 
     block.WriteRTWParam('matrix', 'InputCount', int32(length(InputOperationIndex)));
-    block.WriteRTWParam('matrix', 'InputOperationIndex', int32(InputOperationIndex));
-    block.WriteRTWParam('matrix', 'InputOperationAddress', int32(InputOperationAddress));
-    block.WriteRTWParam('matrix', 'InputOperationSize', int32(InputOperationSize));
+	disp(int32(InputOperationIndex));
+    if length(InputOperationIndex) > 0 
+        block.WriteRTWParam('matrix', 'InputOperationIndex', int32(InputOperationIndex));
+        block.WriteRTWParam('matrix', 'InputOperationAddress', int32(InputOperationAddress));
+        block.WriteRTWParam('matrix', 'InputOperationSize', int32(InputOperationSize));
+    end
 
     block.WriteRTWParam('matrix', 'OutputCount', int32(length(OutputOperationIndex)));
-    block.WriteRTWParam('matrix', 'OutputOperationIndex', int32(OutputOperationIndex));
-    block.WriteRTWParam('matrix', 'OutputOperationAddress', int32(OutputOperationAddress));
-    block.WriteRTWParam('matrix', 'OutputOperationSize', int32(OutputOperationSize));
+    if length(OutputOperationIndex) > 0
+        block.WriteRTWParam('matrix', 'OutputOperationIndex', int32(OutputOperationIndex));
+        block.WriteRTWParam('matrix', 'OutputOperationAddress', int32(OutputOperationAddress));
+        block.WriteRTWParam('matrix', 'OutputOperationSize', int32(OutputOperationSize));
+    end
 
     block.WriteRTWParam('matrix', 'InternalInputCount', int32(length(InternalInputOperationIndex)));
-    block.WriteRTWParam('matrix', 'InternalInputOperationIndex', int32(InternalInputOperationIndex));
-    block.WriteRTWParam('matrix', 'InternalInputOperationAddress', int32(InternalInputOperationAddress));
-    block.WriteRTWParam('matrix', 'InternalInputOperationSize', int32(InternalInputOperationSize));
+    if length(InternalInputOperationIndex) > 0
+        block.WriteRTWParam('matrix', 'InternalInputOperationIndex', int32(InternalInputOperationIndex));
+        block.WriteRTWParam('matrix', 'InternalInputOperationAddress', int32(InternalInputOperationAddress));
+        block.WriteRTWParam('matrix', 'InternalInputOperationSize', int32(InternalInputOperationSize));
+    end
 
     block.WriteRTWParam('matrix', 'InternalOutputCount', int32(length(InternalOutputOperationIndex)));
-    block.WriteRTWParam('matrix', 'InternalOutputOperationIndex', int32(InternalOutputOperationIndex));
-    block.WriteRTWParam('matrix', 'InternalOutputOperationAddress', int32(InternalOutputOperationAddress));
-    block.WriteRTWParam('matrix', 'InternalOutputOperationSize', int32(InternalOutputOperationSize));
+    if length(InternalOutputOperationIndex) > 0
+        block.WriteRTWParam('matrix', 'InternalOutputOperationIndex', int32(InternalOutputOperationIndex));
+        block.WriteRTWParam('matrix', 'InternalOutputOperationAddress', int32(InternalOutputOperationAddress));
+        block.WriteRTWParam('matrix', 'InternalOutputOperationSize', int32(InternalOutputOperationSize));
+    end
 
 end
