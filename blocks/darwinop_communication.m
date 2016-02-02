@@ -318,9 +318,9 @@ function error = ssh_wait_ready(ssh_proc, timeout)
   % get ssh input stream
   ssh_is = ssh_proc.getInputStream();
   % time reference
-  tic;
+  start = tic;
   % check for timeout
-  while toc < abs(timeout)
+  while toc(start) < abs(timeout)
     if ssh_is.available()
       c = ssh_is.read();
       if c == 36 % '$'
