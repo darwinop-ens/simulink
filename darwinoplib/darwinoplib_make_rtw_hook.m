@@ -346,12 +346,25 @@ function send_archive(modelName, archiveName)
     ssh_os.flush();
     ssh_wait_ready(ssh_proc, DarwinOPTimeout);
 
-    disp('### launching program');
-    ssh_os.write(['./', ...
-                  modelName, ...
-                  '&', ...
+    disp('### check build success');
+    ssh_os.write(['if [ -f ', modelName, ' ];', ...
+                    'then printf "\x21\n" ;', ...
+                  'fi', ...
                   new_line]);
     ssh_os.flush();
+    status = ssh_wait_ready(ssh_proc, DarwinOPTimeout);
+    if (status == 1)
+      disp('### success');
+      disp('### launching program');
+      ssh_os.write(['./', ...
+                    modelName, ...
+                    '&', ...
+                    new_line]);
+      ssh_os.flush();
+    else
+      disp('### compilation failure');
+    end
+
     ssh_wait_disconnect(ssh_proc, DarwinOPDisconnect);
 
     % close SSH connection
@@ -367,6 +380,9 @@ function send_archive(modelName, archiveName)
     else
       disp('### SSH command failure, return value is %d', ssh_proc.exitValue());
       error('SSH command failure, return value is %d', ssh_proc.exitValue());
+    end
+    if status ~= 1
+      error('make returned an error and the executable was not created');
     end
   catch me
     if ssh_proc ~= [] %#ok
@@ -407,6 +423,9 @@ function error = ssh_wait_ready(ssh_proc, timeout)
         return;
       else
         fprintf('%c', c);
+      end
+      if c == 33 % '!'
+        error = 1;
       end
     else
       pause(0.01);
