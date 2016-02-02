@@ -1,5 +1,5 @@
 /*
- * Copyright 1994-2012 The MathWorks, Inc.
+ * Copyright 1994-2014 The MathWorks, Inc.
  *
  * File: rtiostream_interface.c     
  *
@@ -39,6 +39,16 @@ extern SEM_ID commSem;
 
 #ifdef LEGO
 #include "ecrobot_interface.h"
+#endif
+
+/* Logical definitions */
+#if (!defined(__cplusplus))
+#  ifndef false
+#   define false                       (0U)
+#  endif
+#  ifndef true
+#   define true                        (1U)
+#  endif
 #endif
 
 typedef struct ExtUserData_tag {
@@ -83,9 +93,9 @@ PUBLIC const char_T *ExtProcessArgs(
     int_T        count           = 1;
 
 #if defined(ON_TARGET_WAIT_FOR_START) && ON_TARGET_WAIT_FOR_START == 1
-    boolean_T    waitForStartPkt = TRUE;
+    boolean_T    waitForStartPkt = true;
 #else
-    boolean_T    waitForStartPkt = FALSE;
+    boolean_T    waitForStartPkt = false;
 #endif
 
     while(count < argc) {
@@ -97,7 +107,7 @@ PUBLIC const char_T *ExtProcessArgs(
             /* 
              * -w (wait for packet from host) option
              */
-            waitForStartPkt = TRUE;
+            waitForStartPkt = true;
             
             argv[count-1] = NULL;
         } else if (strcmp(option, "-ignore-arg") == 0 && (count != argc)) {
@@ -183,6 +193,7 @@ PUBLIC boolean_T ExtSetHostPkt(
     int               *nBytesSet)
 {
     boolean_T errorCode = EXT_NO_ERROR;
+	int_T rtIOStreamErrorStatus;
 	*nBytesSet = 0;	/* assume */
 
     #ifdef VXWORKS
@@ -190,9 +201,11 @@ PUBLIC boolean_T ExtSetHostPkt(
     #endif
 
     /* Blocks until all requested outgoing data is sent */
-    errorCode = rtIOStreamSend(UD->streamID, (const void * const) src, (size_t) nBytesToSet, (size_t*) nBytesSet);
+    rtIOStreamErrorStatus = rtIOStreamBlockingSend(UD->streamID,
+                                                   (const void * const) src,
+                                                   (uint32_T) nBytesToSet);
     
-    if (errorCode == RTIOSTREAM_ERROR) {
+    if (rtIOStreamErrorStatus == RTIOSTREAM_ERROR) {
         errorCode = EXT_ERROR;
     } else { 
         *nBytesSet = nBytesToSet;

@@ -110,10 +110,15 @@ function copy_additional_files()
          copy_file(fullfile(matlabroot,'rtw','c','src','rtiostream.h'));
          copy_file(fullfile(matlabroot,'rtw','c','src','rtiostream','rtiostreamtcpip','rtiostream_tcpip.c'));
          copy_file(fullfile(matlabroot,'rtw','c','src','rtiostream','utils','rtiostream_loadlib.h'));
-         copy_file(fullfile(matlabroot,'rtw','c','src','rtiostream','utils','rtiostream_utils.h'));
+         %copy_file(fullfile(matlabroot,'rtw','c','src','rtiostream','utils','rtiostream_utils.h'));
+         copy_file(fullfile(matlabroot,'rtw','c','src','rtw_capi.h'));
+         copy_file(fullfile(matlabroot,'rtw','c','src','rtw_modelmap.h'));
+         copy_file(fullfile(matlabroot,'rtw','c','src','rtw_modelmap_logging.h'));
+         copy_file(fullfile(matlabroot,'rtw','c','src','rtw_modelmap_utils.c'));
          copy_file(fullfile(matlabroot,'simulink','include','rtw_extmode.h'));
          copy_file(fullfile(matlabroot,'simulink','include','sysran_types.h'));
-
+         copy_file(fullfile(matlabroot,'toolbox','coder','rtiostream','src','utils','rtiostream_utils.c'));
+         copy_file(fullfile(matlabroot,'toolbox','coder','rtiostream','src','utils','rtiostream_utils.h'));
          % get current script directory
          scriptName = mfilename('fullpath');
          [scriptDirectory,~,~] = fileparts(scriptName);

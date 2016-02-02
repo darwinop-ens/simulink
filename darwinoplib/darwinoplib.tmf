@@ -48,7 +48,7 @@ endif
 ifeq ($(EXT_MODE),1)
 CXXFLAGS += -DEXT_MODE -DARGC_MAX=20 -DARGV_INIT={0} -DON_TARGET_WAIT_FOR_START=1
 INCLUDE_DIRS += -I.
-EXT_SOURCES = ext_svr.c ext_work.c rtiostream_interface.c rtiostream_tcpip.c updown.c
+EXT_SOURCES = ext_svr.c ext_work.c rtiostream_interface.c rtiostream_utils.c rtiostream_tcpip.c updown.c rtw_modelmap_utils.c
 LIBRARIES += extmode.a
 endif
 
