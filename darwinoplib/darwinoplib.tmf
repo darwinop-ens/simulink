@@ -91,7 +91,7 @@ task.o: ../../project/instrumentation/task.cpp
 	$(CC) $(CXXFLAGS) -c -o $@ $<
 
 $(TARGET): $(LIBRARIES) $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(LFLAGS) $(OBJECTS) $(LIBRARIES) -o $(TARGET)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) $(LFLAGS) $(LIBRARIES) -o $(TARGET)
 	chmod 755 $(TARGET)
 
 # EOF: ert_darwinoplib.tmf
